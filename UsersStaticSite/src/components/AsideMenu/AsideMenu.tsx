@@ -31,7 +31,7 @@ function AsideMenu({ isOpen, onClose, menuItems }: AsideMenuProps): React.ReactN
               <li key={item.label} className="w-fit">
                 <a
                   href={item.href}
-                  className="text-white font-inter text-base font-bold leading-5"
+                  className="text-h4 text-white leading-5"
                   onClick={onClose}
                   tabIndex={isOpen ? 0 : -1}
                 >

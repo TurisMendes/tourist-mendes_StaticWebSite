@@ -38,7 +38,7 @@ function Header(): React.ReactNode {
             <li key={item.label} className="w-fit">
               <a
                 href={item.href}
-                className="text-white font-montserrat text-base font-bold leading-5 pb-2.5 hover:border-b-2 hover:border-white transition duration-300"
+                className="text-h4 text-white pb-2.5 hover:border-b-2 hover:border-white transition duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
