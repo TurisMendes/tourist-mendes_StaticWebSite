@@ -7,7 +7,7 @@ export const attractions: AtracaoLocalHomeCard[] = [
     shortDescription: 'Descrição curta 1'
   },
   {
-    imageData: { imageUrl: './src/assets/images/image2.jpg', altDescription: 'Descrição 2' },
+    imageData: { imageUrl: './src/assets/images/image4.jpg', altDescription: 'Descrição 2' },
     linkUrl: '',
     title: 'Árvore Jequitibá',
     shortDescription: 'Descrição curta 2'

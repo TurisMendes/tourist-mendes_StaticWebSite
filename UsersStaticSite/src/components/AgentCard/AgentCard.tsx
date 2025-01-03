@@ -1,15 +1,27 @@
 import React from 'react';
+import { AgenteCulturalHomeCard } from '../../shared-lib/typesHomePage';
 
-function AgentCard(): React.ReactNode {
+function AgentCard({ name, shortDescription, linkUrl, imageData, }: AgenteCulturalHomeCard): React.ReactNode {
   return (
-    <a href='#' className="w-fit h-full relative group transition-all duration-300">
-      <img src="./src/assets/images/image2.jpg" alt="Agente Cultural"
-        className='w-[280px] h-[370px] lg:w-[370px] object-cover rounded-2xl brightness-50 lg:brightness-75 lg:group-hover:brightness-50 transition duration-300' />
-      <div className='absolute bottom-10 left-5 w-60'>
-        <h3 className='text-white font-inter font-bold text-xl leading-8'>Pedro da Silva</h3>
-        <p className='text-white font-inter font-extralight leading-6 lg:hidden group-hover:flex transition'>Texto de até 3 linhas descrevendo um pouco sobre o agente cultural</p>
-      </div>
-    </a>
+    <article
+      className="relative flex flex-col w-[280px] h-[370px] xl:w-[370px] rounded-2xl gap-4 group transition-all duration-300"
+    >
+      <a href={linkUrl} className='w-full h-full'>
+        <img
+          src={imageData.imageUrl}
+          alt={imageData.altDescription}
+          className="w-full h-full object-cover rounded-2xl brightness-50 lg:brightness-75 lg:group-hover:brightness-50 transition duration-300"
+        />
+        <div className="flex flex-col w-52 absolute bottom-10 left-6 gap-5">
+          <h3 className="text-h3 text-white">
+            {name}
+          </h3>
+          <span className="text-level-1 text-white font-extralight hidden lg:group-hover:flex transition duration-300">
+            {shortDescription}
+          </span>
+        </div>
+      </a>
+    </article>
   );
 }
 

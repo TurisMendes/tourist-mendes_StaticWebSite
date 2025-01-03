@@ -1,9 +1,11 @@
 import React from "react"
 import { Route, Routes } from "react-router-dom"
 import Header from "./components/Header/Header"
-import AttractionCard from "./components/AttractionCard/AttractionCard"
 import { attractions } from "./api-mock/attractions"
 import Carousel from "./components/Carousel/Carousel"
+import AgentCard from "./components/AgentCard/AgentCard"
+import { agents } from "./api-mock/agents"
+import AttractionCard from "./components/AttractionCard/AttractionCard"
 
 
 function App(): React.ReactNode {
@@ -12,6 +14,7 @@ function App(): React.ReactNode {
       <Header />
       <Routes>
         <Route path="/" element={(
+          <>
            <Carousel>
            {attractions.map((attraction, index) => (
              <div key={index} className="flex-shrink-0 w-full">
@@ -24,6 +27,19 @@ function App(): React.ReactNode {
              </div>
            ))}
          </Carousel>
+         <Carousel>
+           {agents.map((agent, index) => (
+             <div key={index} className="flex-shrink-0">
+               <AgentCard 
+                 imageData={agent.imageData}
+                 linkUrl={agent.linkUrl}
+                 shortDescription={agent.shortDescription}
+                 name={agent.name}
+               />
+             </div>
+           ))}
+         </Carousel>
+          </>
         )} />
       </Routes>
     </>

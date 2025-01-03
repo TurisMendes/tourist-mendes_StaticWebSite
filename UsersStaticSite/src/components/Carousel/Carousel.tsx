@@ -9,13 +9,12 @@ interface CarouselProps {
 
 const Carousel: React.FC<CarouselProps> = ({ 
   children, 
-  slideWidth = '90%',
   gap = '16px'
 }) => {
   return (
     <div className={`w-full overflow-hidden lg:px-auto flex justify-center items-center`}>
       <div 
-        className="flex overflow-x-auto snap-x snap-mandatory touch-pan-x scrollbar-none"
+        className="flex lg:flex-wrap lg:justify-evenly overflow-x-auto snap-x snap-mandatory touch-pan-x scrollbar-none"
         style={{
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
@@ -26,8 +25,7 @@ const Carousel: React.FC<CarouselProps> = ({
         {React.Children.map(children, (child, index) => (
           <div 
             key={index} 
-            className="flex snap-center"
-            style={{ width: slideWidth }}
+            className="flex items-center justify-center w-full lg:w-[30%] snap-center lg:snap-none"
           >
             {child}
           </div>
