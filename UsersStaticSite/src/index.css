@@ -36,10 +36,10 @@
   }
 
   .button-primary {
-    @apply w-[191px] h-[44px] rounded-full bg-primary border-2 border-transparent text-white hover:bg-primaryDark active:bg-primaryActive active:border-secondary dark:bg-secondary dark:hover:bg-secondaryDark dark:active:bg-secondaryActive transition-all duration-300;
+    @apply w-[157px] h-[44px] rounded-full bg-primary border-2 border-transparent text-white hover:bg-primaryDark active:bg-primaryActive active:border-secondary dark:bg-secondary dark:hover:bg-secondaryDark dark:active:bg-secondaryActive transition-all duration-300;
   }
   
   .button-secondary {
-    @apply w-[191px] h-[44px] rounded-full bg-transparent border-2 border-white text-white hover:bg-primary hover:border-primary active:bg-primaryActive active:border-secondary dark:bg-transparent dark:hover:bg-secondary dark:hover:border-secondary dark:active:bg-secondaryActive dark:active:border-white transition-all duration-300;
+    @apply w-[123px] h-[40px] rounded-full bg-transparent border-2 border-white text-white hover:bg-primary hover:border-primary active:bg-primaryActive active:border-secondary dark:bg-transparent dark:hover:bg-secondary dark:hover:border-secondary dark:active:bg-secondaryActive dark:active:border-white transition-all duration-300;
   }
 }

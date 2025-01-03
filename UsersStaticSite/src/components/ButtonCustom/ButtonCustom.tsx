@@ -3,25 +3,25 @@ import React from 'react';
 interface ButtonProps {
   text: string;
   variant: 'primary' | 'secondary';
-  attraction?: string;
+  content: string;
   link: string;
 }
 
 const ButtonCustom: React.FC<ButtonProps> = ({
   text,
   variant,
-  attraction,
+  content,
   link
 }) => {
 
   return (
     <button
       className={variant === 'primary' ? 'button-primary' : 'button-secondary'}
-      aria-label={`${text} sobre ${attraction ?? ''}`}
+      aria-label={`${text} sobre ${content ?? ''}`}
+      onClick={() => window.location.href = link}
     >
-      <a
-        href={link}
-        className='text-h4'>{text}</a>
+      <span
+        className='text-h4'>{text}</span>
     </button>
   );
 };
