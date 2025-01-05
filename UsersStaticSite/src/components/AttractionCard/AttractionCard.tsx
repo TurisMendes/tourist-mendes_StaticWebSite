@@ -7,7 +7,7 @@ function AttractionCard({ imageData, linkUrl, title, shortDescription }: Atracao
   return (
     <article
       className="relative flex flex-col w-[280px] h-[446px] xl:w-[370px] xl:h-[592px] rounded-2xl gap-4 group transition-all duration-300"
-      aria-label={title}
+      aria-label={`Nome da atração: ${title}`}
     >
       <img
         src={imageData.imageUrl}

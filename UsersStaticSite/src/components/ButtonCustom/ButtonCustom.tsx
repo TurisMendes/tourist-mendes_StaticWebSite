@@ -2,7 +2,7 @@ import React from 'react';
 
 interface ButtonProps {
   text: string;
-  variant: 'primary' | 'secondary';
+  variant: 'primary' | 'secondary' | 'secondary-dark';
   content: string;
   link: string;
 }
@@ -11,12 +11,25 @@ const ButtonCustom: React.FC<ButtonProps> = ({
   text,
   variant,
   content,
-  link
+  link,
 }) => {
+
+  const getButtonClass = () => {
+    switch (variant) {
+      case 'primary':
+        return 'button-primary';
+      case 'secondary':
+        return 'button-secondary';
+      case 'secondary-dark':
+        return 'button-secondary-dark';
+      default:
+        return 'button-primary';
+    }
+  };
 
   return (
     <button
-      className={variant === 'primary' ? 'button-primary' : 'button-secondary'}
+      className={`${getButtonClass()}`}
       aria-label={`${text} sobre ${content}`}
       onClick={() => window.location.href = link}
     >

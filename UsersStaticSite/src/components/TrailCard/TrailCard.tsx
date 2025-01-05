@@ -15,17 +15,17 @@ function TrailCard({ title, level, shortDescription, linkUrl, imageData }: Trilh
     }
   };
   return (
-    <article className='w-[280px] h-[412px] lg:w-[200px] xl:w-full bg-white dark:bg-darkGrey rounded-2xl group'>
+    <article className='w-[280px] h-[412px] lg:w-[230px] xl:w-full bg-white dark:bg-darkGrey rounded-2xl group'>
       <a
         href={linkUrl}
         className='flex flex-col items-start h-full p-4'
-        aria-label={`Trilha ${title}, Dificuldade: ${level}`}
+        aria-label={`Nome da trilha: ${title}, Dificuldade: ${level}`}
       >
         <div className='mb-4'>
           <img
             src={imageData.imageUrl}
             alt={imageData.altDescription}
-            className='w-[239px] h-[180px] lg:w-[180px] xl:w-[233px] rounded-xl object-cover lg:group-hover:scale-105 transition-transform duration-200'
+            className='w-[239px] h-[180px] lg:w-[210px] xl:w-[233px] rounded-xl object-cover lg:group-hover:scale-105 transition-transform duration-200'
           />
         </div>
         <div className='flex flex-col items-start flex-grow'>

@@ -8,6 +8,8 @@ import { agents } from "./api-mock/agents"
 import AttractionCard from "./components/AttractionCard/AttractionCard"
 import { trails } from "./api-mock/trails"
 import TrailCard from "./components/TrailCard/TrailCard"
+import { events } from "./api-mock/events"
+import EventCard from "./components/EventCard/EventCard"
 
 
 function App(): React.ReactNode {
@@ -29,7 +31,7 @@ function App(): React.ReactNode {
                 </div>
               ))}
             </Carousel>
-            <Carousel>
+            <Carousel slideWidth="30">
               {agents.map((agent, index) => (
                 <div key={index} className="flex-shrink-0">
                   <AgentCard
@@ -50,6 +52,18 @@ function App(): React.ReactNode {
                     shortDescription={trail.shortDescription}
                     title={trail.title}
                     level={trail.level}
+                  />
+                </div>
+              ))}
+            </Carousel>
+            <Carousel slideWidth="40">
+            {events.map((event, index) => (
+                <div key={index} className="flex-shrink-0">
+                  <EventCard
+                    imageData={event.imageData}
+                    linkUrl={event.linkUrl}
+                    shortDescription={event.shortDescription}
+                    eventTitle={event.eventTitle}
                   />
                 </div>
               ))}
