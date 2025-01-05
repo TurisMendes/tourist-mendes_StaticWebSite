@@ -6,6 +6,8 @@ import Carousel from "./components/Carousel/Carousel"
 import AgentCard from "./components/AgentCard/AgentCard"
 import { agents } from "./api-mock/agents"
 import AttractionCard from "./components/AttractionCard/AttractionCard"
+import { trails } from "./api-mock/trails"
+import TrailCard from "./components/TrailCard/TrailCard"
 
 
 function App(): React.ReactNode {
@@ -15,30 +17,43 @@ function App(): React.ReactNode {
       <Routes>
         <Route path="/" element={(
           <>
-           <Carousel>
-           {attractions.map((attraction, index) => (
-             <div key={index} className="flex-shrink-0 w-full">
-               <AttractionCard 
-                 imageData={attraction.imageData}
-                 linkUrl={attraction.linkUrl}
-                 title={attraction.title}
-                 shortDescription={attraction.shortDescription}
-               />
-             </div>
-           ))}
-         </Carousel>
-         <Carousel>
-           {agents.map((agent, index) => (
-             <div key={index} className="flex-shrink-0">
-               <AgentCard 
-                 imageData={agent.imageData}
-                 linkUrl={agent.linkUrl}
-                 shortDescription={agent.shortDescription}
-                 name={agent.name}
-               />
-             </div>
-           ))}
-         </Carousel>
+            <Carousel>
+              {attractions.map((attraction, index) => (
+                <div key={index} className="flex-shrink-0">
+                  <AttractionCard
+                    imageData={attraction.imageData}
+                    linkUrl={attraction.linkUrl}
+                    title={attraction.title}
+                    shortDescription={attraction.shortDescription}
+                  />
+                </div>
+              ))}
+            </Carousel>
+            <Carousel>
+              {agents.map((agent, index) => (
+                <div key={index} className="flex-shrink-0">
+                  <AgentCard
+                    imageData={agent.imageData}
+                    linkUrl={agent.linkUrl}
+                    shortDescription={agent.shortDescription}
+                    name={agent.name}
+                  />
+                </div>
+              ))}
+            </Carousel>
+            <Carousel slideWidth="20">
+              {trails.map((trail, index) => (
+                <div key={index} className="flex-shrink-0">
+                  <TrailCard
+                    imageData={trail.imageData}
+                    linkUrl={trail.linkUrl}
+                    shortDescription={trail.shortDescription}
+                    title={trail.title}
+                    level={trail.level}
+                  />
+                </div>
+              ))}
+            </Carousel>
           </>
         )} />
       </Routes>

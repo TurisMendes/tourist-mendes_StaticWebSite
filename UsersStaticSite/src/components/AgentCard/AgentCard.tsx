@@ -16,7 +16,7 @@ function AgentCard({ name, shortDescription, linkUrl, imageData, }: AgenteCultur
           <h3 className="text-h3 text-white">
             {name}
           </h3>
-          <span className="text-level-1 text-white font-extralight hidden lg:group-hover:flex transition duration-300">
+          <span className="text-level-1 text-white font-extralight flex lg:hidden lg:group-hover:flex transition duration-300">
             {shortDescription}
           </span>
         </div>

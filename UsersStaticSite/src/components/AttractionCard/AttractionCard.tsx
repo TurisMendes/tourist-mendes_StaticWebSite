@@ -18,7 +18,7 @@ function AttractionCard({ imageData, linkUrl, title, shortDescription }: Atracao
         <h3 className="text-h3 text-white">
           {title}
         </h3>
-        <span className="text-level-1 text-white font-extralight hidden lg:group-hover:flex transition duration-300">
+        <span className="text-level-1 text-white font-extralight flex lg:hidden lg:group-hover:flex transition duration-300">
           {shortDescription}
         </span>
         <ButtonCustom

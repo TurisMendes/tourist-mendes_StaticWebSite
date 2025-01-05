@@ -17,7 +17,7 @@ const ButtonCustom: React.FC<ButtonProps> = ({
   return (
     <button
       className={variant === 'primary' ? 'button-primary' : 'button-secondary'}
-      aria-label={`${text} sobre ${content ?? ''}`}
+      aria-label={`${text} sobre ${content}`}
       onClick={() => window.location.href = link}
     >
       <span
