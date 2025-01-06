@@ -18,7 +18,7 @@ function TrailCard({ title, level, shortDescription, linkUrl, imageData }: Trilh
     <article className='w-[280px] h-[412px] lg:w-[230px] xl:w-full bg-white dark:bg-darkGrey rounded-2xl group'>
       <a
         href={linkUrl}
-        className='flex flex-col items-start h-full p-4'
+        className='flex flex-col items-start h-full p-5'
         aria-label={`Nome da trilha: ${title}, Dificuldade: ${level}`}
       >
         <div className='mb-4'>
@@ -29,15 +29,15 @@ function TrailCard({ title, level, shortDescription, linkUrl, imageData }: Trilh
           />
         </div>
         <div className='flex flex-col items-start flex-grow'>
-          <h2 className='font-inter font-bold text-2xl mb-2 text-black dark:text-white'>
+          <h2 className='text-h2 mb-2 text-black dark:text-white'>
             {title}
           </h2>
           <div className='mb-6'>
-            <span className={`font-inter font-normal text-base px-2 py-1 rounded-2xl ${getDifficultyStyles(level)}`}>
+            <span className={`text-level-1 px-2 py-1 rounded-2xl ${getDifficultyStyles(level)}`}>
               Dificuldade: {level}
             </span>
           </div>
-          <p className='font-inter font-normal text-base text-black dark:text-white'>
+          <p className='text-level-1 text-black dark:text-white'>
             {shortDescription}
           </p>
         </div>

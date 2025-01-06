@@ -34,7 +34,8 @@ const ButtonCustom: React.FC<ButtonProps> = ({
       onClick={() => window.location.href = link}
     >
       <span
-        className='text-h4'>{text}</span>
+        className='text-h4 font-montserrat'>{text}
+      </span>
     </button>
   );
 };

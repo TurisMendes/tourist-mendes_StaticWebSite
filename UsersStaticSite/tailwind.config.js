@@ -29,6 +29,7 @@ export default {
     },
     fontFamily: {
       inter: ["Inter"],
+      montserrat: ["Montserrat"],
       sans: ["system-ui"],
     },
   },

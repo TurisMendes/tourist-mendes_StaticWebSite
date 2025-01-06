@@ -11,7 +11,7 @@ function EventCard({
 
   return (
     <article
-      className="flex flex-col md:flex-row items-start md:items-center justify-start gap-5 w-[318px] h-[414px] md:w-[760px] md:h-[348px] lg:w-[480px] xl:w-[562px] xl:h-[348px] rounded-2xl p-5 bg-white dark:bg-darkGrey group"
+      className="flex flex-col md:flex-row items-start md:items-center justify-start gap-5 w-[280px] h-[414px] md:w-[700px] md:h-[348px] lg:w-[480px] xl:w-[562px] xl:h-[348px] rounded-2xl p-5 bg-white dark:bg-darkGrey group"
       aria-label={`Título do evento: ${eventTitle}`}
     >
       <img
@@ -22,8 +22,8 @@ function EventCard({
       />
       <div className='flex flex-col items-start justify-between gap-1 h-full'>
         <div className='flex flex-col gap-2'>
-          <h2 className='w-full lg:w-full font-inter font-bold text-2xl text-black dark:text-white'>{eventTitle}</h2>
-          <p className='font-inter font-normal text-base text-black dark:text-white'>{shortDescription}</p>
+          <h2 className='w-full lg:w-full text-h2 text-black dark:text-white'>{eventTitle}</h2>
+          <p className='text-level-1 text-black dark:text-white'>{shortDescription}</p>
         </div>
         <ButtonCustom text='Saiba mais' variant='secondary-dark' link={linkUrl} content={eventTitle} />
       </div>
