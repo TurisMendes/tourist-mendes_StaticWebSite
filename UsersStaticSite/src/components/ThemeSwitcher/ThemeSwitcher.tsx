@@ -48,7 +48,7 @@ const ThemeSwitcher = () => {
         aria-label="Trocar tema"
       >
         {isMobileOrTablet ? (
-          <span className="text-white font-inter font-bold text-base">Mudar o tema</span>
+          <span className="text-h4">Mudar o tema</span>
         ) : isDarkMode ? (
           <Moon className="w-5 h-5 text-white " />
         ) : (
@@ -70,7 +70,7 @@ const ThemeSwitcher = () => {
           >
             <div className='flex items-center gap-1'>
               <Sun className="w-4 h-4" />
-              <span>Claro</span>
+              <span className='text-level-2'>Claro</span>
             </div>
             {!isDarkMode && <Check className="w-4 h-4" />}
           </button>
@@ -80,7 +80,7 @@ const ThemeSwitcher = () => {
           >
             <div className='flex items-center gap-1'>
               <Moon className="w-4 h-4" />
-              <span>Escuro</span>
+              <span className='text-level-2'>Escuro</span>
             </div>
             {isDarkMode && <Check className="w-4 h-4" />}
           </button>

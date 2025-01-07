@@ -2,8 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-*, p {
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
+@layer components {
+  .text-h1 {
+    @apply font-inter text-3xl font-bold leading-6;
+  }
+
+  .text-h2 {
+    @apply font-inter text-2xl font-bold leading-6;
+  }
+
+  .text-h3 {
+    @apply font-inter text-xl font-bold leading-7;
+  }
+
+  .text-h4 {
+    @apply font-inter text-base font-bold leading-7;
+  }
+
+  .text-h5 {
+    @apply font-inter text-sm font-bold leading-7;
+  }
+
+  .text-h6 {
+    @apply font-inter text-xs font-bold leading-7;
+  }
+
+  .body-level-1 {
+    @apply font-inter text-base font-bold leading-7;
+  }
+
+  .body-level-2 {
+    @apply font-inter text-sm font-bold leading-7;
+  }
+
+  .button-primary {
+    @apply w-[157px] h-[44px] rounded-full bg-primary border-2 border-transparent text-white hover:bg-primaryDark active:bg-primaryActive active:border-secondary dark:bg-secondary dark:hover:bg-secondaryDark dark:active:bg-secondaryActive transition-all duration-300;
+  }
+
+  .button-secondary {
+    @apply w-[123px] h-[40px] rounded-full bg-transparent border-2 border-white text-white hover:bg-primary hover:border-primary active:bg-primaryActive active:border-secondary dark:bg-transparent dark:hover:bg-secondary dark:hover:border-secondary dark:active:bg-secondaryActive dark:active:border-white transition-all duration-300;
+  }
+
+  .button-secondary-dark {
+    @apply w-[123px] h-[40px] rounded-full bg-transparent border-2 border-primary text-primary hover:bg-primary hover:border-primary hover:text-white active:bg-primaryActive active:border-secondary dark:bg-transparent dark:text-white dark:border-secondary dark:hover:bg-secondary dark:hover:border-secondary dark:active:bg-secondaryActive dark:active:border-white transition-all duration-300;
+  }
+
+  .trail-tag-facil {
+    @apply bg-lightGreen text-darkGreen;
+  }
+
+  .trail-tag-medio {
+    @apply bg-lightYellow text-darkYellow;
+  }
+
+  .trail-tag-dificil {
+    @apply bg-lightRed text-darkRed;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
