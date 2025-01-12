@@ -7,7 +7,7 @@ export const mockBanners: HomeBanner[] = [
       altDescription: "ALT Description 1",
     },
     linkUrl: "",
-    description: "Description 1",
+    description: "Texto persuasivo de até 3 linhas, abordando as dores/desejos do usuário",
   },
   {
     imageData: {
@@ -15,7 +15,7 @@ export const mockBanners: HomeBanner[] = [
       altDescription: "ALT Description 2",
     },
     linkUrl: "",
-    description: "Description 2",
+    description: "Texto persuasivo de até 3 linhas, abordando as dores/desejos do usuário",
   },
   {
     imageData: {
@@ -23,7 +23,7 @@ export const mockBanners: HomeBanner[] = [
       altDescription: "ALT Description 3",
     },
     linkUrl: "",
-    description: "Description 3",
+    description: "Texto persuasivo de até 3 linhas, abordando as dores/desejos do usuário",
   },
   {
     imageData: {
@@ -31,7 +31,7 @@ export const mockBanners: HomeBanner[] = [
       altDescription: "ALT Description 4",
     },
     linkUrl: "",
-    description: "Description 4",
+    description: "Texto persuasivo de até 3 linhas, abordando as dores/desejos do usuário",
   },
   {
     imageData: {
@@ -39,7 +39,7 @@ export const mockBanners: HomeBanner[] = [
       altDescription: "ALT Description 5",
     },
     linkUrl: "",
-    description: "Description 5",
+    description: "Texto persuasivo de até 3 linhas, abordando as dores/desejos do usuário",
   },
 ];
 

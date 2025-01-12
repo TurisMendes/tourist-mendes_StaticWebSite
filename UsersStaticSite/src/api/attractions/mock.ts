@@ -7,7 +7,7 @@ export const mockAttractions: AtracaoLocalHomeCard[] = [
       altDescription: "ALT Description 1",
     },
     linkUrl: "",
-    shortDescription: "Description 1",
+    shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     title: "Title 1",
   },
   {
@@ -16,7 +16,7 @@ export const mockAttractions: AtracaoLocalHomeCard[] = [
       altDescription: "ALT Description 2",
     },
     linkUrl: "",
-    shortDescription: "Description 2",
+    shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     title: "Title 2",
   },
   {
@@ -25,7 +25,7 @@ export const mockAttractions: AtracaoLocalHomeCard[] = [
       altDescription: "ALT Description 3",
     },
     linkUrl: "",
-    shortDescription: "Description 3",
+    shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     title: "Title 3",
   },
 ];

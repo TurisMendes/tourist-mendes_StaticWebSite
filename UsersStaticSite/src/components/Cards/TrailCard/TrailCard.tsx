@@ -15,7 +15,7 @@ function TrailCard({ title, level, shortDescription, linkUrl, imageData }: Trilh
     }
   };
   return (
-    <article className='w-[280px] h-[412px] lg:w-[230px] xl:w-full bg-white dark:bg-darkGrey rounded-2xl group'>
+    <article className='w-[280px] h-[412px] lg:w-[224px] lg:h-[420px] xl:w-[250px] bg-white dark:bg-darkGrey rounded-2xl group'>
       <a
         href={linkUrl}
         className='flex flex-col items-start h-full p-5 border-[1px] rounded-xl drop-shadow-sm dark:border-none'

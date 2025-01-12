@@ -5,21 +5,25 @@ import { useQuery } from '@tanstack/react-query';
 import TrailSkeleton from '../../Skeletons/TrailSkeleton.tsx';
 import TrailCard from '../../Cards/TrailCard/TrailCard.tsx';
 import { getTrails } from '../../../api/trails/index.ts';
+import { FetchError } from '../../Errors/FetchError.tsx';
 
 function TrailsSection(): React.ReactNode {
 
-  const { data: trails, isLoading, isError } = useQuery({
+  const { data: trails, isLoading, isError, refetch } = useQuery({
     queryKey: ['trails'],
     queryFn: getTrails,
     initialData: undefined,
   });
 
-  if (isError) return <h1>Erro ao carregar atrações locais</h1>;
-
   return (
     <section className="bg-white dark:bg-lightGrey w-full">
-      <div className="max-w-7xl mx-auto pl-4 pr-0 md:px-8 lg:px-16 py-12 md:py-20 flex flex-col items-start gap-8">
+      <div className="xl:w-[1142px] mr-0 ml-4 md:ml-8 lg:mx-10 xl:mx-auto py-12 md:py-20 flex flex-col items-start gap-8">
         <h1 className='text-h1 text-black dark:text-white text-center'>TRILHAS</h1>
+
+        {isError && (
+          <FetchError action={refetch} content='trilhas' />
+        )}
+
         <div className="w-full">
           <Carousel className='flex-shrink-0'>
             {isLoading
@@ -43,7 +47,7 @@ function TrailsSection(): React.ReactNode {
               ))}
           </Carousel>
         </div>
-        <div className="flex justify-center">
+        <div className={`${isLoading || isError ? 'hidden' : 'flex'} justify-center`}>
           <ButtonCustom variant='primary' text='Exibir mais' content='Trilhas' link='' />
         </div>
       </div>

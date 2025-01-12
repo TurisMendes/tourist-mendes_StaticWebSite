@@ -10,7 +10,7 @@ const ThemeSwitcher = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [closeTimeout, setCloseTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
 
-  const isMobileOrTablet = useMediaQuery('(max-width: 1024px)');
+  const isMobileOrTablet = useMediaQuery('(max-width: 1023px)');
 
   const handleMouseEnter = useCallback(() => {
     if (closeTimeout) {

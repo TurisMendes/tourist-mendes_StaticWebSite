@@ -5,6 +5,7 @@ interface ButtonProps {
   variant: 'primary' | 'secondary' | 'secondary-dark';
   content: string;
   link: string;
+  onClick?: () => void;
 }
 
 const ButtonCustom: React.FC<ButtonProps> = ({
@@ -34,7 +35,7 @@ const ButtonCustom: React.FC<ButtonProps> = ({
       onClick={() => window.location.href = link}
     >
       <span
-        className='text-h4 font-montserrat text-white'>{text}
+        className='text-h4 font-montserrat'>{text}
       </span>
     </button>
   );

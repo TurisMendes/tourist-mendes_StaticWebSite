@@ -16,7 +16,7 @@
   }
 
   .text-h4 {
-    @apply text-black dark:text-white font-inter text-base font-bold leading-7;
+    @apply font-inter text-base font-bold leading-7;
   }
 
   .text-h5 {

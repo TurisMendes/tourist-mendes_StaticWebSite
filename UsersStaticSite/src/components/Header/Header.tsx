@@ -27,15 +27,15 @@ function Header(): React.ReactNode {
   }, [isMenuOpen]);
 
   return (
-    <header className="flex w-full gap-4 items-center justify-between bg-primary h-20 px-4 md:px-8 xl:px-[150px]" >
-      <a href="/">
+    <header className="flex w-full gap-4 xl:gap-20 items-center justify-between bg-primary h-20 px-4 md:px-8 lg:px-10 xl:px-[150px]" >
+      <a href="/" className='w-[105px] flex items-center justify-center'>
         <img
           src="./src/assets/logos/TurisMendes.png"
           alt="TurisMendes Logo"
-          className='w-[105px] h-[60px] mb-5'
+          className='w-full object-cover'
         />
       </a>
-      <nav className="p-6 hidden lg:flex">
+      <nav className="hidden lg:flex">
         <ul className="flex gap-6">
           {menuItems.map((item) => (
             <li key={item.label} className="w-fit">
@@ -43,6 +43,7 @@ function Header(): React.ReactNode {
                 href={item.href}
                 className="truncate text-h4 text-white pb-2.5 hover:border-b-2 hover:border-white transition duration-300"
                 onClick={() => setIsMenuOpen(false)}
+                aria-label={`Ir para a página de ${item.label}`}
               >
                 {item.label}
               </a>

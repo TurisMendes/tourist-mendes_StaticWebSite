@@ -5,13 +5,14 @@ import { useQuery } from '@tanstack/react-query';
 import BannerSkeleton from '../Skeletons/BannerSkeleton.tsx';
 import { getBanners } from '../../api/banners/index.ts';
 import { ApiResponse } from '../../api/types.ts';
+import { FetchError } from '../Errors/FetchError.tsx';
 
 const BannerCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const { data: bannerResponse, isLoading, isError } = useQuery<ApiResponse<HomeBanner[]>>({
+  const { data: bannerResponse, isLoading, isError, refetch } = useQuery<ApiResponse<HomeBanner[]>>({
     queryKey: ['banners'],
     queryFn: getBanners,
   });
@@ -23,7 +24,7 @@ const BannerCarousel: React.FC = () => {
     if (isAutoPlaying) {
       intervalId = setInterval(() => {
         const nextIndex = (currentIndex + 1) % (banners?.length || 1);
-        scrollToIndex(nextIndex);
+        handleNavDotClick(nextIndex);
       }, 3000);
     }
     return () => clearInterval(intervalId);
@@ -46,7 +47,7 @@ const BannerCarousel: React.FC = () => {
       }
     );
 
-    const slides = scrollContainerRef.current?.querySelectorAll('.slide');
+    const slides = scrollContainerRef.current?.querySelectorAll('[data-slide]');
     slides?.forEach((slide) => observer.observe(slide));
 
     return () => observer.disconnect();
@@ -54,26 +55,21 @@ const BannerCarousel: React.FC = () => {
 
   useEffect(() => {
     const container = scrollContainerRef.current;
+    if (!container) return;
 
     const handleScroll = () => {
-      if (!container) return;
-
-      const slideWidth = container.offsetWidth;
-      const scrollLeft = container.scrollLeft;
-      const newIndex = Math.round(scrollLeft / slideWidth);
-
-      setCurrentIndex(newIndex);
+      const index = Math.round(container.scrollLeft / container.offsetWidth);
+      setCurrentIndex(index);
     };
 
-    container?.addEventListener('scroll', handleScroll);
-
+    container.addEventListener('scroll', handleScroll);
     return () => {
-      container?.removeEventListener('scroll', handleScroll);
+      container.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
 
-  const scrollToIndex = (index: number): void => {
+   const handleNavDotClick = (index: number) => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
@@ -86,18 +82,23 @@ const BannerCarousel: React.FC = () => {
   };
 
   if (isLoading) return <BannerSkeleton />
-  if (isError) return <div className="text-h1 text-black self-center">Erro ao carregar banners.</div>;
 
   return (
     <section
       className="relative w-full overflow-hidden"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
+      onTouchStart={() => setIsAutoPlaying(false)}
       onTouchEnd={() => setIsAutoPlaying(true)}
     >
+
+      {isError && (
+        <FetchError action={refetch} content='banners'/>
+      )}
+
       <div
         ref={scrollContainerRef}
-        className="flex w-full h-full overflow-x-auto snap-x snap-mandatory touch-pan scrollbar-none"
+        className="flex w-full h-full items-center overflow-x-auto snap-x snap-mandatory touch-pan scrollbar-none"
         style={{
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
@@ -120,8 +121,8 @@ const BannerCarousel: React.FC = () => {
                 className="w-full h-[516px] lg:h-[800px] object-cover"
               />
               {banner.description && (
-                <div className="absolute bottom-24 left-0 right-0 p-4 w-fit">
-                  <h1 className='text-h1 text-white w-full'>
+                <div className="absolute bottom-0 md:bottom-[40%] lg:bottom-28 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-20 lg:left-40 w-[260px] md:w-[400px]">
+                  <h1 className='text-h1 text-xl md:text-3xl text-white leading-8 text-center md:text-start w-full'>
                     {banner.description}
                   </h1>
                 </div>
@@ -132,7 +133,7 @@ const BannerCarousel: React.FC = () => {
       </div>
 
       <button
-        onClick={() => scrollToIndex((currentIndex - 1 + banners!.length) % banners!.length)}
+        onClick={() => handleNavDotClick((currentIndex - 1 + banners!.length) % banners!.length)}
         className="absolute hidden md:flex left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-grey text-white rounded-full p-2 transition-colors"
         aria-label="Banner anterior"
         tabIndex={-1}
@@ -140,7 +141,7 @@ const BannerCarousel: React.FC = () => {
         <ChevronLeft className="w-6 lg:w-10 h-6 lg:h-10 text-black" />
       </button>
       <button
-        onClick={() => scrollToIndex((currentIndex + 1) % banners!.length)}
+        onClick={() => handleNavDotClick((currentIndex + 1) % banners!.length)}
         className="absolute hidden md:flex right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-grey text-white rounded-full p-2 transition-colors"
         aria-label="Próximo banner"
         tabIndex={-1}
@@ -152,9 +153,9 @@ const BannerCarousel: React.FC = () => {
         {banners?.map((_, index) => (
           <button
             key={index}
-            onClick={() => scrollToIndex(index)}
+            onClick={() => handleNavDotClick(index)}
             aria-label={`Ir para banner ${index + 1}`}
-            className={`w-3 h-3 rounded-full transition-colors ${currentIndex === index ? 'scale-125 bg-primary dark:bg-secondary' : 'scale-75 bg-white'
+            className={`w-4 h-4 rounded-full transition-colors ${currentIndex === index ? 'scale-125 bg-primary dark:bg-secondary' : 'scale-75 bg-white'
               }`}
           />
         ))}

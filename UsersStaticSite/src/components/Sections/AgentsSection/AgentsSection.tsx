@@ -5,25 +5,30 @@ import { useQuery } from '@tanstack/react-query';
 import AgentCard from '../../Cards/AgentCard/AgentCard.tsx';
 import AgentSkeleton from '../../Skeletons/AgentSkeleton.tsx';
 import { getAgents } from '../../../api/agents/index.ts';
+import { FetchError } from '../../Errors/FetchError.tsx';
 
 function AgentsSection(): React.ReactNode {
 
-  const { data: agents, isLoading, isError } = useQuery({
+  const { data: agents, isLoading, isError, refetch } = useQuery({
     queryKey: ['agents'],
     queryFn: getAgents,
     initialData: undefined,
   });
 
-  if (isError) return <h1>Erro ao carregar atrações locais</h1>;
 
   return (
     <section className="w-full dark:bg-darkBlack">
-      <div className="max-w-7xl mx-auto pl-4 pr-0 md:px-8 lg:px-16 py-12 md:py-20 flex flex-col items-start gap-8">
-        <h1 className='text-h1 text-black dark:text-white text-center'>
+      <div className="lg:w-[944px] xl:w-[1142px] mr-0 ml-4 md:ml-8 lg:mx-10 xl:mx-auto py-12 md:py-20 flex flex-col items-start gap-8">
+        <h1 className='text-h1 text-black dark:text-white leading-8'>
           AGENTES <strong className='text-h1 text-primary dark:text-secondary'>CULTURAIS</strong>
         </h1>
+
+        {isError && (
+          <FetchError action={refetch} content='agentes' />
+        )}
+
         <div className="w-full">
-          <Carousel className='flex-shrink-0'>
+          <Carousel className='lg:flex-wrap'>
             {isLoading
               ? Array(6)
                 .fill(0)
@@ -44,7 +49,8 @@ function AgentsSection(): React.ReactNode {
               ))}
           </Carousel>
         </div>
-        <div className="flex justify-center">
+
+        <div className={`${isLoading || isError ? 'hidden' : 'flex '} justify-start`}>
           <ButtonCustom variant='primary' text='Exibir mais' content='Agentes culturais' link='' />
         </div>
       </div>

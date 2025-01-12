@@ -7,7 +7,7 @@ export const mockEvents: EventHomeCard[] = [
       altDescription: "ALT Description 1",
     },
     linkUrl: "",
-    shortDescription: "Description 1",
+    shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis mollis purus, ac lobortis felis viverra quis.",
     eventTitle: "Event 1",
   },
   {
@@ -16,7 +16,7 @@ export const mockEvents: EventHomeCard[] = [
       altDescription: "ALT Description 2",
     },
     linkUrl: "",
-    shortDescription: "Description 2",
+    shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis mollis purus, ac lobortis felis viverra quis.",
     eventTitle: "Event 2",
   },
   {
@@ -25,7 +25,7 @@ export const mockEvents: EventHomeCard[] = [
       altDescription: "ALT Description 3",
     },
     linkUrl: "",
-    shortDescription: "Description 3",
+    shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     eventTitle: "Event 3",
   },
   {
@@ -34,7 +34,7 @@ export const mockEvents: EventHomeCard[] = [
       altDescription: "ALT Description 4",
     },
     linkUrl: "",
-    shortDescription: "Description 4",
+    shortDescription: "Lorem ipsum dolor sit amet.",
     eventTitle: "Event 4",
   },
 ];

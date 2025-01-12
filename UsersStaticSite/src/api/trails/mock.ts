@@ -8,7 +8,7 @@ export const mockTrails: TrilhasHomeCard[] = [
     },
     linkUrl: "",
     level: 'fácil',
-    shortDescription: 'Description 1',
+    shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet.',
     title: 'Trilha 1'
   },
   {
@@ -18,7 +18,7 @@ export const mockTrails: TrilhasHomeCard[] = [
     },
     linkUrl: "",
     level: 'médio',
-    shortDescription: 'Description 2',
+    shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     title: 'Trilha 2'
   },
   {
@@ -28,7 +28,7 @@ export const mockTrails: TrilhasHomeCard[] = [
     },
     linkUrl: "",
     level: 'difícil',
-    shortDescription: 'Description 3',
+    shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     title: 'Trilha 3'
   },
   {
@@ -38,7 +38,7 @@ export const mockTrails: TrilhasHomeCard[] = [
     },
     linkUrl: "",
     level: 'médio',
-    shortDescription: 'Description 5',
+    shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet.',
     title: 'Trilha 5'
   },
 ];

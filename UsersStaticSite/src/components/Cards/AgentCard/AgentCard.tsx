@@ -4,7 +4,7 @@ import { AgenteCulturalHomeCard } from '../../../shared-lib/typesHomePage';
 function AgentCard({ name, shortDescription, linkUrl, imageData, }: AgenteCulturalHomeCard): React.ReactNode {
   return (
     <article
-      className="relative flex flex-col w-[280px] h-[370px] xl:w-[370px] rounded-2xl gap-4 group transition-all duration-300"
+      className="relative flex flex-col w-[280px] h-[370px] lg:w-[304px] xl:w-[370px] rounded-2xl gap-4 group transition-all duration-300"
       aria-label={`Nome do agente cultural: ${name}`}
     >
       <a href={linkUrl} className='w-full h-full'>

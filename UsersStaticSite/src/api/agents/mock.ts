@@ -7,7 +7,7 @@ export const mockAgents: AgenteCulturalHomeCard[] = [
       altDescription: "ALT Description 1",
     },
     linkUrl: "",
-    shortDescription: "Description 1",
+    shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     name: "Name 1",
   },
   {
@@ -16,7 +16,7 @@ export const mockAgents: AgenteCulturalHomeCard[] = [
       altDescription: "ALT Description 2",
     },
     linkUrl: "",
-    shortDescription: "Description 2",
+    shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     name: "Name 2",
   },
   {
@@ -25,7 +25,7 @@ export const mockAgents: AgenteCulturalHomeCard[] = [
       altDescription: "ALT Description 3",
     },
     linkUrl: "",
-    shortDescription: "Description 3",
+    shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     name: "Name 3",
   },
   {
@@ -34,7 +34,7 @@ export const mockAgents: AgenteCulturalHomeCard[] = [
       altDescription: "ALT Description 4",
     },
     linkUrl: "",
-    shortDescription: "Description 4",
+    shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     name: "Name 4",
   },
   {
@@ -43,7 +43,7 @@ export const mockAgents: AgenteCulturalHomeCard[] = [
       altDescription: "ALT Description 5",
     },
     linkUrl: "",
-    shortDescription: "Description 5",
+    shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     name: "Name 5",
   },
   {
@@ -52,7 +52,7 @@ export const mockAgents: AgenteCulturalHomeCard[] = [
       altDescription: "ALT Description 6",
     },
     linkUrl: "",
-    shortDescription: "Description 6",
+    shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     name: "Name 6",
   },
 ];

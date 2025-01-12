@@ -19,7 +19,7 @@ function AsideMenu({ isOpen, onClose, menuItems }: AsideMenuProps): React.ReactN
           ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
     >
       <img
-        src="./src/assets/logos/TurisMendes.svg"
+        src="./src/assets/logos/TurisMendes.png"
         alt="TurisMendes Logo"
         className='w-[105px] h-[60px] mb-5'
       />
@@ -35,6 +35,7 @@ function AsideMenu({ isOpen, onClose, menuItems }: AsideMenuProps): React.ReactN
                 className="text-h4 text-white leading-5"
                 onClick={onClose}
                 tabIndex={isOpen ? 0 : -1}
+                aria-label={`Ir para a página de ${item.label}`}
               >
                 {item.label}
               </a>
