@@ -1,18 +1,18 @@
 import { API_CONFIG } from '../config';
 import { axiosInstance } from '../axios-instance';
-import { AtracaoLocalHomeCard } from '../../shared-lib/typesHomePage';
-import { ApiResponse } from '../types';
+import { AtracaoLocalHomeCard, ResponseDTO } from '../../shared-lib/typesHomePage';
 import { mockAttractions } from './mock';
 import axios from 'axios';
 
-export const getAttractions = async (): Promise<ApiResponse<AtracaoLocalHomeCard[]>> => {
+export const getAttractions = async (): Promise<ResponseDTO<AtracaoLocalHomeCard[]>> => {
   if (API_CONFIG.USE_MOCKS) {
     return new Promise((resolve) => 
       setTimeout(() => 
         resolve({
           data: mockAttractions,
           status: 200,
-          message: 'Success'
+          message: 'Success fetching attractions',
+          dataType: 'ATRAÇÕES MOCKADAS'
         }), 
         500
       )
@@ -24,7 +24,8 @@ export const getAttractions = async (): Promise<ApiResponse<AtracaoLocalHomeCard
     return {
       data: response.data,
       status: response.status,
-      message: 'Success'
+      message: 'Success',
+      dataType: 'ATRAÇÕES'
     };
   } catch (error) {
     if (axios.isAxiosError(error)) {

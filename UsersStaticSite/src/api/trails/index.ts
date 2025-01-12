@@ -1,18 +1,18 @@
 import { API_CONFIG } from '../config';
 import { axiosInstance } from '../axios-instance';
-import { TrilhasHomeCard } from '../../shared-lib/typesHomePage';
-import { ApiResponse } from '../types';
+import { ResponseDTO, TrilhasHomeCard } from '../../shared-lib/typesHomePage';
 import { mockTrails } from './mock';
 import axios from 'axios';
 
-export const getTrails = async (): Promise<ApiResponse<TrilhasHomeCard[]>> => {
+export const getTrails = async (): Promise<ResponseDTO<TrilhasHomeCard[]>> => {
   if (API_CONFIG.USE_MOCKS) {
     return new Promise((resolve) => 
       setTimeout(() => 
         resolve({
           data: mockTrails,
           status: 200,
-          message: 'Success'
+          message: 'Success fetching trails',
+          dataType: 'TRILHAS MOCKADAS'
         }), 
         500
       )
@@ -24,7 +24,8 @@ export const getTrails = async (): Promise<ApiResponse<TrilhasHomeCard[]>> => {
     return {
       data: response.data,
       status: response.status,
-      message: 'Success'
+      message: 'Success',
+      dataType: 'TRILHAS'
     };
   } catch (error) {
     if (axios.isAxiosError(error)) {
