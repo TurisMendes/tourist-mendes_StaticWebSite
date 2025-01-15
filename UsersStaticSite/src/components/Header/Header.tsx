@@ -2,9 +2,17 @@ import React, { useEffect, useState } from 'react';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 import AsideMenu from '../AsideMenu/AsideMenu';
 import { Menu, X } from 'lucide-react';
+import { motion, useMotionValueEvent, useScroll } from 'motion/react';
 
 function Header(): React.ReactNode {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { scrollY } = useScroll()
+  const [scrollDirection, setScrollDirection] = useState("up")
+
+  useMotionValueEvent(scrollY, "change", (current) => {
+    const diff = current - (scrollY?.getPrevious() ?? 0)
+    setScrollDirection(diff > 0 ? "down" : "up")
+  })
 
   const menuItems = [
     { label: 'Atrações Locais', href: '#' },
@@ -27,7 +35,11 @@ function Header(): React.ReactNode {
   }, [isMenuOpen]);
 
   return (
-    <header className="flex w-full gap-4 xl:gap-20 items-center justify-between bg-primary h-20 px-4 md:px-8 lg:px-10 xl:px-[150px]" >
+    <motion.header
+      animate={{ y: scrollDirection === 'down' ? -100 : 0 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+      className="fixed top-0 flex w-full gap-4 xl:gap-20 items-center justify-between bg-primary h-20 px-4 md:px-8 lg:px-10 xl:px-[150px] z-50"
+    >
       <a href="/" className='w-[105px] flex items-center justify-center'>
         <img
           src="./src/assets/logos/TurisMendes.png"
@@ -74,7 +86,7 @@ function Header(): React.ReactNode {
       </button>
 
       <AsideMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} menuItems={menuItems} />
-    </header>
+    </motion.header>
   );
 }
 

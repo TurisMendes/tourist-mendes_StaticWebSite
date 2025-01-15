@@ -11,7 +11,7 @@ function EventCard({
 
   return (
     <article
-      className="flex flex-col md:flex-row lg:flex-col xl:flex-row items-start md:items-center justify-start gap-5 w-[280px] h-[414px] md:w-[700px] md:h-[348px] lg:w-[464px] lg:h-[614px] xl:w-[562px] xl:h-[348px] rounded-2xl p-5 bg-white dark:bg-darkGrey group"
+      className="flex flex-col md:flex-row lg:flex-col xl:flex-row items-start md:items-center justify-start gap-5 w-[280px] h-[414px] md:w-[700px] md:h-[348px] lg:w-[464px] lg:h-[614px] xl:w-[562px] xl:h-[348px] rounded-2xl p-5 bg-white dark:bg-darkGrey group drop-shadow-lg"
       aria-label={`Título do evento: ${eventTitle}`}
     >
       <img

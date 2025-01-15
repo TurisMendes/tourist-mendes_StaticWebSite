@@ -18,8 +18,8 @@ function AgentsSection(): React.ReactNode {
 
   return (
     <section className="w-full dark:bg-darkBlack">
-      <div className="lg:w-[944px] xl:w-[1142px] mr-0 ml-4 md:ml-8 lg:mx-10 xl:mx-auto py-12 md:py-20 flex flex-col items-start gap-8">
-        <h1 className='text-h1 text-black dark:text-white leading-8'>
+      <div className="lg:max-w-[944px] xl:max-w-[1142px] lg:mx-auto py-12 md:py-20 flex flex-col items-start gap-8">
+        <h1 className='text-h1 text-black dark:text-white leading-8 pl-4 md:pl-8 lg:pl-0'>
           AGENTES <strong className='text-h1 text-primary dark:text-secondary'>CULTURAIS</strong>
         </h1>
 
@@ -27,8 +27,8 @@ function AgentsSection(): React.ReactNode {
           <FetchError action={refetch} content='agentes' />
         )}
 
-        <div className="w-full">
-          <Carousel className='lg:flex-wrap'>
+        <div className="w-full md:pl-4 lg:pl-0">
+          <Carousel className='lg:flex-wrap lg:justify-between'>
             {isLoading
               ? Array(6)
                 .fill(0)
@@ -38,7 +38,7 @@ function AgentsSection(): React.ReactNode {
                   </div>
                 ))
               : agents?.data.map((agent, index) => (
-                <div key={index} className="flex-shrink-0">
+                <div key={index} className="pl-4 lg:pl-0 lg:pb-4">
                   <AgentCard
                     imageData={agent.imageData}
                     linkUrl={agent.linkUrl}
@@ -50,7 +50,7 @@ function AgentsSection(): React.ReactNode {
           </Carousel>
         </div>
 
-        <div className={`${isLoading || isError ? 'hidden' : 'flex '} justify-start`}>
+        <div className={`${isLoading || isError ? 'hidden' : 'flex '} justify-start pl-4 md:pl-8 lg:pl-0`}>
           <ButtonCustom variant='primary' text='Exibir mais' content='Agentes culturais' link='' />
         </div>
       </div>

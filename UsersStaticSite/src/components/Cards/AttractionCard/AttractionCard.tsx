@@ -6,7 +6,7 @@ import { AtracaoLocalHomeCard } from '../../../shared-lib/typesHomePage';
 function AttractionCard({ imageData, linkUrl, title, shortDescription }: AtracaoLocalHomeCard): React.ReactNode {
   return (
     <article
-      className="relative flex flex-col w-[280px] h-[446px] xl:w-[370px] xl:h-[592px] rounded-2xl gap-4 group transition-all duration-300"
+      className="relative flex flex-col w-[280px] h-[446px] lg:w-[304px] lg:h-[592px] xl:w-[370px] rounded-2xl gap-4 group transition-all duration-300"
       aria-label={`Nome da atração: ${title}`}
     >
       <img

@@ -1,8 +1,7 @@
 import React from 'react';
-import { useTheme } from './../../hooks/useTheme';
+import Marquee from '../Marquee/Marquee';
 
 function Footer(): React.ReactNode {
-  const { isDarkMode } = useTheme();
 
   return (
     <footer className="bg-white dark:bg-lightGrey w-full" >
@@ -43,7 +42,7 @@ function Footer(): React.ReactNode {
               (24) 98865-6016
             </a>
           </div>
-          <div className='flex flex-col w-[280px]'>
+          <div className='flex flex-col w-[280px] sm:w-[310px] lg:w-[400px] xl:w-full'>
             <h2 className='text-h2 mb-4'>ENDEREÇO</h2>
             <a
               href="https://maps.app.goo.gl/SkDHrywTBv2hhYRY9"
@@ -60,7 +59,7 @@ function Footer(): React.ReactNode {
 
       <div className='bg-offwhite dark:bg-white w-[95%] flex items-center justify-center mx-auto h-[2px] mt-12 mb-10' />
 
-      <section className='w-full flex flex-col items-center justify-center xl:justify-between px-4'>
+      {/* <section className='w-full flex flex-col items-center justify-center xl:justify-between px-4'>
         <div className='w-full flex flex-col xl:flex-row xl:gap-32'>
           <div className='flex flex-col md:flex-row gap-12 md:gap-0 w-full items-center justify-between mb-16'>
             <img
@@ -89,7 +88,6 @@ function Footer(): React.ReactNode {
             </div>
           </div>
 
-
           <div className='w-full xl:w-4/5 h-[100px] flex flex-col items-center justify-center my-8 xl:my-0 gap-4'>
             <h4 className='text-h4 text-black dark:text-white'>Fomentadores</h4>
             <div className=' w-[280px] xl:w-fit flex flex-wrap md:flex-nowrap items center justify-center gap-4 md:gap-8'>
@@ -116,8 +114,10 @@ function Footer(): React.ReactNode {
           <p className='body-level-2 w-fit'>&copy; TurisMendes 2025.</p>
           <p className='body-level-2 w-fit'>Todos os direitos reservados.</p>
         </div>
-      </section>
-    </footer>
+      </section> */}
+
+      <Marquee />
+    </footer >
   );
 }
 

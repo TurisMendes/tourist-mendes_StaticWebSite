@@ -1,18 +1,17 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { HomeBanner } from '../../shared-lib/typesHomePage';
+import { HomeBanner, ResponseDTO } from '../../shared-lib/typesHomePage';
 import { useQuery } from '@tanstack/react-query';
 import BannerSkeleton from '../Skeletons/BannerSkeleton.tsx';
 import { getBanners } from '../../api/banners/index.ts';
-import { ApiResponse } from '../../api/types.ts';
 import { FetchError } from '../Errors/FetchError.tsx';
 
 const BannerCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const swipeContainerRef = useRef<HTMLDivElement>(null);
 
-  const { data: bannerResponse, isLoading, isError, refetch } = useQuery<ApiResponse<HomeBanner[]>>({
+  const { data: bannerResponse, isLoading, isError, refetch } = useQuery<ResponseDTO<HomeBanner[]>>({
     queryKey: ['banners'],
     queryFn: getBanners,
   });
@@ -41,36 +40,72 @@ const BannerCarousel: React.FC = () => {
         });
       },
       {
-        root: scrollContainerRef.current,
+        root: swipeContainerRef.current,
         threshold: 0.5,
         rootMargin: '0px',
       }
     );
 
-    const slides = scrollContainerRef.current?.querySelectorAll('[data-slide]');
+    const slides = swipeContainerRef.current?.querySelectorAll('[data-slide]');
     slides?.forEach((slide) => observer.observe(slide));
 
     return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
-    const container = scrollContainerRef.current;
+    const container = swipeContainerRef.current;
     if (!container) return;
 
-    const handleScroll = () => {
-      const index = Math.round(container.scrollLeft / container.offsetWidth);
-      setCurrentIndex(index);
+    let startX = 0;
+    let endX = 0;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      startX = e.touches[0].clientX;
     };
 
-    container.addEventListener('scroll', handleScroll);
+    const handleTouchMove = (e: TouchEvent) => {
+      endX = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = () => {
+      if (startX > endX + 20) {
+        setCurrentIndex((prevIndex) => {
+          const newIndex = Math.min(prevIndex + 1, banners.length - 1);
+          scrollToIndex(newIndex);
+          return newIndex;
+        });
+      } else if (startX < endX - 20) {
+        setCurrentIndex((prevIndex) => {
+          const newIndex = Math.max(prevIndex - 1, 0);
+          scrollToIndex(newIndex);
+          return newIndex;
+        });
+      }
+    };
+
+    const scrollToIndex = (index: number) => {
+      if (!container) return;
+      const slideWidth = container.offsetWidth;
+      container.scrollTo({
+        left: slideWidth * index,
+        behavior: 'smooth',
+      });
+    };
+
+    container.addEventListener('touchstart', handleTouchStart);
+    container.addEventListener('touchmove', handleTouchMove);
+    container.addEventListener('touchend', handleTouchEnd);
+
     return () => {
-      container.removeEventListener('scroll', handleScroll);
+      container.removeEventListener('touchstart', handleTouchStart);
+      container.removeEventListener('touchmove', handleTouchMove);
+      container.removeEventListener('touchend', handleTouchEnd);
     };
-  }, []);
+  }, [banners.length]);
 
 
-   const handleNavDotClick = (index: number) => {
-    const container = scrollContainerRef.current;
+  const handleNavDotClick = (index: number) => {
+    const container = swipeContainerRef.current;
     if (!container) return;
 
     const slideWidth = container.offsetWidth;
@@ -85,7 +120,7 @@ const BannerCarousel: React.FC = () => {
 
   return (
     <section
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-auto"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
       onTouchStart={() => setIsAutoPlaying(false)}
@@ -93,11 +128,11 @@ const BannerCarousel: React.FC = () => {
     >
 
       {isError && (
-        <FetchError action={refetch} content='banners'/>
+        <FetchError action={refetch} content='banners' />
       )}
 
       <div
-        ref={scrollContainerRef}
+        ref={swipeContainerRef}
         className="flex w-full h-full items-center overflow-x-auto snap-x snap-mandatory touch-pan scrollbar-none"
         style={{
           scrollbarWidth: 'none',
@@ -107,21 +142,21 @@ const BannerCarousel: React.FC = () => {
       >
         {banners?.map((banner: HomeBanner, index: number) => (
           <div
-            key={index}
-            data-index={index}
-            className="w-full flex-shrink-0 snap-start"
+          key={index}
+          data-index={index}
+          className="w-full flex-shrink-0 snap-start"
           >
             <a
               href={banner.linkUrl}
               className="flex relative w-full h-full"
-            >
+              >
               <img
                 src={banner.imageData.imageUrl}
                 alt={banner.imageData.altDescription}
                 className="w-full h-[516px] lg:h-[800px] object-cover"
               />
               {banner.description && (
-                <div className="absolute bottom-0 md:bottom-[40%] lg:bottom-28 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-20 lg:left-40 w-[260px] md:w-[400px]">
+                <div className="absolute bottom-20 md:bottom-24 lg:bottom-28 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-20 lg:left-40 w-[260px] md:w-[400px]">
                   <h1 className='text-h1 text-xl md:text-3xl text-white leading-8 text-center md:text-start w-full'>
                     {banner.description}
                   </h1>

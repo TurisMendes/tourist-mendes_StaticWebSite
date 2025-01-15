@@ -17,15 +17,15 @@ function TrailsSection(): React.ReactNode {
 
   return (
     <section className="bg-white dark:bg-lightGrey w-full">
-      <div className="xl:w-[1142px] mr-0 ml-4 md:ml-8 lg:mx-10 xl:mx-auto py-12 md:py-20 flex flex-col items-start gap-8">
-        <h1 className='text-h1 text-black dark:text-white text-center'>TRILHAS</h1>
+      <div className="lg:max-w-[944px] xl:max-w-[1160px] lg:mx-auto py-12 md:py-20 flex flex-col items-start">
+        <h1 className='text-h1 text-black dark:text-white text-center mb-8 pl-4 md:pl-8 lg:pl-3'>TRILHAS</h1>
 
         {isError && (
           <FetchError action={refetch} content='trilhas' />
         )}
 
-        <div className="w-full">
-          <Carousel className='flex-shrink-0'>
+        <div className="w-full md:pl-4 lg:pl-0 xl:pl-0">
+          <Carousel className='flex-shrink-0 lg:justify-evenly'>
             {isLoading
               ? Array(4)
                 .fill(0)
@@ -35,7 +35,7 @@ function TrailsSection(): React.ReactNode {
                   </div>
                 ))
               : trails?.data.map((trails, index) => (
-                <div key={index} className="flex-shrink-0">
+                <div key={index} className="pl-4 lg:pl-0 h-[440px]">
                   <TrailCard
                     imageData={trails.imageData}
                     linkUrl={trails.linkUrl}
@@ -47,7 +47,7 @@ function TrailsSection(): React.ReactNode {
               ))}
           </Carousel>
         </div>
-        <div className={`${isLoading || isError ? 'hidden' : 'flex'} justify-center`}>
+        <div className={`${isLoading || isError ? 'hidden' : 'flex'} justify-center mt-2 pl-4 md:pl-8 lg:pl-3`}>
           <ButtonCustom variant='primary' text='Exibir mais' content='Trilhas' link='' />
         </div>
       </div>
