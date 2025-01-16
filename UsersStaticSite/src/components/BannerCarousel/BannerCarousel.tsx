@@ -33,7 +33,14 @@ const BannerCarousel: React.FC = () => {
     setCurrentIndex(index);
   };
 
-  if (isLoading) return <BannerSkeleton />;
+  const isExternalUrl = (url: string): boolean => {
+    try {
+      const urlObj = new URL(url);
+      return urlObj.hostname !== window.location.hostname;
+    } catch {
+      return false;
+    }
+  };
 
   return (
     <section
@@ -57,10 +64,10 @@ const BannerCarousel: React.FC = () => {
         }}
       >
         {isLoading
-          ? Array(6)
+          ? Array(1)
             .fill(0)
             .map((_, index) => (
-              <div key={index} className="flex-shrink-0">
+              <div key={index} className="flex w-full">
                 <BannerSkeleton />
               </div>
             )) : banners.map((banner, index) => (
@@ -69,7 +76,11 @@ const BannerCarousel: React.FC = () => {
                 className="w-full flex-shrink-0 snap-start"
                 style={{ transform: `translateX(-${currentIndex * 100}%)`, transition: 'transform 0.3s ease-in-out' }}
               >
-                <a href={banner.linkUrl} className="flex relative w-full h-full">
+                <a
+                  href={banner.linkUrl}
+                  target={isExternalUrl(banner.linkUrl) ? '_blank' : '_self'}
+                  rel={isExternalUrl(banner.linkUrl) ? 'noopener noreferrer' : undefined}
+                  className="flex relative w-full h-full">
                   <img
                     src={banner.imageData.imageUrl}
                     alt={banner.imageData.altDescription}
@@ -83,38 +94,38 @@ const BannerCarousel: React.FC = () => {
                     </div>
                   )}
                 </a>
+
+
+                <button
+                  onClick={() => setCurrentIndex((currentIndex - 1 + banners.length) % banners.length)}
+                  className="absolute hidden md:flex left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-grey text-white rounded-full p-2 transition-colors"
+                  aria-label="Banner anterior"
+                  tabIndex={-1}
+                >
+                  <ChevronLeft className="w-6 lg:w-10 h-6 lg:h-10 text-black" />
+                </button>
+                <button
+                  onClick={() => setCurrentIndex((currentIndex + 1) % banners.length)}
+                  className="absolute hidden md:flex right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-grey text-white rounded-full p-2 transition-colors"
+                  aria-label="Próximo banner"
+                  tabIndex={-1}
+                >
+                  <ChevronRight className="w-6 lg:w-10 h-6 lg:h-10 text-black" />
+                </button>
+
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                  {banners.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => handleNavDotClick(index)}
+                      aria-label={`Ir para banner ${index + 1}`}
+                      className={`w-5 h-5 rounded-full transition-colors ${currentIndex === index ? 'scale-125 bg-primary dark:bg-secondary' : 'scale-75 bg-white'
+                        }`}
+                    />
+                  ))}
+                </div>
               </div>
             ))}
-
-      </div>
-
-      <button
-        onClick={() => setCurrentIndex((currentIndex - 1 + banners.length) % banners.length)}
-        className="absolute hidden md:flex left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-grey text-white rounded-full p-2 transition-colors"
-        aria-label="Banner anterior"
-        tabIndex={-1}
-      >
-        <ChevronLeft className="w-6 lg:w-10 h-6 lg:h-10 text-black" />
-      </button>
-      <button
-        onClick={() => setCurrentIndex((currentIndex + 1) % banners.length)}
-        className="absolute hidden md:flex right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-grey text-white rounded-full p-2 transition-colors"
-        aria-label="Próximo banner"
-        tabIndex={-1}
-      >
-        <ChevronRight className="w-6 lg:w-10 h-6 lg:h-10 text-black" />
-      </button>
-
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-        {banners.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => handleNavDotClick(index)}
-            aria-label={`Ir para banner ${index + 1}`}
-            className={`w-5 h-5 rounded-full transition-colors ${currentIndex === index ? 'scale-125 bg-primary dark:bg-secondary' : 'scale-75 bg-white'
-              }`}
-          />
-        ))}
       </div>
     </section>
   );

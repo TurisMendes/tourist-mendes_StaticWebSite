@@ -30,13 +30,13 @@ function Marquee(): React.ReactNode {
       <motion.div
         className="w-full flex whitespace-wrap"
         animate={{ x: [0, -1500] }}
-        transition={{ duration: 20, repeat: Infinity, repeatType: "loop", ease: "linear" }}
+        transition={{ duration: 50, repeat: Infinity, repeatType: "loop", ease: "linear" }}
       >
         {duplicatedLogos.map((logo, index) => (
           <div key={index} className="flex flex-row items-center gap-24 ml-24">
             <div className="w-1 h-40 bg-gray-200" />
             <div className="flex flex-col items-center gap-4">
-              <h2 className="text-lg font-bold text-black dark:text-white text-center">{logo.title}</h2>
+              <h2 className="text-lg font-bold text-gray-700 dark:text-white text-center">{logo.title}</h2>
 
               <div className="flex flex-row">
                 {Array.isArray(logo.src) ? (

@@ -10,8 +10,14 @@ function Header(): React.ReactNode {
   const [scrollDirection, setScrollDirection] = useState("up")
 
   useMotionValueEvent(scrollY, "change", (current) => {
-    const diff = current - (scrollY?.getPrevious() ?? 0)
-    setScrollDirection(diff > 0 ? "down" : "up")
+    const previousDirection = scrollY?.getPrevious() ?? 0;
+    const directionDiff = current - previousDirection;
+    if (current <= 0 ) {
+      setScrollDirection('up');
+    } else {
+      setScrollDirection(directionDiff > 0 ? "down" : "up")
+
+    }
   })
 
   const menuItems = [
