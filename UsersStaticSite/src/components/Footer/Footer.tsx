@@ -59,63 +59,6 @@ function Footer(): React.ReactNode {
 
       <div className='bg-offwhite dark:bg-white w-[95%] flex items-center justify-center mx-auto h-[2px] mt-12 mb-10' />
 
-      {/* <section className='w-full flex flex-col items-center justify-center xl:justify-between px-4'>
-        <div className='w-full flex flex-col xl:flex-row xl:gap-32'>
-          <div className='flex flex-col md:flex-row gap-12 md:gap-0 w-full items-center justify-between mb-16'>
-            <img
-              src="./src/assets/logos/TurisMendes.svg"
-              alt=""
-              className='w-[226px] h-[130px] lg:w-[226px] lg:h-[130px] object-cover grayscale'
-            />
-
-            <div className='w-full h-[100px] flex md:w-1/2 items-center justify-center md:justify-between gap-4'>
-              <div className='w-fit flex flex-col items-center gap-2'>
-                <h4 className='text-h4 text-black dark:text-white'>Realização</h4>
-                <img
-                  src="./src/assets/logos/SomosDev.png"
-                  alt=""
-                  className='w-[125px] h-[62px] object-cover grayscale'
-                />
-              </div>
-              <div className='w-fit flex flex-col items-center gap-2'>
-                <h4 className='text-h4 text-black dark:text-white'>Idealização</h4>
-                <img
-                  src={isDarkMode ? './src/assets/logos/ColetivoCafeina-Grey.png' : './src/assets/logos/ColetivoCafeina-Black.png'}
-                  alt=""
-                  className='w-[78px] h-[64px] object-cover grayscale'
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className='w-full xl:w-4/5 h-[100px] flex flex-col items-center justify-center my-8 xl:my-0 gap-4'>
-            <h4 className='text-h4 text-black dark:text-white'>Fomentadores</h4>
-            <div className=' w-[280px] xl:w-fit flex flex-wrap md:flex-nowrap items center justify-center gap-4 md:gap-8'>
-              <img
-                src="./src/assets/logos/PrefeituraMendes.png"
-                alt=""
-                className='w-[183px] h-[60px] object-cover grayscale'
-              />
-              <img
-                src="./src/assets/logos/PNAB.png"
-                alt=""
-                className='object-cover'
-              />
-              <img
-                src={isDarkMode ? "./src/assets/logos/GovernoFederal-white.png" : "./src/assets/logos/GovernoFederal-black.png"}
-                alt=""
-                className='object-cover grayscale'
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className='flex flex-col md:flex-row items-center justify-center w-full my-8'>
-          <p className='body-level-2 w-fit'>&copy; TurisMendes 2025.</p>
-          <p className='body-level-2 w-fit'>Todos os direitos reservados.</p>
-        </div>
-      </section> */}
-
       <Marquee />
     </footer >
   );

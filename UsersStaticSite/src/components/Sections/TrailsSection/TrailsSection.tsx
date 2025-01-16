@@ -6,6 +6,7 @@ import TrailSkeleton from '../../Skeletons/TrailSkeleton.tsx';
 import TrailCard from '../../Cards/TrailCard/TrailCard.tsx';
 import { getTrails } from '../../../api/trails/index.ts';
 import { FetchError } from '../../Errors/FetchError.tsx';
+import { TrilhasHomeCard } from '../../../shared-lib/typesHomePage.ts';
 
 function TrailsSection(): React.ReactNode {
 
@@ -34,7 +35,7 @@ function TrailsSection(): React.ReactNode {
                     <TrailSkeleton />
                   </div>
                 ))
-              : trails?.data.map((trails, index) => (
+              : trails?.data.map((trails: TrilhasHomeCard, index: number) => (
                 <div key={index} className="pl-4 lg:pl-0 h-[440px]">
                   <TrailCard
                     imageData={trails.imageData}

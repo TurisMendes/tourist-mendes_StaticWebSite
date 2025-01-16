@@ -6,6 +6,7 @@ import AgentCard from '../../Cards/AgentCard/AgentCard.tsx';
 import AgentSkeleton from '../../Skeletons/AgentSkeleton.tsx';
 import { getAgents } from '../../../api/agents/index.ts';
 import { FetchError } from '../../Errors/FetchError.tsx';
+import { AgenteCulturalHomeCard } from '../../../shared-lib/typesHomePage.ts';
 
 function AgentsSection(): React.ReactNode {
 
@@ -37,7 +38,7 @@ function AgentsSection(): React.ReactNode {
                     <AgentSkeleton />
                   </div>
                 ))
-              : agents?.data.map((agent, index) => (
+              : agents?.data.map((agent: AgenteCulturalHomeCard, index: number) => (
                 <div key={index} className="pl-4 lg:pl-0 lg:pb-4">
                   <AgentCard
                     imageData={agent.imageData}

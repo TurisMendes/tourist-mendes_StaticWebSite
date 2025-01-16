@@ -1,40 +1,37 @@
-import { API_CONFIG } from '../config';
-import { axiosInstance } from '../axios-instance';
-import { AtracaoLocalHomeCard, ResponseDTO } from '../../shared-lib/typesHomePage';
-import { mockAttractions } from './mock';
-import axios from 'axios';
+import {
+  AtracaoLocalHomeCard,
+  ResponseDTO,
+} from "../../shared-lib/typesHomePage";
+import axios from "axios";
+import { axiosInstance } from "../axios-instance";
 
-export const getAttractions = async (): Promise<ResponseDTO<AtracaoLocalHomeCard[]>> => {
-  if (API_CONFIG.USE_MOCKS) {
-    return new Promise((resolve) => 
-      setTimeout(() => 
-        resolve({
-          data: mockAttractions,
-          status: 200,
-          message: 'Success fetching attractions',
-          dataType: 'ATRAÇÕES MOCKADAS'
-        }), 
-        500
-      )
-    );
-  }
-
+export const getAttractions = async (): Promise<
+  ResponseDTO<AtracaoLocalHomeCard[]>
+> => {
   try {
-    const response = await axiosInstance.get<AtracaoLocalHomeCard[]>('/attractions');
+    const response = await axiosInstance.get<AtracaoLocalHomeCard[]>(
+      "/mockAttractions.json"
+    );
     return {
       data: response.data,
       status: response.status,
-      message: 'Success',
-      dataType: 'ATRAÇÕES'
+      message: "Success",
+      dataType: "ATRAÇÕES",
     };
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      throw {
-        data: null,
+      return {
+        data: [],
         status: error.response?.status || 500,
-        message: error.message
+        message: error.message,
+        dataType: "ATRAÇÕES",
       };
     }
-    throw error;
+    return {
+      data: [],
+      status: 500,
+      message: "An unexpected error occurred",
+      dataType: "ATRAÇÕES",
+    };
   }
 };

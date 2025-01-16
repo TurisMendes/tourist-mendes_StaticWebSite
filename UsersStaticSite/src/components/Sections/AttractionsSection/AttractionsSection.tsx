@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import CardSkeleton from '../../Skeletons/CardSkeleton.tsx';
 import { getAttractions } from '../../../api/attractions/index.ts';
 import { FetchError } from '../../Errors/FetchError.tsx';
+import { AtracaoLocalHomeCard } from '../../../shared-lib/typesHomePage.ts';
 
 function AttractionsSection(): React.ReactNode {
   const { data: attractions, isLoading, isError, refetch } = useQuery({
@@ -35,7 +36,7 @@ function AttractionsSection(): React.ReactNode {
                     <CardSkeleton />
                   </div>
                 ))
-              : attractions?.data.map((attraction, index) => (
+              : attractions?.data.map((attraction: AtracaoLocalHomeCard, index: number) => (
                 <div key={index} className="pl-4 lg:pl-0">
                   <AttractionCard
                     imageData={attraction.imageData}

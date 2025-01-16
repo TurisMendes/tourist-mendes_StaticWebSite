@@ -1,5 +1,5 @@
 import React from 'react';
-import BannerCarousel from '../../components/Banner/Banner';
+import BannerCarousel from '../../components/BannerCarousel/BannerCarousel';
 import { Helmet } from 'react-helmet-async';
 import AttractionsSection from '../../components/Sections/AttractionsSection/AttractionsSection';
 import AgentsSection from '../../components/Sections/AgentsSection/AgentsSection';

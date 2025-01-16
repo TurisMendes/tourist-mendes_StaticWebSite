@@ -1,40 +1,37 @@
-import { API_CONFIG } from '../config';
-import { axiosInstance } from '../axios-instance';
-import { AgenteCulturalHomeCard, ResponseDTO } from '../../shared-lib/typesHomePage';
-import { mockAgents } from './mock';
-import axios from 'axios';
+import {
+  AgenteCulturalHomeCard,
+  ResponseDTO,
+} from "../../shared-lib/typesHomePage";
+import axios from "axios";
+import { axiosInstance } from "../axios-instance";
 
-export const getAgents = async (): Promise<ResponseDTO<AgenteCulturalHomeCard[]>> => {
-  if (API_CONFIG.USE_MOCKS) {
-    return new Promise((resolve) => 
-      setTimeout(() => 
-        resolve({
-          data: mockAgents,
-          status: 200,
-          message: 'Success fetching agents',
-          dataType: 'AGENTES CULTURAIS MOCKADOS'
-        }), 
-        500
-      )
-    );
-  }
-
+export const getAgents = async (): Promise<
+  ResponseDTO<AgenteCulturalHomeCard[]>
+> => {
   try {
-    const response = await axiosInstance.get<AgenteCulturalHomeCard[]>('/agents');
+    const response = await axiosInstance.get<AgenteCulturalHomeCard[]>(
+      "/mockAgents.json"
+    );
     return {
       data: response.data,
       status: response.status,
-      message: 'Success',
-      dataType: 'AGENTES CULTURAIS'
+      message: "Success",
+      dataType: "AGENTES",
     };
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      throw {
-        data: null,
+      return {
+        data: [],
         status: error.response?.status || 500,
-        message: error.message
+        message: error.message,
+        dataType: "AGENTES",
       };
     }
-    throw error;
+    return {
+      data: [],
+      status: 500,
+      message: "An unexpected error occurred",
+      dataType: "AGENTES",
+    };
   }
 };
