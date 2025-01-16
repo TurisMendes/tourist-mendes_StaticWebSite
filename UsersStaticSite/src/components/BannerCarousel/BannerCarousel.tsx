@@ -94,38 +94,37 @@ const BannerCarousel: React.FC = () => {
                     </div>
                   )}
                 </a>
-
-
-                <button
-                  onClick={() => setCurrentIndex((currentIndex - 1 + banners.length) % banners.length)}
-                  className="absolute hidden md:flex left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-grey text-white rounded-full p-2 transition-colors"
-                  aria-label="Banner anterior"
-                  tabIndex={-1}
-                >
-                  <ChevronLeft className="w-6 lg:w-10 h-6 lg:h-10 text-black" />
-                </button>
-                <button
-                  onClick={() => setCurrentIndex((currentIndex + 1) % banners.length)}
-                  className="absolute hidden md:flex right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-grey text-white rounded-full p-2 transition-colors"
-                  aria-label="Próximo banner"
-                  tabIndex={-1}
-                >
-                  <ChevronRight className="w-6 lg:w-10 h-6 lg:h-10 text-black" />
-                </button>
-
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                  {banners.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => handleNavDotClick(index)}
-                      aria-label={`Ir para banner ${index + 1}`}
-                      className={`w-5 h-5 rounded-full transition-colors ${currentIndex === index ? 'scale-125 bg-primary dark:bg-secondary' : 'scale-75 bg-white'
-                        }`}
-                    />
-                  ))}
-                </div>
               </div>
             ))}
+
+        <button
+          onClick={() => setCurrentIndex((currentIndex - 1 + banners.length) % banners.length)}
+          className="absolute hidden md:flex left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-grey text-white rounded-full p-2 transition-colors"
+          aria-label="Banner anterior"
+          tabIndex={-1}
+        >
+          <ChevronLeft className="w-6 lg:w-10 h-6 lg:h-10 text-black" />
+        </button>
+        <button
+          onClick={() => setCurrentIndex((currentIndex + 1) % banners.length)}
+          className="absolute hidden md:flex right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-grey text-white rounded-full p-2 transition-colors"
+          aria-label="Próximo banner"
+          tabIndex={-1}
+        >
+          <ChevronRight className="w-6 lg:w-10 h-6 lg:h-10 text-black" />
+        </button>
+
+        <div className="absolute bottom-4 left-1/2 flex gap-2">
+          {banners.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => handleNavDotClick(index)}
+              aria-label={`Ir para banner ${index + 1}`}
+              className={`w-5 h-5 rounded-full transition-colors ${currentIndex === index ? 'scale-125 bg-primary dark:bg-secondary' : 'scale-75 bg-white'
+                }`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
