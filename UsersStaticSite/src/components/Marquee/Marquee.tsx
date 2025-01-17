@@ -33,7 +33,7 @@ function Marquee(): React.ReactNode {
         transition={{ duration: 50, repeat: Infinity, repeatType: "loop", ease: "linear" }}
       >
         {duplicatedLogos.map((logo, index) => (
-          <div key={index} className="flex flex-row items-center gap-24 ml-24">
+          <div key={index} className="flex flex-row items-center gap-[97px] ml-[97px]">
             <div className="w-1 h-40 bg-gray-200" />
             <div className="flex flex-col items-center gap-4">
               <h2 className="text-lg font-bold text-gray-700 dark:text-white text-center">{logo.title}</h2>
