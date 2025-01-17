@@ -45,10 +45,11 @@ function Header(): React.ReactNode {
       animate={{ y: scrollDirection === 'down' ? -100 : 0 }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       className="fixed top-0 flex w-full gap-4 xl:gap-20 items-center justify-between bg-primary h-20 px-4 md:px-8 lg:px-10 xl:px-[150px] z-50"
+      id='home'
     >
       <a href="/" className='w-[105px] flex items-center justify-center'>
         <img
-          src="./src/assets/logos/TurisMendes.png"
+          src="./src/assets/logos/TurisMendes.svg"
           alt="TurisMendes Logo"
           className='w-full object-cover'
         />

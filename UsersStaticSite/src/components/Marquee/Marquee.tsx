@@ -4,18 +4,18 @@ import { motion } from "framer-motion";
 const logos = [
   {
     title: 'Realização',
-    src: './src/assets/logos/SomosDev.png'
+    src: './src/assets/logos/SomosDev.svg'
   },
   {
     title: 'Idealização',
-    src: './src/assets/logos/ColetivoCafeina.png'
+    src: './src/assets/logos/ColetivoCafeina.svg'
   },
   {
     title: 'Fomentadores',
     src: [
-      './src/assets/logos/PrefeituraMendes.png',
-      './src/assets/logos/PNAB.png',
-      './src/assets/logos/GovernoFederal.png'
+      './src/assets/logos/PrefeituraMendes.svg',
+      './src/assets/logos/PNAB.svg',
+      './src/assets/logos/GovernoFederal.svg'
     ]
   }
 ];
@@ -34,7 +34,7 @@ function Marquee(): React.ReactNode {
       >
         {duplicatedLogos.map((logo, index) => (
           <div key={index} className="flex flex-row items-center gap-[97px] ml-[97px]">
-            <div className="w-1 h-40 bg-gray-200" />
+            <div className="w-[2px] h-40 bg-gray-200" />
             <div className="flex flex-col items-center gap-4">
               <h2 className="text-lg font-bold text-gray-700 dark:text-white text-center">{logo.title}</h2>
 
@@ -42,20 +42,32 @@ function Marquee(): React.ReactNode {
                 {Array.isArray(logo.src) ? (
                   <div className="flex flex-row items-center gap-8">
                     {logo.src.map((src, imgIndex) => (
-                      <img
+                      <a
                         key={imgIndex}
-                        src={src}
-                        alt={`${logo.title} ${imgIndex + 1}`}
-                        className="max-w-[250px] h-[80px] object-cover grayscale"
-                      />
+                        href=""
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          src={src}
+                          alt={`${logo.title} ${imgIndex + 1}`}
+                          className={`max-w-[250px] h-[80px] object-cover dark:grayscale`}
+                        />
+                      </a>
                     ))}
                   </div>
                 ) : (
-                  <img
-                    src={logo.src}
-                    alt={logo.title}
-                    className="max-w-[300px] h-[80px] object-cover grayscale"
-                  />
+                  <a
+                    href=""
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src={logo.src}
+                      alt={logo.title}
+                      className="max-w-[300px] h-[80px] object-cover dark:grayscale"
+                    />
+                  </a>
                 )}
               </div>
             </div>

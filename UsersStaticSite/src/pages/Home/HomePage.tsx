@@ -5,6 +5,8 @@ import AttractionsSection from '../../components/Sections/AttractionsSection/Att
 import AgentsSection from '../../components/Sections/AgentsSection/AgentsSection';
 import TrailsSection from '../../components/Sections/TrailsSection/TrailsSection';
 import EventsSection from '../../components/Sections/EventsSections/EventsSections';
+import ButtonBackToTop from '../../components/ButtonBackToTop/ButtonBackToTop';
+
 function HomePage(): React.ReactNode {
   return (
     <>
@@ -14,12 +16,13 @@ function HomePage(): React.ReactNode {
           name='description'
           content='Com o intuito de preservar o patrimônio e promover o turismo, o TurisMendes transforma a maneira como a cidade se apresenta ao mundo!' />
       </Helmet>
-      <main className="flex flex-col items-center justify-center w-full">
+      <main className="relative flex flex-col items-center justify-center w-full">
         <BannerCarousel />
         <AttractionsSection />
         <AgentsSection />
         <TrailsSection />
         <EventsSection />
+        <ButtonBackToTop />
       </main>
     </>
   );
