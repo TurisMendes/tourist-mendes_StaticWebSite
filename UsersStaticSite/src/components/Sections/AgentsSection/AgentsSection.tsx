@@ -4,16 +4,15 @@ import ButtonCustom from '../../ButtonCustom/ButtonCustom.tsx';
 import { useQuery } from '@tanstack/react-query';
 import AgentCard from '../../Cards/AgentCard/AgentCard.tsx';
 import AgentSkeleton from '../../Skeletons/AgentSkeleton.tsx';
-import { getAgents } from '../../../api/agents/index.ts';
 import { FetchError } from '../../Errors/FetchError.tsx';
-import { AgenteCulturalHomeCard } from '../../../shared-lib/typesHomePage.ts';
+import { AgenteCulturalHomeCard, ResponseDTO } from '../../../shared-lib/typesHomePage.ts';
+import { getAgents } from '../../../api/agents/getAgents.ts';
 
 function AgentsSection(): React.ReactNode {
 
-  const { data: agents, isLoading, isError, refetch } = useQuery({
+  const { data: responseAgenteDTO, isLoading, isError, refetch } = useQuery<ResponseDTO<AgenteCulturalHomeCard[]>>({
     queryKey: ['agents'],
     queryFn: getAgents,
-    initialData: undefined,
   });
 
 
@@ -38,7 +37,7 @@ function AgentsSection(): React.ReactNode {
                     <AgentSkeleton />
                   </div>
                 ))
-              : agents?.data.map((agent: AgenteCulturalHomeCard, index: number) => (
+              : responseAgenteDTO?.data?.map((agent: AgenteCulturalHomeCard, index: number) => (
                 <div key={index} className="pl-4 lg:pl-0 lg:pb-4">
                   <AgentCard
                     imageData={agent.imageData}

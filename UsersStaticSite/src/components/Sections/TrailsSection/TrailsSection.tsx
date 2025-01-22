@@ -4,16 +4,15 @@ import ButtonCustom from '../../ButtonCustom/ButtonCustom.tsx';
 import { useQuery } from '@tanstack/react-query';
 import TrailSkeleton from '../../Skeletons/TrailSkeleton.tsx';
 import TrailCard from '../../Cards/TrailCard/TrailCard.tsx';
-import { getTrails } from '../../../api/trails/index.ts';
 import { FetchError } from '../../Errors/FetchError.tsx';
-import { TrilhasHomeCard } from '../../../shared-lib/typesHomePage.ts';
+import { ResponseDTO, TrilhasHomeCard } from '../../../shared-lib/typesHomePage.ts';
+import { getTrails } from '../../../api/trails/getTrails.ts';
 
 function TrailsSection(): React.ReactNode {
 
-  const { data: trails, isLoading, isError, refetch } = useQuery({
+  const { data: responseTrilhasDTO, isLoading, isError, refetch } = useQuery<ResponseDTO<TrilhasHomeCard[]>>({
     queryKey: ['trails'],
     queryFn: getTrails,
-    initialData: undefined,
   });
 
   return (
@@ -35,7 +34,7 @@ function TrailsSection(): React.ReactNode {
                     <TrailSkeleton />
                   </div>
                 ))
-              : trails?.data.map((trails: TrilhasHomeCard, index: number) => (
+              : responseTrilhasDTO?.data?.map((trails, index) => (
                 <div key={index} className="pl-4 lg:pl-0 h-[440px]">
                   <TrailCard
                     imageData={trails.imageData}

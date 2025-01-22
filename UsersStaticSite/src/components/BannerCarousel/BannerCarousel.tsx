@@ -2,22 +2,21 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import BannerSkeleton from '../Skeletons/BannerSkeleton';
 import { HomeBanner, ResponseDTO } from '../../shared-lib/typesHomePage';
-import { getBanners } from '../../api/banners';
 import { useQuery } from '@tanstack/react-query';
 import { FetchError } from '../Errors/FetchError';
+import { getBanners } from '../../api/banners/getBanners';
 
 const BannerCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const swipeContainerRef = useRef<HTMLDivElement>(null);
 
-  const { data: bannerResponse, isLoading, isError, refetch } = useQuery<ResponseDTO<HomeBanner[]>>({
+  const { data: responseBannerDTO, isLoading, isError, refetch } = useQuery<ResponseDTO<HomeBanner[]>>({
     queryKey: ['banners'],
     queryFn: getBanners,
-    initialData: undefined
   });
 
-  const banners = bannerResponse?.data || [];
+  const banners = responseBannerDTO?.data || [];
 
   useEffect(() => {
     let intervalId: NodeJS.Timeout;

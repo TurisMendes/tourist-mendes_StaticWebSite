@@ -7,7 +7,7 @@ function Footer(): React.ReactNode {
     <footer className="bg-white dark:bg-lightGrey w-full" >
 
       <div className='flex flex-col sm:flex-row max-w-7xl mx-auto pl-4 pr-0 md:px-8 lg:px-16 py-12 md:py-20 items-start justify-between gap-8'>
-        <section className='flex flex-col items-start gap-2 w-[280px] md:w-[400px] lg:w-[400px] mb-8'>
+        <section className='flex flex-col items-start gap-2 w-[280px] md:w-[320px] lg:w-[470px] mb-8'>
           <h2 className='text-h2 mb-2'>SOBRE</h2>
           <p className='body-level-1 font-normal'>O TurisMendes nasceu para valorizar a cultura, história e talentos de Mendes-RJ.</p>
           <p className='body-level-1 font-normal'>Através de placas turísticas com QR Codes e uma plataforma online interativa, o projeto conecta visitantes e moradores às riquezas locais.</p>

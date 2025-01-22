@@ -4,18 +4,15 @@ import ButtonCustom from '../../ButtonCustom/ButtonCustom.tsx';
 import { useQuery } from '@tanstack/react-query';
 import EventCard from '../../Cards/EventCard/EventCard.tsx';
 import EventSkeleton from '../../Skeletons/EventSkeleton.tsx';
-import { getEvents } from '../../../api/events/index.ts';
 import { FetchError } from '../../Errors/FetchError.tsx';
-import { EventHomeCard } from '../../../shared-lib/typesHomePage.ts';
+import { getEvents } from '../../../api/events/getEvents.ts';
 
 function EventsSection(): React.ReactNode {
 
-  const { data: events, isLoading, isError, refetch } = useQuery({
+  const { data: responseEventsDTO, isLoading, isError, refetch } = useQuery({
     queryKey: ['events'],
     queryFn: getEvents,
-    initialData: undefined,
   });
-
 
   return (
     <section className="w-full dark:bg-darkBlack">
@@ -36,7 +33,7 @@ function EventsSection(): React.ReactNode {
                     <EventSkeleton />
                   </div>
                 ))
-              : events?.data.map((event: EventHomeCard, index: number) => (
+              : responseEventsDTO?.data?.map((event, index) => (
                 <div key={index} className="pl-4 md:pb-4 md:pl-0 lg:pl-0">
                   <EventCard
                     imageData={event.imageData}

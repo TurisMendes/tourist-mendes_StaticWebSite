@@ -3,7 +3,7 @@ import { TrilhasHomeCard } from '../../../shared-lib/typesHomePage';
 
 function TrailCard({ title, level, shortDescription, linkUrl, imageData }: TrilhasHomeCard): React.ReactNode {
   const getDifficultyStyles = (level: string) => {
-    switch (level.toLowerCase()) {
+    switch (level) {
       case 'fácil':
         return 'bg-lightGreen text-darkGreen';
       case 'médio':
@@ -42,7 +42,7 @@ function TrailCard({ title, level, shortDescription, linkUrl, imageData }: Trilh
             {shortDescription}
           </p>
         </div>
-        
+
       </a>
     </article>
   );

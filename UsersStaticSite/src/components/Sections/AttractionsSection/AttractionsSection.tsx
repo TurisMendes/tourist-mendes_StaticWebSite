@@ -4,15 +4,14 @@ import AttractionCard from '../../Cards/AttractionCard/AttractionCard.tsx';
 import ButtonCustom from '../../ButtonCustom/ButtonCustom.tsx';
 import { useQuery } from '@tanstack/react-query';
 import CardSkeleton from '../../Skeletons/CardSkeleton.tsx';
-import { getAttractions } from '../../../api/attractions/index.ts';
 import { FetchError } from '../../Errors/FetchError.tsx';
-import { AtracaoLocalHomeCard } from '../../../shared-lib/typesHomePage.ts';
+import { getAttractions } from '../../../api/attractions/getAttractions.ts';
+import { AtracaoLocalHomeCard, ResponseDTO } from '../../../shared-lib/typesHomePage.ts';
 
 function AttractionsSection(): React.ReactNode {
-  const { data: attractions, isLoading, isError, refetch } = useQuery({
+  const { data: responseAtracaoDTO, isLoading, isError, refetch } = useQuery<ResponseDTO<AtracaoLocalHomeCard[]>>({
     queryKey: ['attractions'],
     queryFn: getAttractions,
-    initialData: undefined,
   });
 
   return (
@@ -36,7 +35,7 @@ function AttractionsSection(): React.ReactNode {
                     <CardSkeleton />
                   </div>
                 ))
-              : attractions?.data.map((attraction: AtracaoLocalHomeCard, index: number) => (
+              : responseAtracaoDTO?.data?.map((attraction, index) => (
                 <div key={index} className="pl-4 lg:pl-0">
                   <AttractionCard
                     imageData={attraction.imageData}
