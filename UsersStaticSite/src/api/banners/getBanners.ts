@@ -1,10 +1,11 @@
+import { BASE_URL_API } from "../../globalConstants";
 import { HomeBanner, ResponseDTO } from "../../shared-lib/typesHomePage";
 import axios, { AxiosError } from "axios";
 
 export const getBanners = async (): Promise<ResponseDTO<HomeBanner[]>> => {
   try {
     const axiosInstance = axios.create({
-      baseURL: "",
+      baseURL: BASE_URL_API,
       headers: {
         "Content-Type": "application/json",
       },

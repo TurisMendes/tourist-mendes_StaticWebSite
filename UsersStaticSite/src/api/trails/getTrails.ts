@@ -1,10 +1,11 @@
+import { BASE_URL_API } from "../../globalConstants";
 import { ResponseDTO, TrilhasHomeCard } from "../../shared-lib/typesHomePage";
 import axios, { AxiosError } from "axios";
 
 export const getTrails = async () => {
   try {
     const axiosInstance = axios.create({
-      baseURL: "",
+      baseURL: BASE_URL_API,
       headers: {
         "Content-Type": "application/json",
       },

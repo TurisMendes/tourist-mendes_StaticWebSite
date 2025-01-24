@@ -1,3 +1,4 @@
+import { BASE_URL_API } from "../../globalConstants";
 import {
   AgenteCulturalHomeCard,
   ResponseDTO,
@@ -7,7 +8,7 @@ import axios, { AxiosError } from "axios";
 export const getAgents = async () => {
   try {
     const axiosInstance = axios.create({
-      baseURL: '',
+      baseURL: BASE_URL_API,
       headers: {
         'Content-Type': 'application/json',
       },
