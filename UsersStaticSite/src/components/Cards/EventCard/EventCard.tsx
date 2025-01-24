@@ -1,6 +1,6 @@
 import React from 'react';
-import ButtonCustom from '../ButtonCustom/ButtonCustom';
-import { EventHomeCard } from '../../shared-lib/typesHomePage';
+import ButtonCustom from '../../ButtonCustom/ButtonCustom';
+import { EventHomeCard } from '../../../shared-lib/typesHomePage';
 
 function EventCard({
   eventTitle,
@@ -11,13 +11,13 @@ function EventCard({
 
   return (
     <article
-      className="flex flex-col md:flex-row items-start md:items-center justify-start gap-5 w-[280px] h-[414px] md:w-[700px] md:h-[348px] lg:w-[480px] xl:w-[562px] xl:h-[348px] rounded-2xl p-5 bg-white dark:bg-darkGrey group"
+      className="flex flex-col md:flex-row lg:flex-col xl:flex-row items-start md:items-center justify-start gap-5 w-[280px] h-[414px] md:w-[700px] md:h-[348px] lg:w-[464px] lg:h-[614px] xl:w-[562px] xl:h-[348px] rounded-2xl p-5 bg-white dark:bg-darkGrey group drop-shadow-lg"
       aria-label={`Título do evento: ${eventTitle}`}
     >
       <img
         src={imageData.imageUrl}
         alt={imageData.altDescription}
-        className='w-[318px] h-[146px] md:w-[357px] md:h-[308px] lg:w-[200px] lg:h-[300px] xl:w-[253px] xl:h-[308px] rounded-xl object-cover lg:group-hover:scale-105 transition-transform duration-200'
+        className='w-[318px] h-[146px] md:w-[357px] md:h-[308px] lg:w-[424px] xl:w-[253px] xl:h-[308px] rounded-xl object-cover lg:group-hover:scale-105 transition-transform duration-200'
         role='img'
       />
       <div className='flex flex-col items-start justify-between gap-1 h-full'>
@@ -27,6 +27,7 @@ function EventCard({
         </div>
         <ButtonCustom text='Saiba mais' variant='secondary-dark' link={linkUrl} content={eventTitle} />
       </div>
+
     </article>
   );
 }
