@@ -5,6 +5,7 @@ interface ButtonProps {
   variant: 'primary' | 'secondary' | 'secondary-dark';
   content: string;
   link: string;
+  onClick?: () => void;
 }
 
 const ButtonCustom: React.FC<ButtonProps> = ({
