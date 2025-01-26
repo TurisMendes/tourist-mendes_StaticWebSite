@@ -3,7 +3,7 @@ import { TrilhasHomeCard } from '../../../shared-lib/typesHomePage';
 
 function TrailCard({ title, level, shortDescription, linkUrl, imageData }: TrilhasHomeCard): React.ReactNode {
   const getDifficultyStyles = (level: string) => {
-    switch (level.toLowerCase()) {
+    switch (level) {
       case 'fácil':
         return 'bg-lightGreen text-darkGreen';
       case 'médio':
@@ -15,10 +15,10 @@ function TrailCard({ title, level, shortDescription, linkUrl, imageData }: Trilh
     }
   };
   return (
-    <article className='w-[280px] h-[412px] lg:w-[224px] lg:h-[420px] xl:w-[250px] bg-white dark:bg-darkGrey rounded-2xl group'>
+    <article className='w-[280px] h-[412px] lg:w-[224px] lg:h-[420px] xl:w-[273px] bg-white dark:bg-darkGrey drop-shadow-lg rounded-2xl group'>
       <a
         href={linkUrl}
-        className='flex flex-col items-start h-full p-5 border-[1px] rounded-xl drop-shadow-sm dark:border-none'
+        className='flex flex-col items-start h-full p-5 border-[1px] rounded-xl dark:border-none'
         aria-label={`Nome da trilha: ${title}, Dificuldade: ${level}`}
       >
         <div className='mb-4'>
@@ -42,7 +42,7 @@ function TrailCard({ title, level, shortDescription, linkUrl, imageData }: Trilh
             {shortDescription}
           </p>
         </div>
-        
+
       </a>
     </article>
   );

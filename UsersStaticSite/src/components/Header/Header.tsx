@@ -2,9 +2,23 @@ import React, { useEffect, useState } from 'react';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 import AsideMenu from '../AsideMenu/AsideMenu';
 import { Menu, X } from 'lucide-react';
+import { motion, useMotionValueEvent, useScroll } from 'motion/react';
 
 function Header(): React.ReactNode {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { scrollY } = useScroll()
+  const [scrollDirection, setScrollDirection] = useState("up")
+
+  useMotionValueEvent(scrollY, "change", (current) => {
+    const previousDirection = scrollY?.getPrevious() ?? 0;
+    const directionDiff = current - previousDirection;
+    if (current <= 0) {
+      setScrollDirection('up');
+    } else {
+      setScrollDirection(directionDiff > 0 ? "down" : "up")
+
+    }
+  })
 
   const menuItems = [
     { label: 'Atrações Locais', href: '#' },
@@ -27,32 +41,39 @@ function Header(): React.ReactNode {
   }, [isMenuOpen]);
 
   return (
-    <header className="flex w-full gap-4 xl:gap-20 items-center justify-between bg-primary h-20 px-4 md:px-8 lg:px-10 xl:px-[150px]" >
-      <a href="/" className='w-[105px] flex items-center justify-center'>
-        <img
-          src="./src/assets/logos/TurisMendes.png"
-          alt="TurisMendes Logo"
-          className='w-full object-cover'
-        />
-      </a>
-      <nav className="hidden lg:flex">
-        <ul className="flex gap-6">
-          {menuItems.map((item) => (
-            <li key={item.label} className="w-fit">
-              <a
-                href={item.href}
-                className="truncate text-h4 text-white pb-2.5 hover:border-b-2 hover:border-white transition duration-300"
-                onClick={() => setIsMenuOpen(false)}
-                aria-label={`Ir para a página de ${item.label}`}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-      <div className='hidden lg:flex'>
-        <ThemeSwitcher />
+    <motion.header
+      animate={{ y: scrollDirection === 'down' ? -100 : 0 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+      className="fixed top-0 flex w-full items-center justify-between lg:justify-center bg-primary h-20 px-4 md:px-8 z-50"
+      id='home'
+    >
+      <div className="flex items-center justify-between lg:w-[944px] xl:w-[1140px] gap-8">
+        <a href="/" className='w-[105px] flex items-center justify-center'>
+          <img
+            src="./src/assets/logos/TurisMendes.svg"
+            alt="TurisMendes Logo"
+            className='w-full object-cover'
+          />
+        </a>
+        <nav className="hidden lg:flex">
+          <ul className="flex gap-6">
+            {menuItems.map((item) => (
+              <li key={item.label} className="w-fit">
+                <a
+                  href={item.href}
+                  className="truncate text-h4 text-white pb-2.5 hover:border-b-2 hover:border-white transition duration-300"
+                  onClick={() => setIsMenuOpen(false)}
+                  aria-label={`Ir para a página de ${item.label}`}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div className='hidden lg:flex'>
+          <ThemeSwitcher />
+        </div>
       </div>
 
       {isMenuOpen && (
@@ -74,7 +95,7 @@ function Header(): React.ReactNode {
       </button>
 
       <AsideMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} menuItems={menuItems} />
-    </header>
+    </motion.header>
   );
 }
 

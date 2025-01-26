@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 
 interface AsideMenuProps {
@@ -11,7 +11,13 @@ interface AsideMenuProps {
 }
 
 function AsideMenu({ isOpen, onClose, menuItems }: AsideMenuProps): React.ReactNode {
-
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflowY = 'hidden';
+    } else {
+      document.body.style.overflowY = 'auto';
+    }
+  }, [isOpen]);
   return (
     <aside
       id='mobile-menu'
@@ -19,7 +25,7 @@ function AsideMenu({ isOpen, onClose, menuItems }: AsideMenuProps): React.ReactN
           ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
     >
       <img
-        src="./src/assets/logos/TurisMendes.png"
+        src="./src/assets/logos/TurisMendes.svg"
         alt="TurisMendes Logo"
         className='w-[105px] h-[60px] mb-5'
       />
@@ -45,7 +51,7 @@ function AsideMenu({ isOpen, onClose, menuItems }: AsideMenuProps): React.ReactN
       </nav>
 
       <div className='bg-white w-full h-[1px]' />
-      
+
       <ThemeSwitcher />
     </aside>
   );

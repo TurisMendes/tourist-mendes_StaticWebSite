@@ -10,9 +10,9 @@ const Carousel: React.FC<CarouselProps> = ({
   className = '',
 }) => {
   return (
-    <section className={`w-full overflow-hidden flex justify-start lg:justify-between items-center`}>
+    <section className={`w-full overflow-hidden flex justify-start items-center`}>
       <div
-        className={`flex w-full gap-4 justify-start ${className} lg:justify-between overflow-x-auto overflow-y-hidden snap-x snap-mandatory lg:snap-none touch-pan no-scrollbar ${className}`}
+        className={`flex w-full justify-start overflow-x-auto overflow-y-hidden snap-x snap-mandatory lg:snap-none touch-pan no-scrollbar ${className}`}
         style={{
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',

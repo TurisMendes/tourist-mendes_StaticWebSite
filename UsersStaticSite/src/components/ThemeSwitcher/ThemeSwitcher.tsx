@@ -38,7 +38,7 @@ const ThemeSwitcher = () => {
 
   return (
     <div
-      className="relative flex items-center z-50"
+      className="relative flex items-center z-50 w-fit"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -62,11 +62,11 @@ const ThemeSwitcher = () => {
 
 
       {isDropdownOpen && (
-        <div className="absolute top-10 right-50 lg:right-0 w-[132px] h-[86px] py-2 bg-white dark:bg-lightGrey rounded-lg">
+        <div className="absolute top-10 right-50 lg:right-0 w-[132px] h-[90px] py-2 bg-white dark:bg-lightGrey rounded-lg">
           <button
             aria-live='polite'
             onClick={() => handleSelect('light')}
-            className="flex items-center justify-between w-[120px] h-[37px] gap-2 mx-1.5 px-2 hover:bg-primary text-black dark:text-white hover:text-white rounded-md"
+            className={`flex items-center justify-between w-[120px] h-[37px] gap-2 mx-1.5 px-2 ${!isDarkMode ? 'bg-primary' : ''} hover:bg-primaryDark active:bg-primary text-white hover:text-white rounded-md transition duration-200`}
           >
             <div className='flex items-center gap-1'>
               <Sun className="w-4 h-4" />
@@ -76,7 +76,7 @@ const ThemeSwitcher = () => {
           </button>
           <button
             onClick={() => handleSelect('dark')}
-            className="flex items-center justify-between w-[120px] h-[37px] gap-2 mx-1.5 px-2 hover:bg-primary text-black dark:text-white hover:text-white rounded-md"
+            className={`flex items-center justify-between w-[120px] h-[37px] gap-2 mx-1.5 px-2 ${isDarkMode ? 'bg-primary' : ''} hover:bg-primaryDark active:bg-primary text-black dark:text-white hover:text-white rounded-md transition duration-200`}
           >
             <div className='flex items-center gap-1'>
               <Moon className="w-4 h-4" />
