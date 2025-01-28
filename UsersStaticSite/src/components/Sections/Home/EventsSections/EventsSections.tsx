@@ -1,11 +1,11 @@
 import React from 'react';
-import Carousel from '../../Carousel/Carousel.tsx';
-import ButtonCustom from '../../ButtonCustom/ButtonCustom.tsx';
+import Carousel from '../../../Carousel/Carousel.tsx';
+import ButtonCustom from '../../../ButtonCustom/ButtonCustom.tsx';
 import { useQuery } from '@tanstack/react-query';
-import EventCard from '../../Cards/EventCard/EventCard.tsx';
-import EventSkeleton from '../../Skeletons/EventSkeleton.tsx';
-import { FetchError } from '../../Errors/FetchError.tsx';
-import { getEvents } from '../../../api/events/getEvents.ts';
+import EventCard from '../../../Cards/EventCard/EventCard.tsx';
+import EventSkeleton from '../../../Skeletons/EventSkeleton.tsx';
+import { FetchError } from '../../../Errors/FetchError.tsx';
+import { getEvents } from '../../../../api/events/getEvents.ts';
 
 function EventsSection(): React.ReactNode {
 

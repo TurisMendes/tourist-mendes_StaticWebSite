@@ -47,6 +47,10 @@
     @apply w-[123px] h-[40px] rounded-full bg-transparent border-2 border-primary text-primary hover:bg-primary hover:border-primary hover:text-white active:bg-primaryActive active:border-secondary dark:bg-transparent dark:text-white dark:border-secondary dark:hover:bg-secondary dark:hover:border-secondary dark:active:bg-secondaryActive dark:active:border-white transition-all duration-300;
   }
 
+  .button-large {
+    @apply w-[207px];
+  }
+
   .trail-tag-facil {
     @apply bg-lightGreen text-darkGreen;
   }

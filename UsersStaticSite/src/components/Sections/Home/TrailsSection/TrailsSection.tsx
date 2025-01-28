@@ -1,12 +1,12 @@
 import React from 'react';
-import Carousel from '../../Carousel/Carousel.tsx';
-import ButtonCustom from '../../ButtonCustom/ButtonCustom.tsx';
+import Carousel from '../../../Carousel/Carousel.tsx';
+import ButtonCustom from '../../../ButtonCustom/ButtonCustom.tsx';
 import { useQuery } from '@tanstack/react-query';
-import TrailSkeleton from '../../Skeletons/TrailSkeleton.tsx';
-import TrailCard from '../../Cards/TrailCard/TrailCard.tsx';
-import { FetchError } from '../../Errors/FetchError.tsx';
-import { ResponseDTO, TrilhasHomeCard } from '../../../shared-lib/typesHomePage.ts';
-import { getTrails } from '../../../api/trails/getTrails.ts';
+import TrailSkeleton from '../../../Skeletons/TrailSkeleton.tsx';
+import TrailCard from '../../../Cards/TrailCard/TrailCard.tsx';
+import { FetchError } from '../../../Errors/FetchError.tsx';
+import { ResponseDTO, TrilhasHomeCard } from '../../../../shared-lib/typesHomePage.ts';
+import { getTrails } from '../../../../api/trails/getTrails.ts';
 
 function TrailsSection(): React.ReactNode {
 

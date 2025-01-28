@@ -3,9 +3,10 @@ import React from 'react';
 interface ButtonProps {
   text: string;
   variant: 'primary' | 'secondary' | 'secondary-dark';
-  content: string;
+  content?: string;
   link: string;
   onClick?: () => void;
+  width?: string;
 }
 
 const ButtonCustom: React.FC<ButtonProps> = ({
@@ -13,6 +14,7 @@ const ButtonCustom: React.FC<ButtonProps> = ({
   variant,
   content,
   link,
+  width
 }) => {
 
   const getButtonClass = () => {
@@ -30,7 +32,7 @@ const ButtonCustom: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={`${getButtonClass()}`}
+      className={`${getButtonClass()} ${width}`}
       aria-label={`${text} sobre ${content}`}
       onClick={() => window.location.href = link}
     >

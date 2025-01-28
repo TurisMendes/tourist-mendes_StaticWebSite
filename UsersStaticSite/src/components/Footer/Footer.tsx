@@ -4,7 +4,7 @@ import Marquee from '../Marquee/Marquee';
 function Footer(): React.ReactNode {
 
   return (
-    <footer className="bg-white dark:bg-lightGrey w-full" >
+    <footer className="bg-offwhite dark:bg-lightGrey w-full" >
 
       <div className='flex flex-col sm:flex-row max-w-7xl mx-auto pl-4 pr-0 md:px-8 lg:px-16 py-12 md:py-20 items-start justify-between gap-8'>
         <section className='flex flex-col items-start gap-2 w-[280px] md:w-[320px] lg:w-[470px] mb-8'>
