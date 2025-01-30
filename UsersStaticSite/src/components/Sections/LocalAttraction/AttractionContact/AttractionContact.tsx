@@ -56,7 +56,7 @@ function AttractionContact({ content, socials }: Props): React.ReactNode {
       <div className="flex my-4 gap-2">
 
         {socials.facebooK && (
-          <a href="http://">
+          <a href={socials.facebooK}>
             <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_1720_899)">
                 <path d="M16 28.5649C22.6274 28.5649 28 23.1924 28 16.5649C28 9.93752 22.6274 4.56494 16 4.56494C9.37258 4.56494 4 9.93752 4 16.5649C4 23.1924 9.37258 28.5649 16 28.5649Z" stroke={isDarkMode ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -73,7 +73,7 @@ function AttractionContact({ content, socials }: Props): React.ReactNode {
         )}
 
         {socials.instagram && (
-          <a href="http://">
+          <a href={socials.instagram}>
             <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_1720_807)">
                 <path d="M16 21.5649C18.7614 21.5649 21 19.3264 21 16.5649C21 13.8035 18.7614 11.5649 16 11.5649C13.2386 11.5649 11 13.8035 11 16.5649C11 19.3264 13.2386 21.5649 16 21.5649Z" stroke={isDarkMode ? 'white' : 'black'} strokeWidth="2" strokeMiterlimit="10" />
@@ -90,7 +90,7 @@ function AttractionContact({ content, socials }: Props): React.ReactNode {
         )}
 
         {socials.whatsapp && (
-          <a href="http://">
+          <a href={socials.whatsapp}>
             <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_1720_15467)">
                 <path d="M9 13.5649C9 12.5041 9.42143 11.4867 10.1716 10.7365C10.9217 9.98637 11.9391 9.56494 13 9.56494L15 13.5649L13.46 15.8737C14.0709 17.3334 15.2316 18.4941 16.6912 19.1049L19 17.5649L23 19.5649C23 20.6258 22.5786 21.6432 21.8284 22.3934C21.0783 23.1435 20.0609 23.5649 19 23.5649C16.3478 23.5649 13.8043 22.5114 11.9289 20.636C10.0536 18.7606 9 16.2171 9 13.5649Z" stroke={isDarkMode ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -106,7 +106,7 @@ function AttractionContact({ content, socials }: Props): React.ReactNode {
         )}
 
         {socials.twitter && (
-          <a href="http://">
+          <a href={socials.twitter}>
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_1819_25228)">
                 <path d="M6 5H12L26 27H20L6 5Z" stroke={isDarkMode ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -123,7 +123,7 @@ function AttractionContact({ content, socials }: Props): React.ReactNode {
         )}
 
         {socials.tiktok && (
-          <a href="http://">
+          <a href={socials.tiktok}>
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_1819_25257)">
                 <g clipPath="url(#clip1_1819_25257)">

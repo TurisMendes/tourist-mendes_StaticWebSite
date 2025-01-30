@@ -89,6 +89,7 @@ function CarouselVideos({ videos }: Props): React.ReactNode {
           <article
             className='relative flex items-center justify-center w-full h-[220px] md:px-auto md:max-w-[770px] md:h-[472px] lg:max-w-[944px] xl:max-w-[1140px] xl:h-[680px]'>
             <iframe
+              title="Vídeo de interesse"
               className='w-full h-full object-cover rounded-lg'
               src={`https://www.youtube.com/embed/${videoIds[selectedVideoIndex]}`}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

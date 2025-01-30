@@ -45,7 +45,7 @@ function LocalAttraction(): React.ReactNode {
         <title>{selectedAttraction?.title}</title>
         <meta
           name="description"
-          content={`Descubra sobre Ruinas da fazenda santa rita. Saiba mais sobre sua história, horário de funcionamento, veja fotos e vídeos sobre o local.`} />
+          content={`Descubra sobre ${selectedAttraction.title}. Saiba mais sobre sua história, horário de funcionamento, veja fotos e vídeos sobre o local.`} />
       </Helmet>
       <main className="relative bg-white dark:bg-lightBlack pb-20">
         <div className='flex flex-col'>
