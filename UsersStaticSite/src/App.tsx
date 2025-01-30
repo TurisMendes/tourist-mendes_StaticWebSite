@@ -10,7 +10,7 @@ function App(): React.ReactNode {
       <Header />
       <Routes>
         <Route path="/" element={(<HomePage />)} />
-        <Route path="/atracaoLocal/:id" element={(<LocalAttraction />)} />
+        <Route path="/atraçãoLocal/:id" element={(<LocalAttraction />)} />
       </Routes>
       <Footer />  
     </>

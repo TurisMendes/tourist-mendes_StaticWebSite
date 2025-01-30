@@ -70,7 +70,7 @@ const ThemeSwitcher = () => {
           >
             <div className='flex items-center gap-1'>
               <Sun className="w-4 h-4" />
-              <span className='text-level-2'>Claro</span>
+              <span className='body-level-2'>Claro</span>
             </div>
             {!isDarkMode && <Check className="w-4 h-4" />}
           </button>
@@ -80,7 +80,7 @@ const ThemeSwitcher = () => {
           >
             <div className='flex items-center gap-1'>
               <Moon className="w-4 h-4" />
-              <span className='text-level-2'>Escuro</span>
+              <span className='body-level-2'>Escuro</span>
             </div>
             {isDarkMode && <Check className="w-4 h-4" />}
           </button>

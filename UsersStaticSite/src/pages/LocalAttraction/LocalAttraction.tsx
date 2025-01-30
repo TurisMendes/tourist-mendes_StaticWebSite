@@ -9,34 +9,55 @@ import AttractionContact from '../../components/Sections/LocalAttraction/Attract
 import CoverImage from '../../components/Sections/LocalAttraction/CoverImage/CoverImage';
 import Breadcrumb from '../../components/Sections/LocalAttraction/Breadcrumb/Breadcrumb';
 import AttractionDescription from '../../components/Sections/LocalAttraction/AttractionDescription/AttractionDescription';
+import { useParams } from 'react-router-dom';
+import attractions from '../../../public/mockLocalAttraction.json'
+import FullAtracaoLocalType from '../../shared-lib/FullAtracaoLocalType';
+import NotFound from '../../components/NotFound/NotFound';
+import ButtonBackToTop from '../../components/ButtonBackToTop/ButtonBackToTop';
 
 function LocalAttraction(): React.ReactNode {
+  const { id } = useParams<{ id: string }>();
+
+  const attraction = attractions.data as FullAtracaoLocalType[];
+  const selectedAttraction = attraction.find(item => item.id === id);
+
+  if (!selectedAttraction) {
+    return <NotFound />
+  }
+
   return (
     <>
       <Helmet>
-        <title>Ruinas da fazenda santa rita</title>
+        <title>{selectedAttraction?.title}</title>
         <meta
           name="description"
           content={`Descubra sobre Ruinas da fazenda santa rita. Saiba mais sobre sua história, horário de funcionamento, veja fotos e vídeos sobre o local.`} />
       </Helmet>
       <main className="relative bg-white dark:bg-lightBlack pb-20">
         <div className='flex flex-col'>
-          <CoverImage />
-          <Breadcrumb />
+          <CoverImage src={selectedAttraction?.coverImage} title={selectedAttraction?.title} category={selectedAttraction?.category} />
+          <Breadcrumb title={selectedAttraction.title} />
         </div>
-        <div className='w-full flex flex-col md:max-w-[770x] md:items-start md:justify-center md:mx-auto lg:max-w-[944px] xl:flex-row xl:justify-between xl:max-w-[1140px]'>
-          <AttractionDescription />
+        <div className='w-full mt-12 flex flex-col md:max-w-[770x] md:mt-20 md:items-start md:justify-center md:mx-auto lg:max-w-[944px] xl:flex-row xl:justify-between xl:max-w-[1140px]'>
+          <AttractionDescription
+            description={selectedAttraction?.longDescription}
+            info={selectedAttraction?.historicalInfo}
+            timeInfo={selectedAttraction.workingTime}
+            contacts={selectedAttraction.contacts}
+            socials={selectedAttraction.socialMedia}
+          />
           <div className="flex flex-col gap-12 md:max-w-[770px] md:items-start justify-center md:mx-auto lg:max-w-[944px] xl:mx-0">
-            <CarouselPhotos />
-            <CarouselVideos />
-            <Tour360 />
-            <LocationMap />
+            <CarouselPhotos photos={selectedAttraction?.photoGallery} />
+            <CarouselVideos videos={selectedAttraction.videos} />
+            <Tour360 link={selectedAttraction.tour360UrlLink} />
+            <LocationMap link={selectedAttraction.mapUrlLink} />
           </div>
-          <div className='flex flex-col md:w-[700px] md:items-start md:justify-center md:mx-auto lg:w-[944px] xl:hidden'>
-            <WorkingTime />
-            <AttractionContact />
+          <div className='flex flex-col md:w-[770px] md:items-start md:justify-center md:mx-auto lg:w-[944px] xl:hidden'>
+            <WorkingTime text={selectedAttraction.workingTime} />
+            <AttractionContact content={selectedAttraction.contacts} socials={selectedAttraction.socialMedia} />
           </div>
         </div>
+        <ButtonBackToTop />
       </main>
     </>
   );

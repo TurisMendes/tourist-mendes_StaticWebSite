@@ -44,13 +44,13 @@ function Header(): React.ReactNode {
     <motion.header
       animate={{ y: scrollDirection === 'down' ? -100 : 0 }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-      className="fixed top-0 flex w-full items-center justify-between lg:justify-center bg-primary h-20 px-4 md:px-8 z-50"
+      className="fixed top-0 flex w-full items-center justify-between lg:justify-center bg-primary h-20 px-4 md:px-8 z-30"
       id='home'
     >
       <div className="flex items-center justify-between lg:w-[944px] xl:w-[1140px] gap-8">
         <a href="/" className='w-[105px] flex items-center justify-center'>
           <img
-            src="../src/assets/logos/TurisMendes.svg"
+            src="/logos/TurisMendes.svg"
             alt="TurisMendes Logo"
             className='w-full object-cover'
           />

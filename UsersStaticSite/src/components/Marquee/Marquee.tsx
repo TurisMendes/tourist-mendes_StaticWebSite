@@ -4,18 +4,18 @@ import { motion } from "framer-motion";
 const logos = [
   {
     title: 'Realização',
-    src: '../src/assets/logos/SomosDev.svg'
+    src: '/logos/SomosDev.svg'
   },
   {
     title: 'Idealização',
-    src: '../src/assets/logos/ColetivoCafeina.svg'
+    src: '/logos/ColetivoCafeina.svg'
   },
   {
     title: 'Fomentadores',
     src: [
-      '../src/assets/logos/PrefeituraMendes.svg',
-      '../src/assets/logos/PNAB.svg',
-      '../src/assets/logos/GovernoFederal.svg'
+      '/logos/PrefeituraMendes.svg',
+      '/logos/PNAB.svg',
+      '/logos/GovernoFederal.svg'
     ]
   }
 ];

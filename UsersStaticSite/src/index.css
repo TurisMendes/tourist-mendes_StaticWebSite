@@ -27,11 +27,11 @@
     @apply text-black dark:text-white font-inter text-xs font-bold leading-7;
   }
 
-  .body-level-1 {
+  .text-level-1 {
     @apply text-black dark:text-white font-inter text-base font-bold leading-7;
   }
 
-  .body-level-2 {
+  .text-level-2 {
     @apply text-black dark:text-white font-inter text-sm font-bold leading-7;
   }
 
@@ -48,7 +48,7 @@
   }
 
   .button-large {
-    @apply w-[207px];
+    @apply w-fit px-4;
   }
 
   .trail-tag-facil {

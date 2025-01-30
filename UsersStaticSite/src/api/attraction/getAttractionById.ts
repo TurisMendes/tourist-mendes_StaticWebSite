@@ -27,6 +27,7 @@ export const getAttractionById = async (id: string) => {
         status: error instanceof AxiosError ? error.response?.status ?? 500 : 500,
         dataType: "ATRAÇÃO LOCAL",
        data: {
+         id: "",
          title: "",
          category: "",
          longDescription: "",

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface ButtonProps {
   text: string;
@@ -17,6 +18,18 @@ const ButtonCustom: React.FC<ButtonProps> = ({
   width
 }) => {
 
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    const isExternalLink = link.startsWith('http') || link.startsWith('https');
+    
+    if (isExternalLink) {
+      window.open(link, '_blank', 'noopener noreferrer');
+    } else {
+      navigate(link);
+    }
+  };
+
   const getButtonClass = () => {
     switch (variant) {
       case 'primary':
@@ -34,7 +47,7 @@ const ButtonCustom: React.FC<ButtonProps> = ({
     <button
       className={`${getButtonClass()} ${width}`}
       aria-label={`${text} sobre ${content}`}
-      onClick={() => window.location.href = link}
+      onClick={handleClick}
     >
       <span
         className='text-h4 font-montserrat'>{text}

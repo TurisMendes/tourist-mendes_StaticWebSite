@@ -39,14 +39,14 @@ function ButtonBackToTop(): React.ReactNode {
         <motion.button
           onClick={scrollToTop}
           className={`group fixed flex items-center justify-center ${isAtBottom ? "bottom-[270px] right-10" : "bottom-10 right-6"
-            } text-white bg-primaryDark hover:bg-primary dark:bg-secondaryDark rounded-full p-2 transition-colors z-40`}
-          initial={{ width: "55px", height: "55px" }}
-          whileHover={{ width: "165px" }}
+            } text-white bg-primaryDark hover:bg-primary dark:bg-secondaryDark rounded-full transition-colors z-30`}
+          initial={{ width: "56px", height: "56px" }}
+          whileHover={{ width: "160px" }}
           transition={{ duration: 0.1, ease: "linear" }}
         >
-          <ChevronUp className="w-6 lg:w-10 h-6 lg:h-10 text-white" />
+          <ChevronUp className="w-6 lg:w-10 h-6 lg:h-10 pb-[2px] text-white" />
           <motion.span
-            className="hidden lg:group-hover:flex font-medium text-white transition-all duration-300 flex-shrink-0"
+            className="hidden lg:group-hover:flex pr-1 font-medium text-white transition-all duration-100 flex-shrink-0 whitespace-nowrap"
           >
             Voltar ao topo
           </motion.span>
