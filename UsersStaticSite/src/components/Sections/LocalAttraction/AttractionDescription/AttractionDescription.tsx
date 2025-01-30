@@ -28,12 +28,10 @@ function AttractionDescription({ description, info, timeInfo, contacts, socials 
       <section className='max-w-[335px] flex flex-col gap-4 md:max-w-[770px] lg:max-w-[944px] xl:max-w-[530px]'>
         <h2 className='text-h2 text-black'>Descrição</h2>
         <p className='text-level-1 font-normal'>{description}</p>
-        <p className='text-level-1 font-normal'>{description}</p>
       </section>
 
       <section className='max-w-[335px] flex flex-col gap-4 md:max-w-[770px] lg:max-w-[944px] xl:max-w-[530px]'>
         <h2 className='text-h2 text-black'>Informações históricas</h2>
-        <p className='text-level-1 font-normal'>{info}</p>
         <p className='text-level-1 font-normal'>{info}</p>
       </section>
 

@@ -68,7 +68,7 @@
       "workingTime": "De segunda a sexta das 8hs as 18hs.",
       "contacts": {
         "phoneNumbers": ["(24)91234-5688", "(24)98877-6655"],
-        "email": ["info@example.com", "contact@example.com"],
+        "email": ["info@example.com"],
         "site": ["https://exampleattraction.com"],
         "address": ["Rua Marcos Castro, 001"]
       },

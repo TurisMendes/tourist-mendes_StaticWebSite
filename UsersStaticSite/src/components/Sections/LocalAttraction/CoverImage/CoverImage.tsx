@@ -4,15 +4,15 @@ import { ImageData } from '../../../../shared-lib/typesHomePage';
 interface Props {
   src: ImageData | undefined,
   title: string | undefined,
-  category: string | undefined
+  category: string | undefined,
 }
 
-function CoverImage({src, title, category}: Props): React.ReactNode {
+function CoverImage({ src, title, category }: Props): React.ReactNode {
 
   return (
     <section className="relative w-full flex flex-col items-start justify-center">
       <img
-        src={src?.imageUrl}
+        src={src ? src.imageUrl : ''}
         alt={src?.altDescription}
         className="w-full h-[632px] object-cover"
       />
@@ -21,8 +21,6 @@ function CoverImage({src, title, category}: Props): React.ReactNode {
           <h1 className="text-h1 leading-8 text-white mb-2">{title}</h1>
           <h2 className="text-h3 leading-6 text-white">{category}</h2>
         </div>
-
-        
       </div>
     </section>
   )

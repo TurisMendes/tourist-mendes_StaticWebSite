@@ -10,19 +10,33 @@ import CoverImage from '../../components/Sections/LocalAttraction/CoverImage/Cov
 import Breadcrumb from '../../components/Sections/LocalAttraction/Breadcrumb/Breadcrumb';
 import AttractionDescription from '../../components/Sections/LocalAttraction/AttractionDescription/AttractionDescription';
 import { useParams } from 'react-router-dom';
-import attractions from '../../../public/mockLocalAttraction.json'
-import FullAtracaoLocalType from '../../shared-lib/FullAtracaoLocalType';
 import NotFound from '../../components/NotFound/NotFound';
 import ButtonBackToTop from '../../components/ButtonBackToTop/ButtonBackToTop';
+import { useQuery } from '@tanstack/react-query';
+import { getAttractionById } from '../../api/attraction/getAttractionById';
+import LocalAttractionSkeleton from '../../components/Skeletons/LocalAttractionSkeleton';
 
 function LocalAttraction(): React.ReactNode {
   const { id } = useParams<{ id: string }>();
 
-  const attraction = attractions.data as FullAtracaoLocalType[];
-  const selectedAttraction = attraction.find(item => item.id === id);
+  const { data: responseAttractionDTO, isLoading, isError } = useQuery({
+    queryKey: ['attraction', id],
+    queryFn: () => getAttractionById(id!),
+    enabled: !!id,
+  });
 
-  if (!selectedAttraction) {
-    return <NotFound />
+  const selectedAttraction = responseAttractionDTO?.data;
+
+  if (isLoading) {
+    return <LocalAttractionSkeleton />;
+  }
+
+  if (isError) {
+    return <NotFound />;
+  }
+
+  if (!id || !selectedAttraction) {
+    return <NotFound />;
   }
 
   return (
