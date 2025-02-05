@@ -71,4 +71,14 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  #map {
+    height: 50vh;
+    width: 100%;
+  }
+  
+  .leaflet-container {
+    height: 100%;
+    width: 100%;
+  }
 }

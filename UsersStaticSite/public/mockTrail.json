@@ -1,0 +1,58 @@
+{
+  "message": "",
+  "status": 200,
+  "dataType": "TRILHA",
+  "data": {
+    "title": "Torre de Mendes",
+    "category": "Natureza e Aventura",
+    "longDescription": "Uma trilha deslumbrante passando por paisagens incríveis, culminando em uma cachoeira escondida no meio da floresta.",
+    "trilhaInfo": {
+      "extension": 8.5,
+      "avgDuration": "3h 30min",
+      "difficulty": "moderada",
+      "linkUrlMoreInfo": ""
+    },
+    "workingTime": "Diariamente das 06h às 18h.",
+    "contacts": {
+      "phoneNumbers": ["+55 11 99999-9999", "+55 11 98888-8888"],
+      "email": ["contato@trilhasaventura.com"],
+      "site": ["https://trilhasaventura.com"],
+      "address": ["Rua do Começo da Trilha, 123, Bairro, Mendes - RJ"]
+    },
+    "socialMedia": {
+      "instagram": "https://instagram.com/trilhasaventura",
+      "facebook": "https://facebook.com/trilhasaventura",
+      "tiktok": "https://tiktok.com/@trilhasaventura",
+      "whatsapp": "https://wa.me/5511999999999",
+      "twitter": "https://twitter.com/trilhasaventura"
+    },
+    "coverImage": {
+      "imageUrl": "/images/image1.png",
+      "altDescription": "Vista aérea da cachoeira secreta no meio da floresta"
+    },
+    "photoGallery": [
+      {
+        "imageUrl": "/images/image2.jpg",
+        "altDescription": "Início da trilha com vegetação exuberante"
+      },
+      {
+        "imageUrl": "/images/image3.jpg",
+        "altDescription": "Ponte de madeira atravessando o rio"
+      },
+      {
+        "imageUrl": "/images/image4.jpg",
+        "altDescription": "Vista panorâmica do vale"
+      }
+    ],
+    "videos": [
+      {
+        "videoUrl": "https://youtu.be/_spDziMUNn0?si=HGMlpENWHYSlcKy2"
+      },
+      {
+        "videoUrl": "https://youtu.be/FrLNl9heUHc?si=U9w-sP_nXzes0cvV"
+      }
+    ],
+    "tour360UrlLink": "https://example.com/tour360/trilha-cachoeira",
+    "linkUrlForGPX": "/torresMendesTrail.gpx"
+  }
+}
