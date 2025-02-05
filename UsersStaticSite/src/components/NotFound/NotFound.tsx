@@ -23,7 +23,7 @@ function NotFound(): React.ReactNode {
 
   return (
     <article className='h-[80vh] relative flex flex-col gap-4 items-center justify-center'>
-      <h1 className='text-h1 uppercase'>Atração não encontrada</h1>
+      <h1 className='text-h1 uppercase'>Página não encontrada</h1>
       <p className='text-body-1 text-black dark:text-white'>Redirecionando em {countdown} segundos...</p>
       <ButtonCustom 
         link='/' 

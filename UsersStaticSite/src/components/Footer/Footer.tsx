@@ -20,7 +20,7 @@ function Footer(): React.ReactNode {
         {sobre &&
           <><section className='flex flex-col items-start gap-2 w-[280px] md:w-[320px] lg:w-[470px] mb-8'>
             <h2 className='text-h2 mb-2'>SOBRE</h2>
-            {sobre.aboutDescription.map(line => <p className='text-level-1 font-normal'>{line}</p>)}
+            {sobre.aboutDescription.map((line, index) => <p key={index} className='text-level-1 font-normal'>{line}</p>)}
             
           </section>
 

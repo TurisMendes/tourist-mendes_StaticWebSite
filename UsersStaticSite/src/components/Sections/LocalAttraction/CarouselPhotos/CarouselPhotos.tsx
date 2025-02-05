@@ -6,7 +6,7 @@ interface Props {
   photos: ImageData[] | undefined;
 }
 
-function CarouselMedia({ photos }: Props): React.ReactNode {
+function CarouselPhotos({ photos }: Props): React.ReactNode {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const thumbnailRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -36,7 +36,7 @@ function CarouselMedia({ photos }: Props): React.ReactNode {
   }, [isModalOpen, selectedImageIndex]);
 
   return (
-    <section className='w-full flex flex-col flex-grow items-start px-4 pr-0 py-8 md:px-0 md:mx-auto md:max-w-[770px] md:items-start md:justify-between lg:max-w-[944px] lg:px-0 lg:py-16 xl:py-0 xl:max-w-[540px]'>
+    <section className='w-full flex flex-col flex-grow items-start px-4 pr-0 py-8 md:px-0 md:mx-auto md:max-w-[770px] md:items-start md:justify-between lg:min-w-[944px] lg:max-w-[944px] lg:px-0 lg:py-16 xl:mx-0 xl:py-0 xl:min-w-[530px] xl:max-w-[540px]'>
       <h2 className='text-h2 mb-4'>Fotos</h2>
       <article
         className="flex w-full justify-start overflow-x-auto overflow-y-hidden snap-x snap-mandatory touch-pan no-scrollbar gap-2 md:flex-wrap md:snap-none">
@@ -131,4 +131,4 @@ function CarouselMedia({ photos }: Props): React.ReactNode {
   );
 }
 
-export default CarouselMedia;
+export default CarouselPhotos;
