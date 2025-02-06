@@ -12,9 +12,9 @@ import LocalAttractionSkeleton from '../../components/Skeletons/LocalAttractionS
 import FullTrilhaType from '../../shared-lib/FullTrilhaType';
 import { getTrilhaById } from '../../api/getTrilhaById/getTrilhaById';
 import DescriptionTrilha from '../../components/Sections/Trilha/DescriptionTrilha/DescriptionTrilha';
-import Tour360 from '../../components/Sections/LocalAttraction/Tour360/Tour360';
 import TrilhaMap from '../../components/Sections/Trilha/TrilhaMap/TrilhaMap';
 import WorkingTime from '../../components/Sections/LocalAttraction/WorkingTime/WorkingTime';
+import Foto360 from '../../components/Sections/Trilha/Foto360/Foto360';
 
 function TrilhaPage(): React.ReactNode {
   const { id } = useParams<{ id: string }>();
@@ -66,11 +66,11 @@ function TrilhaPage(): React.ReactNode {
               <div className="flex flex-col md:max-w-[770px] md:items-start justify-center md:mx-auto xl:gap-16 lg:max-w-[944px] xl:mx-0">
                 {selectedTrilha.photoGallery && <CarouselPhotos photos={selectedTrilha.photoGallery} />}
                 {selectedTrilha.videos.length > 0 && <CarouselVideos videos={selectedTrilha.videos} />}
-                {selectedTrilha.tour360UrlLink && <Tour360 link={selectedTrilha.tour360UrlLink} />}
+                {selectedTrilha.tour360UrlLink && <Foto360 link={selectedTrilha.tour360UrlLink} />}
                 {selectedTrilha.linkUrlForGPX && <TrilhaMap link={selectedTrilha.linkUrlForGPX} />}
               </div>
 
-              <div className='flex flex-col md:min-w-[740px] md:w-[770px] md:items-start justify-center md:mx-auto lg:w-[944px] xl:hidden'>
+              <div className='flex flex-col gap-12 md:min-w-[740px] md:w-[770px] md:items-start justify-center md:mx-auto lg:w-[944px] xl:hidden'>
                 {selectedTrilha.workingTime && <WorkingTime text={selectedTrilha.workingTime} />}
                 <ContactEvento content={selectedTrilha.contacts} socials={selectedTrilha.socialMedia} />
               </div>

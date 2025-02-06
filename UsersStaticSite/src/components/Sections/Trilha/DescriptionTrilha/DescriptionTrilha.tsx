@@ -40,18 +40,16 @@ function DescriptionTrilha({ description, info, contacts, socials, workingTime }
 
       <section className='flex flex-col gap-4 md:w-full'>
         <h2 className='text-h2 text-black'>Informações da trilha</h2>
-        <article className='w-full flex flex-col gap-4 md:gap-12 md:flex-row md:items-start md:justify-evenly lg:gap-20 xl:w-fit xl:gap-6'>
-          <div className="flex w-full gap-6 xl:w-fit">
-            <div className='flex flex-col w-full xl:w-fit'>
-              <h3 className='text-h2 text-primary dark:text-secondary'>{info.extension} km</h3>
-              <p className='text-level-1 text-gray-700 font-normal'>Extensão</p>
-            </div>
-            <div className='flex flex-col w-full xl:w-fit'>
-              <p className='text-h2 text-primary dark:text-secondary'>{info.avgDuration}</p>
-              <p className='text-level-1 text-gray-700 font-normal'>Duração Média</p>
-            </div>
+        <article className='w-full flex flex-wrap md:gap-12 md:flex-row md:items-start md:justify-between xl:w-fit xl:gap-0'>
+          <div className='flex w-[176px] flex-col'>
+            <h3 className='text-h2 text-primary dark:text-secondary'>{info.extension} km</h3>
+            <p className='text-level-1 text-gray-700 font-normal'>Extensão</p>
           </div>
-          <div className='flex flex-col w-full xl:w-fit'>
+          <div className='flex w-[176px] flex-col'>
+            <p className='text-h2 text-primary dark:text-secondary'>{info.avgDuration}</p>
+            <p className='text-level-1 text-gray-700 font-normal'>Duração Média</p>
+          </div>
+          <div className='flex w-[176px] flex-col'>
             <p className='text-h2 text-primary dark:text-secondary capitalize'>{info.difficulty}</p>
             <p className='text-level-1 text-gray-700 font-normal'>Dificuldade</p>
           </div>
@@ -60,7 +58,7 @@ function DescriptionTrilha({ description, info, contacts, socials, workingTime }
           <Link to={info.linkUrlMoreInfo}>
             <p className='text-level-1 font-montserrat text-primary hover:text-primaryDark active:text-primaryActive underline underline-offset-1 dark:text-secondary dark:hover:text-secondaryDark dark:active:text-secondaryActive'>Mais informações</p>
           </Link>
-          <SquareArrowOutUpRight className='text-primary w-5 h-5' />
+          <SquareArrowOutUpRight className='text-primary dark:text-secondary w-5 h-5' />
         </div>
       </section>
 
