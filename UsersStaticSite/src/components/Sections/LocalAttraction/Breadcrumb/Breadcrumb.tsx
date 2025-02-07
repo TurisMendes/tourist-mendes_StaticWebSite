@@ -83,7 +83,7 @@ const Breadcrumb = ({
       <ol className="flex items-center justify-center gap-1 flex-wrap">
         <li className="flex items-center">
           <Link to="/" className="flex items-center">
-            <span className="text-level-2 underline underline-offset-2 font-medium leading-6 text-gray-500 dark:text-white">Home</span>
+            <span className="text-level-2 underline underline-offset-2 font-medium leading-6 text-gray-500 hover:text-primary transition-all duration-300 dark:text-white dark:hover:text-secondary">Home</span>
           </Link>
         </li>
 

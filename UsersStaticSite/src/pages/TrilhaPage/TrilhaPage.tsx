@@ -7,7 +7,6 @@ import Breadcrumb from '../../components/Sections/LocalAttraction/Breadcrumb/Bre
 import CarouselVideos from '../../components/Sections/LocalAttraction/CarouselVideos/CarouselVideos';
 import CarouselPhotos from '../../components/Sections/LocalAttraction/CarouselPhotos/CarouselPhotos';
 import ButtonBackToTop from '../../components/ButtonBackToTop/ButtonBackToTop';
-import ContactEvento from '../../components/Sections/Evento/ContactEvento/ContactEvento';
 import LocalAttractionSkeleton from '../../components/Skeletons/LocalAttractionSkeleton';
 import FullTrilhaType from '../../shared-lib/FullTrilhaType';
 import { getTrilhaById } from '../../api/getTrilhaById/getTrilhaById';
@@ -15,6 +14,7 @@ import DescriptionTrilha from '../../components/Sections/Trilha/DescriptionTrilh
 import TrilhaMap from '../../components/Sections/Trilha/TrilhaMap/TrilhaMap';
 import WorkingTime from '../../components/Sections/LocalAttraction/WorkingTime/WorkingTime';
 import Foto360 from '../../components/Sections/Trilha/Foto360/Foto360';
+import ContactTrilha from '../../components/Sections/Trilha/ContactTrilha/ContactTrilha';
 
 function TrilhaPage(): React.ReactNode {
   const { id } = useParams<{ id: string }>();
@@ -60,21 +60,19 @@ function TrilhaPage(): React.ReactNode {
                 info={selectedTrilha.trilhaInfo}
                 timeInfo={selectedTrilha.workingTime}
                 contacts={selectedTrilha.contacts}
-                socials={selectedTrilha.socialMedia}
                 workingTime={selectedTrilha.workingTime}
               />
-              <div className="flex flex-col md:max-w-[770px] md:items-start justify-center md:mx-auto xl:gap-16 lg:max-w-[944px] xl:mx-0">
+              <div className="flex flex-col gap-12 md:max-w-[770px] md:items-start justify-center md:mx-auto xl:gap-16 lg:max-w-[944px] xl:mx-0">
+                <TrilhaMap link={selectedTrilha.linkUrlForGPX} />
                 {selectedTrilha.photoGallery && <CarouselPhotos photos={selectedTrilha.photoGallery} />}
                 {selectedTrilha.videos.length > 0 && <CarouselVideos videos={selectedTrilha.videos} />}
                 {selectedTrilha.tour360UrlLink && <Foto360 link={selectedTrilha.tour360UrlLink} />}
-                {selectedTrilha.linkUrlForGPX && <TrilhaMap link={selectedTrilha.linkUrlForGPX} />}
               </div>
 
               <div className='flex flex-col gap-12 md:min-w-[740px] md:w-[770px] md:items-start justify-center md:mx-auto lg:w-[944px] xl:hidden'>
                 {selectedTrilha.workingTime && <WorkingTime text={selectedTrilha.workingTime} />}
-                <ContactEvento content={selectedTrilha.contacts} socials={selectedTrilha.socialMedia} />
+                <ContactTrilha content={selectedTrilha.contacts} />
               </div>
-
             </div>
             <ButtonBackToTop />
           </main>

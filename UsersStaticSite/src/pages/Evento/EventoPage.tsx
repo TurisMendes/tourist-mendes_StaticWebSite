@@ -62,7 +62,7 @@ function EventoPage(): React.ReactNode {
                 socials={selectedEvent.socialMedia}
 
               />
-              <div className="flex flex-col md:max-w-[770px] md:items-start justify-center md:mx-auto xl:gap-16 lg:max-w-[944px] xl:mx-0">
+              <div className="flex flex-col gap-12 md:max-w-[770px] md:items-start justify-center md:mx-auto xl:gap-16 lg:max-w-[944px] xl:mx-0">
                 {selectedEvent.schedule && <Calendario schedule={selectedEvent.schedule} />}
                 {selectedEvent.photoGallery && <CarouselPhotos photos={selectedEvent.photoGallery} />}
                 {selectedEvent.videos.length > 0 && <CarouselVideos videos={selectedEvent.videos} />}

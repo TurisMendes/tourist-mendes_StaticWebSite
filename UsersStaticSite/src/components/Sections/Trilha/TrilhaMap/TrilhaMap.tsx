@@ -117,7 +117,7 @@ const GpxTrack: React.FC<{ link: string }> = ({ link }) => {
 
 const TrilhaMap: React.FC<Props> = ({ link }) => {
   return (
-    <div className="w-[97%] h-[327px] pl-4 mt-12 md:pl-0 md:w-full xl:w-[530px] z-20">
+    <div className="w-[97%] h-[327px] mb-12 pl-4 md:pl-0 md:w-full xl:w-[530px] z-20">
       <h2 className="text-h2 mb-4">Mapa do Circuito</h2>
       <MapContainer
         center={[0, 0]}

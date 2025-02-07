@@ -5,7 +5,7 @@ import axios from "axios";
 export const getTrilhaById = async (id: string) => {
   try {
     const response = await axios.get<ResponseDTO<FullTrilhaType>>(
-      `/trilha/${id}`
+      `/mockTrail.json`
     );
 
     return response.data;

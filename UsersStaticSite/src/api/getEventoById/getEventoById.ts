@@ -5,7 +5,7 @@ import axios from "axios";
 export const getEventoById = async (id: string) => {
   try {
     const response = await axios.get<ResponseDTO<FullEventoType>>(
-      `/evento/${id}`
+      `/mockEvent.json`
     );
 
     return response.data;

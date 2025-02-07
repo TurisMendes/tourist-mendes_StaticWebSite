@@ -24,37 +24,46 @@ function ContactEvento({ content, socials }: Props): React.ReactNode {
     <section className="px-4 md:px-0">
       <h2 className='text-h2 mb-4'>Contato</h2>
 
-      <div className='flex flex-col gap-1'>
-        <div className="flex flex-col md:flex-row md:gap-2">
-          <p className='text-level-1 font-bold'>Telefone:</p>
-          <article className='flex gap-2'>
-            <a href={`tel:${content.phoneNumbers[0]}`} className='text-level-1 font-normal'>{content.phoneNumbers[0]}</a>
-            {content.phoneNumbers.length > 1 && (
-              <>
-                <p className='text-black dark:text-white'>/</p>
-                <a href={`tel:${content.phoneNumbers[1]}`} className='text-level-1 font-normal'>{content.phoneNumbers[1]}</a>
-              </>
-            )}
-          </article>
-        </div>
-        <div className='flex flex-col md:flex-row md:gap-2'>
-          <p className='text-level-1 font-bold'>Email:</p>
-          <article className='flex gap-2'>
-            <a href={`mailto:${content.email[0]}`} className='text-level-1 font-normal'>{content.email[0]}</a>
-            {content.email.length > 1 && (
-              <>
-                <p className='text-black dark:text-white'>/</p>
-                <a href={`mailto:${content.email[1]}`} className='text-level-1 font-normal'>{content.email[1]}</a>
-              </>
-            )}
-          </article>
-        </div>
-        <div className='flex flex-col md:flex-row md:gap-2'>
-          <p className='text-level-1 font-bold'>Site:</p>
-          <a href={content.site[0]} target='_blank' rel="noreferrer" className='text-level-1 font-normal'>{content.site}</a>
-        </div>
-        <div className="flex flex-col gap-1 md:flex-row xl:max-w-[420px]">
-          <p className="text-level-1 h-fit z-10">Endereço:</p>
+      <div className='flex flex-col gap-2'>
+        {content.phoneNumbers && (
+          <div className="flex flex-col">
+            <p className='text-level-1 font-bold'>Telefone</p>
+            <article className='flex gap-2'>
+              <a href={`tel:${content.phoneNumbers[0]}`} className='text-level-1 font-normal'>{content.phoneNumbers[0]}</a>
+              {content.phoneNumbers.length > 1 && (
+                <>
+                  <p className='text-black dark:text-white'>|</p>
+                  <a href={`tel:${content.phoneNumbers[1]}`} className='text-level-1 font-normal'>{content.phoneNumbers[1]}</a>
+                </>
+              )}
+            </article>
+          </div>
+        )}
+
+        {content.email && (
+          <div className='flex flex-col'>
+            <p className='text-level-1 font-bold'>Email</p>
+            <article className='flex gap-2'>
+              <a href={`mailto:${content.email[0]}`} className='text-level-1 font-normal'>{content.email[0]}</a>
+              {content.email.length > 1 && (
+                <>
+                  <p className='text-black dark:text-white'>|</p>
+                  <a href={`mailto:${content.email[1]}`} className='text-level-1 font-normal'>{content.email[1]}</a>
+                </>
+              )}
+            </article>
+          </div>
+        )}
+
+        {content.site && (
+          <div className='flex flex-col'>
+            <p className='text-level-1 font-bold'>Site</p>
+            <a href={content.site[0]} target='_blank' rel="noreferrer" className='text-level-1 font-normal'>{content.site}</a>
+          </div>
+        )}
+
+        <div className="flex flex-col xl:max-w-[420px]">
+          <p className="text-level-1 h-fit z-10">Endereço</p>
           <address className="text-level-1 not-italic font-normal">
             {content.address}
           </address>
