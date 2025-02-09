@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
@@ -18,28 +18,24 @@ import TrilhaPageSkeleton from "./TrilhaPageSkeleton";
 
 function TrilhaPage(): React.ReactNode {
   const { id } = useParams<{ id: string }>();
-  const [selectedTrilha, setSelectedTrilha] = useState<
-    FullTrilhaType | undefined
-  >();
   const navigate = useNavigate();
-
-  const { data, isLoading, isError, } = useQuery({
+  
+  const { data, isLoading, isError, error} = useQuery({
     queryKey: ["trail", id],
     queryFn: () => getTrilhaById(id!),
     enabled: !!id,
   });
+  const selectedTrilha: FullTrilhaType | undefined = data?.data;
 
   useEffect(() => {
     if (!id) {
       navigate("/notFound");
       return;
     }
-    if (!isLoading && data) {
-      setSelectedTrilha(data.data);
-    } else if (isError) {
+    if (isError) {
       navigate("/notFound");
     }
-  }, [id, isLoading, data, isError, navigate]);
+  }, [id, isError, error, navigate]);
 
     return (
     <>
