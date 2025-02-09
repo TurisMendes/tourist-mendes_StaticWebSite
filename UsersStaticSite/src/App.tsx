@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom"
 import HomePage from "./pages/Home/HomePage"
 import Footer from "./components/Footer/Footer"
 import LocalAttraction from "./pages/LocalAttraction/LocalAttraction"
-import NotFound from "./components/NotFound/NotFound"
+import NotFound from "./pages/NotFound/NotFound"
 import EventoPage from "./pages/Evento/EventoPage"
 import TrilhaPage from "./pages/TrilhaPage/TrilhaPage"
 function App(): React.ReactNode {

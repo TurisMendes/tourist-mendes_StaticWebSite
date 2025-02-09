@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ButtonCustom from '../ButtonCustom/ButtonCustom';
+import ButtonCustom from '../../components/ButtonCustom/ButtonCustom';
 import { useNavigate } from 'react-router-dom';
 
 function NotFound(): React.ReactNode {

@@ -5,10 +5,11 @@ import axios from "axios";
 export const getTrilhaById = async (id: string) => {
   try {
     const response = await axios.get<ResponseDTO<FullTrilhaType>>(
-      `/mockTrail.json`
+      `/trilha/${id}`
     );
 
     return response.data;
+    
   } catch (error) {
     if (axios.isAxiosError(error)) {
       if (error.response) {

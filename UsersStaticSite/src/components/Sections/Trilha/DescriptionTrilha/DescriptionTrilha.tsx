@@ -20,9 +20,10 @@ interface Props {
     address: string[];
   };
   workingTime: string;
+  isLoading: boolean;
 }
 
-function DescriptionTrilha({ description, info, contacts, workingTime }: Props): React.ReactNode {
+function DescriptionTrilha({ description, info, contacts, workingTime, isLoading }: Props): React.ReactNode {
 
   return (
     <section className='px-4 flex flex-col gap-12 md:px-8 lg:px-0 md:items-start md:justify-center md:mx-auto lg:mx-0 lg:gap-20'>
@@ -58,8 +59,8 @@ function DescriptionTrilha({ description, info, contacts, workingTime }: Props):
       </section>
 
       <div className='hidden xl:flex xl:flex-col xl:gap-20'>
-        <WorkingTime text={workingTime} />
-        <ContactTrilha content={contacts} />
+        <WorkingTime text={workingTime} isLoading={isLoading} />
+        <ContactTrilha content={contacts} isLoading={isLoading} />
       </div>
     </section>
   )

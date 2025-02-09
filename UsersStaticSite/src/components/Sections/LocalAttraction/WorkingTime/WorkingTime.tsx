@@ -1,21 +1,26 @@
-import React from 'react';
+import React from "react";
+import WorkingTimeSkeleton from "./WorkingTimeSkeleton";
 
 interface Props {
   text: string;
+  isLoading?: boolean;
 }
 
-function WorkingTime({ text }: Props): React.ReactNode {
-
+function WorkingTime({ text, isLoading }: Props): React.ReactNode {
   return (
-    <section className='pl-4 flex flex-col gap-4 md:pl-0'>
-      <h2 className='text-h2'>Funcionamento</h2>
-      <div className='flex flex-col'>
-        {text && (
-          <p className='text-level-1'>{text}</p>
-        )}
-      </div>
+    <section className="w-full pl-4 flex flex-col gap-4 md:pl-0">
+      {isLoading ? (
+        <WorkingTimeSkeleton />
+      ) : (
+        <>
+          <h2 className="text-h2">Funcionamento</h2>
+          <div className="flex flex-col">
+            {text && <p className="text-level-1">{text}</p>}
+          </div>
+        </>
+      )}
     </section>
-  )
+  );
 }
 
 export default WorkingTime;
