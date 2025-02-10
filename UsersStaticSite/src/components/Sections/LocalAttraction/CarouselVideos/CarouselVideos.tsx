@@ -2,6 +2,7 @@ import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import { VideoData } from "../../../../shared-lib/typesHomePage";
 import CarouselSkeleton from "../CarouselPhotos/CarouselSkeleton";
+import { CircularProgress } from "@mui/material";
 
 interface Props {
   videos: VideoData[] | undefined;
@@ -11,6 +12,7 @@ interface Props {
 function CarouselVideos({ videos, isLoading }: Props): React.ReactNode {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideoIndex, setSelectedVideoIndex] = useState(0);
+  const [isModalImageLoading, setIsModalImageLoading] = useState(true);
 
   const isLastVideo = videos ? selectedVideoIndex === videos.length - 1 : false;
   const isFirstVideo = selectedVideoIndex === 0;
@@ -70,6 +72,7 @@ function CarouselVideos({ videos, isLoading }: Props): React.ReactNode {
                 onClick={() => {
                   setSelectedVideoIndex(index);
                   setIsModalOpen(true);
+                  setIsModalImageLoading(true);
                 }}
               >
                 <img
@@ -94,9 +97,17 @@ function CarouselVideos({ videos, isLoading }: Props): React.ReactNode {
           className="fixed inset-0 bg-black bg-opacity-95 px-2 flex flex-col gap-8 items-center justify-center z-40"
         >
           <article className="relative flex items-center justify-center w-full h-[220px] md:px-auto md:max-w-[770px] md:h-[472px] lg:max-w-[944px] xl:max-w-[1140px] xl:h-[680px]">
+            {isModalImageLoading && (
+              <div className="absolute flex items-center justify-center w-full h-full">
+                <CircularProgress color="primary" />
+              </div>
+            )}
             <iframe
               title="Vídeo de interesse"
               className="w-full h-full object-cover rounded-lg"
+              onLoad={() => {
+                setTimeout(() => setIsModalImageLoading(false), 1000);
+              }}
               src={`https://www.youtube.com/embed/${videoIds[selectedVideoIndex]}`}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
@@ -105,6 +116,7 @@ function CarouselVideos({ videos, isLoading }: Props): React.ReactNode {
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedVideoIndex((currentIndex) => currentIndex + 1);
+                setIsModalImageLoading(true);
               }}
               disabled={isLastVideo}
               className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-grey text-white rounded-full p-2 transition-colors disabled:bg-darkGrey disabled:hover:cursor-not-allowed xl:-right-20"
@@ -118,6 +130,7 @@ function CarouselVideos({ videos, isLoading }: Props): React.ReactNode {
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedVideoIndex((currentIndex) => currentIndex - 1);
+                setIsModalImageLoading(true);
               }}
               disabled={isFirstVideo}
               className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-grey text-white rounded-full p-2 transition-colors disabled:bg-darkGrey disabled:hover:cursor-not-allowed xl:-left-20"
@@ -145,6 +158,7 @@ function CarouselVideos({ videos, isLoading }: Props): React.ReactNode {
                   onClick={(e) => {
                     e.stopPropagation();
                     setSelectedVideoIndex(index);
+                    setIsModalImageLoading(true);
                   }}
                   className={`w-full h-full object-cover rounded-md cursor-pointer transform-gpu hover:scale-110 transition-all duration-250
         `}

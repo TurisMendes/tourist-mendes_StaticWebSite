@@ -48,7 +48,7 @@
   }
 
   .button-large {
-    @apply w-fit px-4;
+    @apply w-[207px];
   }
 
   .trail-tag-facil {

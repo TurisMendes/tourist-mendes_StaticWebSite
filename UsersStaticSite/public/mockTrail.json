@@ -47,11 +47,7 @@
     "videos": [
       {
         "videoUrl": "https://youtu.be/_spDziMUNn0?si=HGMlpENWHYSlcKy2"
-      },
-      {
-        "videoUrl": "https://youtu.be/FrLNl9heUHc?si=U9w-sP_nXzes0cvV"
-      }
-    ],
+      }],
     "tour360UrlLink": "https://example.com/tour360/trilha-cachoeira",
     "linkUrlForGPX": "/torresMendesTrail.gpx"
   }

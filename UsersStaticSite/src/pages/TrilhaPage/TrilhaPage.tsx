@@ -19,8 +19,8 @@ import TrilhaPageSkeleton from "./TrilhaPageSkeleton";
 function TrilhaPage(): React.ReactNode {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  
-  const { data, isLoading, isError, error} = useQuery({
+
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ["trail", id],
     queryFn: () => getTrilhaById(id!),
     enabled: !!id,
@@ -37,7 +37,7 @@ function TrilhaPage(): React.ReactNode {
     }
   }, [id, isError, error, navigate]);
 
-    return (
+  return (
     <>
       {isLoading ? (
         <TrilhaPageSkeleton />
@@ -71,33 +71,21 @@ function TrilhaPage(): React.ReactNode {
                     isLoading={isLoading}
                   />
                   <div className="flex flex-col gap-12 md:max-w-[770px] md:items-start justify-center md:mx-auto xl:gap-16 lg:max-w-[944px] xl:mx-0">
-                      <TrilhaMap link={selectedTrilha.linkUrlForGPX} />
-                    {selectedTrilha.photoGallery && (
-                      <CarouselPhotos
-                        photos={selectedTrilha.photoGallery}
-                      />
+                    <TrilhaMap link={selectedTrilha.linkUrlForGPX} />
+                    {selectedTrilha.photoGallery.length > 0 && (
+                      <CarouselPhotos photos={selectedTrilha.photoGallery} />
                     )}
                     {selectedTrilha.videos.length > 0 && (
-                      <CarouselVideos
-                        videos={selectedTrilha.videos}
-                      />
+                      <CarouselVideos videos={selectedTrilha.videos} />
                     )}
                     {selectedTrilha.tour360UrlLink && (
-                      <Foto360
-                        link={selectedTrilha.tour360UrlLink}
-                      />
+                      <Foto360 link={selectedTrilha.tour360UrlLink} />
                     )}
                   </div>
 
                   <div className="flex flex-col gap-12 md:w-full md:max-w-[770px] md:items-start justify-center md:mx-auto lg:max-w-[944px] xl:hidden">
-                    {selectedTrilha.workingTime && (
-                      <WorkingTime
-                        text={selectedTrilha.workingTime}
-                      />
-                    )}
-                    <ContactTrilha
-                      content={selectedTrilha.contacts}
-                    />
+                    <WorkingTime text={selectedTrilha.workingTime} />
+                    <ContactTrilha content={selectedTrilha.contacts} />
                   </div>
                 </div>
                 <ButtonBackToTop />

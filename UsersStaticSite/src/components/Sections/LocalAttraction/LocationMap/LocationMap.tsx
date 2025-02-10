@@ -14,7 +14,7 @@ function LocationMap({ link }: Props): React.ReactNode {
         src={link}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-        className='w-full h-[327px] rounded-lg'
+        className='w-full h-[327px] rounded-2xl'
       ></iframe>
     </section>
   )

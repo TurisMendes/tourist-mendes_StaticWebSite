@@ -123,7 +123,7 @@ const TrilhaMap: React.FC<Props> = ({ link }) => {
         center={[0, 0]}
         zoom={13}
         style={{ width: '100%', height: '100%' }}
-        className="rounded-xl"
+        className="rounded-2xl"
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

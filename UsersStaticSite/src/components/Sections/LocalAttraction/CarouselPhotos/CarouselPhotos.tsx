@@ -1,7 +1,8 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ImageData } from "../../../../shared-lib/typesHomePage";
 import CarouselSkeleton from "./CarouselSkeleton";
+import { CircularProgress } from "@mui/material";
 
 interface Props {
   photos: ImageData[] | undefined;
@@ -10,6 +11,7 @@ interface Props {
 
 function CarouselPhotos({ photos, isLoading }: Props): React.ReactNode {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalImageLoading, setIsModalImageLoading] = useState(true);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const thumbnailRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -51,6 +53,7 @@ function CarouselPhotos({ photos, isLoading }: Props): React.ReactNode {
                 key={index}
                 onClick={() => {
                   setSelectedImageIndex(index);
+                  setIsModalImageLoading(true);
                   setIsModalOpen(true);
                 }}
               >
@@ -59,10 +62,6 @@ function CarouselPhotos({ photos, isLoading }: Props): React.ReactNode {
                   key={index}
                   src={image.imageUrl}
                   alt={image.altDescription}
-                  onClick={() => {
-                    setIsModalOpen(true);
-                    setSelectedImageIndex(index);
-                  }}
                   className="w-full h-full object-cover rounded-xl cursor-pointer hover:scale-110 transition-all duration-250"
                 />
               </div>
@@ -76,17 +75,28 @@ function CarouselPhotos({ photos, isLoading }: Props): React.ReactNode {
           onClick={() => setIsModalOpen(false)}
           className="fixed inset-0 bg-black bg-opacity-90 flex flex-col gap-8 items-center justify-center z-40"
         >
-          <article className="relative flex items-center justify-center w-full px-4 md:px-0 md:max-w-[770px] md:max-h-[472px] lg:max-w-[944px] xl:max-w-[1140px] xl:max-h-[680px]">
+          <article className="relative flex items-center justify-center w-full h-[220px] md:px-auto md:max-w-[770px] md:h-[472px] lg:max-w-[944px] xl:max-w-[1140px] xl:h-[680px]">
+          {isModalImageLoading && (
+              <div className="absolute flex items-center justify-center w-full h-full">
+                <CircularProgress color="primary"/>
+              </div>
+            )}
             <img
               src={photos && photos[selectedImageIndex].imageUrl}
               alt={photos && photos[selectedImageIndex].altDescription}
-              className="w-full h-full object-cover rounded-lg"
+              onLoad={() => {
+                setTimeout(() => setIsModalImageLoading(false), 1000);
+              }}
+              className={`w-full h-full object-cover rounded-lg ${
+                isModalImageLoading ? "hidden" : ""
+              }`}
             />
 
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedImageIndex((currentIndex) => currentIndex + 1);
+                setIsModalImageLoading(true);
               }}
               disabled={isLastImage}
               className="absolute right-4 top-1/2 -translate-y-1/2 hidden bg-white hover:bg-grey text-white rounded-full p-2 transition-colors disabled:bg-darkGrey disabled:hover:cursor-not-allowed md:flex xl:-right-16"
@@ -100,6 +110,7 @@ function CarouselPhotos({ photos, isLoading }: Props): React.ReactNode {
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedImageIndex((currentIndex) => currentIndex - 1);
+                setIsModalImageLoading(true);
               }}
               disabled={isFirstImage}
               className="absolute left-4 top-1/2 -translate-y-1/2 hidden bg-white hover:bg-grey text-white rounded-full p-2 transition-colors disabled:bg-darkGrey disabled:hover:cursor-not-allowed md:flex xl:-left-16"
@@ -127,6 +138,7 @@ function CarouselPhotos({ photos, isLoading }: Props): React.ReactNode {
                   onClick={(e) => {
                     e.stopPropagation();
                     setSelectedImageIndex(index);
+                    setIsModalImageLoading(true);
                   }}
                   className="w-[121px] h-[83px] object-cover rounded-md cursor-pointer hover:scale-110 transition-all duration-250 lg:w-full lg:h-full"
                 />

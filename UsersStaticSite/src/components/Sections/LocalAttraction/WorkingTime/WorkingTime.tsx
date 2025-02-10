@@ -15,7 +15,7 @@ function WorkingTime({ text, isLoading }: Props): React.ReactNode {
         <>
           <h2 className="text-h2">Funcionamento</h2>
           <div className="flex flex-col">
-            {text && <p className="text-level-1">{text}</p>}
+            {text && <p className="text-level-1 font-normal">{text}</p>}
           </div>
         </>
       )}
