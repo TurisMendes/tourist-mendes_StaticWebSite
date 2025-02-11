@@ -1,22 +1,17 @@
 import React from "react";
-import ContactTrilhaSkeleton from "./ContactTrilhaSkeleton";
 
 interface Props {
   content: {
-    phoneNumbers: string[];
-    email: string[];
-    site: string[];
-    address: string[];
+    phoneNumbers?: string[];
+    email?: string[];
+    site?: string;
+    address: string;
   };
-  isLoading?: boolean;
 }
 
-function ContactTrilha({ content, isLoading }: Props): React.ReactNode {
+function ContactTrilha({ content}: Props): React.ReactNode {
   return (
     <section className="px-4 md:px-0">
-      {isLoading ? (
-        <ContactTrilhaSkeleton />
-      ) : (
         <>
           <h2 className="text-h2 mb-4">Contato</h2>
 
@@ -54,7 +49,6 @@ function ContactTrilha({ content, isLoading }: Props): React.ReactNode {
             </div>
           </div>
         </>
-      )}
     </section>
   );
 }

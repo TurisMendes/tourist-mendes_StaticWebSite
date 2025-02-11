@@ -2,14 +2,14 @@ import React from 'react';
 import ContactEvento from '../ContactEvento/ContactEvento';
 
 interface Props {
-  description: string | undefined;
-  info: string | undefined;
+  description: string[];
+  info: string[];
   timeInfo: string;
   contacts: {
-    phoneNumbers: string[];
-    email: string[];
-    site: string[];
-    address: string[];
+    phoneNumbers?: string[];
+    email?: string[];
+    site?: string[];
+    address: string;
   };
   socials: {
     instagram?: string;

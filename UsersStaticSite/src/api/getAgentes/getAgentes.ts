@@ -5,7 +5,8 @@ import {
 } from "../../shared-lib/typesHomePage";
 import axios, { AxiosError } from "axios";
 
-export const getAgents = async () => {
+export const getAgentes = async () => {
+  // needs to update with the correct link
   try {
     const axiosInstance = axios.create({
       baseURL: BASE_URL_API,
@@ -15,7 +16,7 @@ export const getAgents = async () => {
     });
     
     const response = await axiosInstance.get<ResponseDTO<AgenteCulturalHomeCard[]>>(
-      "/mockAgents.json"
+      "/"
     )
 
     return response.data;

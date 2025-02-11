@@ -4,7 +4,7 @@ import BannerSkeleton from '../Skeletons/BannerSkeleton';
 import { HomeBanner, ResponseDTO } from '../../shared-lib/typesHomePage';
 import { useQuery } from '@tanstack/react-query';
 import { FetchError } from '../Errors/FetchError';
-import { getBanners } from '../../api/banners/getBanners';
+import { getBanners } from '../../api/getBanners/getBanners';
 
 const BannerCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

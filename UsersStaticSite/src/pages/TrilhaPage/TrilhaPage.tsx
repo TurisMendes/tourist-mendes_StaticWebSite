@@ -63,21 +63,24 @@ function TrilhaPage(): React.ReactNode {
                 </div>
                 <div className="w-full mt-12 flex gap-12 flex-col md:max-w-[770x] md:mt-20 md:items-start md:justify-center md:mx-auto lg:gap-6 lg:max-w-[944px] xl:flex-row xl:justify-between xl:max-w-[1140px]">
                   <DescriptionTrilha
-                    description={selectedTrilha.longDescription}
-                    info={selectedTrilha.trilhaInfo}
-                    timeInfo={selectedTrilha.workingTime}
+                    longDescription={selectedTrilha.longDescription}
+                    trilhaInfo={selectedTrilha.trilhaInfo}
                     contacts={selectedTrilha.contacts}
                     workingTime={selectedTrilha.workingTime}
-                    isLoading={isLoading}
                   />
                   <div className="flex flex-col gap-12 md:max-w-[770px] md:items-start justify-center md:mx-auto xl:gap-16 lg:max-w-[944px] xl:mx-0">
                     <TrilhaMap link={selectedTrilha.linkUrlForGPX} />
-                    {selectedTrilha.photoGallery.length > 0 && (
-                      <CarouselPhotos photos={selectedTrilha.photoGallery} />
-                    )}
-                    {selectedTrilha.videos.length > 0 && (
-                      <CarouselVideos videos={selectedTrilha.videos} />
-                    )}
+
+                    {selectedTrilha.photoGallery &&
+                      selectedTrilha.photoGallery.length > 0 && (
+                        <CarouselPhotos photos={selectedTrilha.photoGallery} />
+                      )}
+
+                    {selectedTrilha.videos &&
+                      selectedTrilha.videos.length > 0 && (
+                        <CarouselVideos videos={selectedTrilha.videos} />
+                      )}
+
                     {selectedTrilha.tour360UrlLink && (
                       <Foto360 link={selectedTrilha.tour360UrlLink} />
                     )}

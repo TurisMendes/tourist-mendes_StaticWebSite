@@ -1,8 +1,9 @@
 import { BASE_URL_API } from "../../globalConstants";
-import { ResponseDTO, TrilhasHomeCard } from "../../shared-lib/typesHomePage";
+import { EventHomeCard, ResponseDTO } from "../../shared-lib/typesHomePage";
 import axios, { AxiosError } from "axios";
 
-export const getTrails = async () => {
+export const getEventos = async () => {
+  // needs to update with the correct link
   try {
     const axiosInstance = axios.create({
       baseURL: BASE_URL_API,
@@ -11,19 +12,19 @@ export const getTrails = async () => {
       },
     });
 
-    const response = await axiosInstance.get<ResponseDTO<TrilhasHomeCard[]>>(
-      "/mockTrails.json"
+    const response = await axiosInstance.get<ResponseDTO<EventHomeCard[]>>(
+      "/"
     );
 
     return response.data;
   } catch (error) {
-    const errorResponse: ResponseDTO<TrilhasHomeCard[]> = {
+    const errorResponse: ResponseDTO<EventHomeCard[]> = {
       message:
         error instanceof AxiosError
           ? error.message
-          : "Erro ao carregar trilhas",
+          : "Erro ao carregar eventos",
       status: error instanceof AxiosError ? error.response?.status ?? 500 : 500,
-      dataType: "TRILHAS",
+      dataType: "EVENTOS",
       data: [],
     };
 

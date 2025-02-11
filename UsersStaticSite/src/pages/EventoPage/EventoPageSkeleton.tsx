@@ -2,7 +2,7 @@ import { Skeleton } from '@mui/material';
 import React from 'react';
 import { useTheme } from '../../hooks/useTheme';
 
-export const EventSkeleton: React.FC = () => {
+export const EventoPageSkeleton: React.FC = () => {
   const { isDarkMode } = useTheme();
   
   const skeletonColor = isDarkMode ? '#2c2c2c' : '#f0f0f0';
@@ -60,4 +60,4 @@ export const EventSkeleton: React.FC = () => {
   );
 };
 
-export default EventSkeleton;
+export default EventoPageSkeleton;

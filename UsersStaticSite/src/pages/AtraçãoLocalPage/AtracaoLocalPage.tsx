@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import CarouselPhotos from "../../components/Sections/LocalAttraction/CarouselPhotos/CarouselPhotos";
 import CarouselVideos from "../../components/Sections/LocalAttraction/CarouselVideos/CarouselVideos";
@@ -10,41 +10,37 @@ import CoverImage from "../../components/Sections/LocalAttraction/CoverImage/Cov
 import Breadcrumb from "../../components/Sections/LocalAttraction/Breadcrumb/Breadcrumb";
 import AttractionDescription from "../../components/Sections/LocalAttraction/AttractionDescription/AttractionDescription";
 import { useNavigate, useParams } from "react-router-dom";
-import NotFound from "../NotFound/NotFound";
 import ButtonBackToTop from "../../components/ButtonBackToTop/ButtonBackToTop";
 import { useQuery } from "@tanstack/react-query";
-import { getAttractionById } from "../../api/attraction/getAttractionById";
-import LocalAttractionSkeleton from "../../components/Skeletons/LocalAttractionSkeleton";
+import { getAtracaoById } from "../../api/getAtracaoById/getAtracaoById";
+import AtracaoLocalPageSkeleton from "./AtracaoLocalPageSkeleton";
 import FullAtracaoLocalType from "../../shared-lib/FullAtracaoLocalType";
 
-function LocalAttraction(): React.ReactNode {
+function AtracaoLocalPage(): React.ReactNode {
   const { id } = useParams<{ id: string }>();
-  const [selectedAttraction, setSelectedAttraction] = useState<
-    FullAtracaoLocalType | undefined
-  >();
   const navigate = useNavigate();
 
-  if (!id) {
-    return <NotFound />;
-  }
-
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ["attraction", id],
-    queryFn: () => getAttractionById(id),
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["trail", id],
+    queryFn: () => getAtracaoById(id!),
     enabled: !!id,
   });
+  const selectedAttraction: FullAtracaoLocalType | undefined = data?.data;
 
   useEffect(() => {
-    if (!isLoading && data) setSelectedAttraction(data.data);
-    else {
-      if (isError) navigate("/notFound");
+    if (!id) {
+      navigate("/notFound");
+      return;
     }
-  }, [isLoading, data]);
+    if (isError) {
+      navigate("/notFound");
+    }
+  }, [id, isError, error, navigate]);
 
   return (
     <>
       {isLoading ? (
-        <LocalAttractionSkeleton />
+        <AtracaoLocalPageSkeleton />
       ) : (
         <>
           {selectedAttraction && (
@@ -73,13 +69,20 @@ function LocalAttraction(): React.ReactNode {
                     contacts={selectedAttraction.contacts}
                     socials={selectedAttraction.socialMedia}
                   />
-                  <div className="flex flex-col gap-12 md:max-w-[770px] md:items-start justify-center md:mx-auto lg:max-w-[944px] xl:mx-0">
+                  <div className="flex flex-col gap-12 mt-12 md:max-w-[770px] md:items-start justify-center md:mx-auto lg:max-w-[944px] xl:mt-0 xl:mx-0">
                     <CarouselPhotos photos={selectedAttraction.photoGallery} />
-                    <CarouselVideos videos={selectedAttraction.videos} />
-                    <Tour360 link={selectedAttraction.tour360UrlLink} />
+
+                    {selectedAttraction.videos && selectedAttraction.videos.length > 0 && (
+                      <CarouselVideos videos={selectedAttraction.videos} />
+                    )}
+
+                    {selectedAttraction.tour360UrlLink && (
+                      <Tour360 link={selectedAttraction.tour360UrlLink} />
+                    )}
+
                     <LocationMap link={selectedAttraction.mapUrlLink} />
                   </div>
-                  <div className="flex flex-col md:w-[770px] md:items-start md:justify-center md:mx-auto lg:w-[944px] xl:hidden">
+                  <div className="flex flex-col mt-12 md:w-[770px] md:items-start md:justify-center md:mx-auto lg:w-[944px] xl:mt-0 xl:hidden">
                     <WorkingTime text={selectedAttraction.workingTime} />
                     <AttractionContact
                       content={selectedAttraction.contacts}
@@ -97,4 +100,4 @@ function LocalAttraction(): React.ReactNode {
   );
 }
 
-export default LocalAttraction;
+export default AtracaoLocalPage;

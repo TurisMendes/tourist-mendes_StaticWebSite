@@ -2,7 +2,7 @@ import { Skeleton } from '@mui/material';
 import React from 'react';
 import { useTheme } from '../../hooks/useTheme';
 
-export const LocalAttractionSkeleton: React.FC = () => {
+export const AtracaoLocalPageSkeleton: React.FC = () => {
   const { isDarkMode } = useTheme();
 
   const skeletonColor = isDarkMode ? '#2c2c2c' : '#f0f0f0';
@@ -395,4 +395,4 @@ export const LocalAttractionSkeleton: React.FC = () => {
   );
 };
 
-export default LocalAttractionSkeleton;
+export default AtracaoLocalPageSkeleton;

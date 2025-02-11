@@ -1,11 +1,12 @@
-import FullEventoType from "../../shared-lib/FullEventoType";
+import FullAtracaoLocalType from "../../shared-lib/FullAtracaoLocalType";
 import { ResponseDTO } from "../../shared-lib/typesHomePage";
 import axios from "axios";
 
-export const getEventoById = async (id: string) => {
+export const getAtracaoById = async (id: string) => {
+  // Atention this end point are not finished by backend
   try {
-    const response = await axios.get<ResponseDTO<FullEventoType>>(
-      `/evento/${id}`
+    const response = await axios.get<ResponseDTO<FullAtracaoLocalType>>(
+      `/atracaoLocal/${id}`
     );
 
     return response.data;
