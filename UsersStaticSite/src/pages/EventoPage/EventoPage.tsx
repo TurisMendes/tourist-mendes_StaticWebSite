@@ -20,7 +20,7 @@ function EventoPage(): React.ReactNode {
   const navigate = useNavigate();
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["trail", id],
+    queryKey: ["event", id],
     queryFn: () => getEventoById(id!),
     enabled: !!id,
   });

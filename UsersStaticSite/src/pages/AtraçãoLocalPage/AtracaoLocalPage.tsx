@@ -21,7 +21,7 @@ function AtracaoLocalPage(): React.ReactNode {
   const navigate = useNavigate();
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["trail", id],
+    queryKey: ["attraction", id],
     queryFn: () => getAtracaoById(id!),
     enabled: !!id,
   });
