@@ -40,7 +40,7 @@ const Calendario: React.FC<Props> = ({ schedule }) => {
     : schedule.slice(0, defaultVisibleAppointments);
 
   return (
-    <div className="w-full flex flex-col pl-4 md:pl-0 md:max-w-[770px] lg:max-w-[944px] xl:w-[530px]">
+    <div className="w-full flex flex-col pl-4 md:pl-0 lg:max-w-[944px] xl:w-[530px]">
       <h2 className="text-h2 font-bold mb-4">Data e Horário</h2>
       <div className="flex w-full justify-start overflow-x-auto overflow-y-hidden snap-x snap-mandatory touch-pan no-scrollbar gap-2 md:justify-between md:flex-wrap md:snap-none">
         {visibleAppointments.map(({ start, final }, index) => {

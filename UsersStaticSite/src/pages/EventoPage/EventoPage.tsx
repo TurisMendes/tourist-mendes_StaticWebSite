@@ -60,7 +60,7 @@ function EventoPage(): React.ReactNode {
                   />
                   <Breadcrumb title={selectedEvento.title} />
                 </div>
-                <div className="w-full mt-12 flex gap-12 flex-col md:max-w-[770x] md:mt-20 md:items-start md:justify-center md:mx-auto lg:gap-20 lg:max-w-[944px] xl:flex-row xl:justify-between xl:max-w-[1140px]">
+                <div className="w-full mt-12 flex gap-12 flex-col md:max-w-[770x] md:mt-20 md:items-start md:justify-center md:mx-auto lg:gap-20 lg:max-w-[944px] xl:gap-24 xl:flex-row xl:justify-between xl:max-w-[1140px]">
                   <DescriptionEvento
                     description={selectedEvento.longDescription}
                     info={selectedEvento.historicalInfo}
@@ -68,7 +68,7 @@ function EventoPage(): React.ReactNode {
                     contacts={selectedEvento.contacts}
                     socials={selectedEvento.socialMedia}
                   />
-                  <div className="flex flex-col gap-12 md:max-w-[770px] md:items-start justify-center md:mx-auto xl:gap-16 lg:max-w-[944px] xl:mx-0">
+                  <div className="flex flex-col gap-12 justify-center md:px-8 md:items-start lg:px-0 xl:gap-16 lg:max-w-[944px] xl:mx-0">
                     <Calendario schedule={selectedEvento.schedule} />
 
                     <CarouselPhotos photos={selectedEvento.photoGallery} />

@@ -15,7 +15,7 @@ function Foto360({ link, isLoading }: Props): React.ReactNode {
       ) : (
         <>
           <h2 className="text-h2">Foto 360</h2>
-          <p className="text-level-1 font-normal max-w-[354px] md:max-w-[770px] lg:max-w-[950px] xl:max-w-[540px]">
+          <p className="text-level-1 font-normal max-w-[354px] md:max-w-[770px] lg:max-w-[950px] xl:max-w-[530px]">
             Uma foto 360º é uma experiência virtual que permite ver tudo ao seu
             redor, como se você estivesse no meio da cena. É uma imagem tirada
             de forma que você pode olhar em qualquer direção – para cima, para

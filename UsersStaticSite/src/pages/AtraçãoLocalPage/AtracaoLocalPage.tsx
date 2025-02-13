@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import CarouselPhotos from "../../components/Sections/LocalAttraction/CarouselPhotos/CarouselPhotos";
 import CarouselVideos from "../../components/Sections/LocalAttraction/CarouselVideos/CarouselVideos";
-import Tour360 from "../../components/Sections/LocalAttraction/Tour360/Tour360";
 import LocationMap from "../../components/Sections/LocalAttraction/LocationMap/LocationMap";
 import WorkingTime from "../../components/Sections/LocalAttraction/WorkingTime/WorkingTime";
 import AttractionContact from "../../components/Sections/LocalAttraction/AttractionContact/AttractionContact";
@@ -15,6 +14,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getAtracaoById } from "../../api/getAtracaoById/getAtracaoById";
 import AtracaoLocalPageSkeleton from "./AtracaoLocalPageSkeleton";
 import FullAtracaoLocalType from "../../shared-lib/FullAtracaoLocalType";
+import Foto360 from "../../components/Sections/Trilha/Foto360/Foto360";
 
 function AtracaoLocalPage(): React.ReactNode {
   const { id } = useParams<{ id: string }>();
@@ -61,7 +61,7 @@ function AtracaoLocalPage(): React.ReactNode {
                   />
                   <Breadcrumb title={selectedAttraction.title} />
                 </div>
-                <div className="w-full mt-12 flex flex-col md:max-w-[770x] md:mt-20 md:items-start md:justify-center md:mx-auto lg:max-w-[944px] xl:flex-row xl:justify-between xl:max-w-[1140px]">
+                <div className="w-full mt-12 flex flex-col md:max-w-[770x] md:mt-20 md:items-start md:justify-center md:mx-auto lg:max-w-[944px] xl:gap-20 xl:flex-row xl:justify-between xl:max-w-[1140px]">
                   <AttractionDescription
                     description={selectedAttraction.longDescription}
                     info={selectedAttraction.historicalInfo}
@@ -77,7 +77,7 @@ function AtracaoLocalPage(): React.ReactNode {
                     )}
 
                     {selectedAttraction.tour360UrlLink && (
-                      <Tour360 link={selectedAttraction.tour360UrlLink} />
+                      <Foto360 link={selectedAttraction.tour360UrlLink} />
                     )}
 
                     <LocationMap link={selectedAttraction.mapUrlLink} />

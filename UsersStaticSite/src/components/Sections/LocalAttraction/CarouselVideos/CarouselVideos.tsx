@@ -99,15 +99,13 @@ function CarouselVideos({ videos, isLoading }: Props): React.ReactNode {
           <article className="relative flex items-center justify-center w-full h-[220px] md:px-auto md:max-w-[770px] md:h-[472px] lg:max-w-[944px] xl:max-w-[1140px] xl:h-[680px]">
             {isModalImageLoading && (
               <div className="absolute flex items-center justify-center w-full h-full">
-                <CircularProgress color="primary" />
+                <CircularProgress color="primary" size={80}/>
               </div>
             )}
             <iframe
               title="Vídeo de interesse"
               className="w-full h-full object-cover rounded-lg"
-              onLoad={() => {
-                setTimeout(() => setIsModalImageLoading(false), 1000);
-              }}
+              onLoad={() =>setIsModalImageLoading(false)}
               src={`https://www.youtube.com/embed/${videoIds[selectedVideoIndex]}`}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>

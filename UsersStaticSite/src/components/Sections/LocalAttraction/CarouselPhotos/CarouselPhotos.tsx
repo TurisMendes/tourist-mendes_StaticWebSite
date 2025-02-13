@@ -78,15 +78,13 @@ function CarouselPhotos({ photos, isLoading }: Props): React.ReactNode {
           <article className="relative flex items-center justify-center w-full h-[220px] md:px-auto md:max-w-[770px] md:h-[472px] lg:max-w-[944px] xl:max-w-[1140px] xl:h-[680px]">
           {isModalImageLoading && (
               <div className="absolute flex items-center justify-center w-full h-full">
-                <CircularProgress color="primary"/>
+                <CircularProgress color="info" size={100}/>
               </div>
             )}
             <img
               src={photos && photos[selectedImageIndex].imageUrl}
               alt={photos && photos[selectedImageIndex].altDescription}
-              onLoad={() => {
-                setTimeout(() => setIsModalImageLoading(false), 1000);
-              }}
+              onLoad={() => setIsModalImageLoading(false)}
               className={`w-full h-full object-cover rounded-lg ${
                 isModalImageLoading ? "hidden" : ""
               }`}
