@@ -78,7 +78,7 @@ function CarouselPhotos({ photos, isLoading }: Props): React.ReactNode {
           <article className="relative flex items-center justify-center w-full h-[220px] md:px-auto md:max-w-[770px] md:h-[472px] lg:max-w-[944px] xl:max-w-[1140px] xl:h-[680px]">
           {isModalImageLoading && (
               <div className="absolute flex items-center justify-center w-full h-full">
-                <CircularProgress color="info" size={100}/>
+                <CircularProgress sx={{ color: "#fff" }} size={100}/>
               </div>
             )}
             <img
