@@ -39,7 +39,7 @@ function CarouselPhotos({ photos, isLoading }: Props): React.ReactNode {
   }, [isModalOpen, selectedImageIndex]);
 
   return (
-    <section className="w-full flex flex-col flex-grow items-start px-4 pr-0 md:px-0 md:mx-auto md:max-w-[770px] md:items-start md:justify-between lg:min-w-[944px] lg:max-w-[944px] lg:px-0 lg:py-16 xl:mx-0 xl:py-0 xl:min-w-[530px] xl:max-w-[540px]">
+    <section className="w-full flex flex-col flex-grow items-start px-4 pr-0 md:px-0 md:mx-auto md:max-w-[770px] md:items-start md:justify-between lg:min-w-[944px] lg:max-w-[944px] lg:px-0 xl:mx-0 xl:min-w-[530px] xl:max-w-[540px]">
       {isLoading ? (
         <CarouselSkeleton />
       ) : (
@@ -76,25 +76,31 @@ function CarouselPhotos({ photos, isLoading }: Props): React.ReactNode {
           className="fixed inset-0 bg-black bg-opacity-90 flex flex-col gap-8 items-center justify-center z-40"
         >
           <article className="relative flex items-center justify-center w-full h-[220px] md:px-auto md:max-w-[770px] md:h-[472px] lg:max-w-[944px] xl:max-w-[1140px] xl:h-[680px]">
-          {isModalImageLoading && (
+            {isModalImageLoading && (
               <div className="absolute flex items-center justify-center w-full h-full">
-                <CircularProgress sx={{ color: "#fff" }} size={100}/>
+                <CircularProgress sx={{ color: "#fff" }} size={100} />
               </div>
             )}
             <img
               src={photos && photos[selectedImageIndex].imageUrl}
               alt={photos && photos[selectedImageIndex].altDescription}
               onLoad={() => setIsModalImageLoading(false)}
-              className={`w-full h-full object-cover rounded-lg ${
-                isModalImageLoading ? "hidden" : ""
+              className={`w-full h-full object-cover rounded-lg transition-opacity duration-300 ${
+                isModalImageLoading ? "opacity-0" : "opacity-100"
               }`}
             />
 
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                setSelectedImageIndex((currentIndex) => currentIndex + 1);
-                setIsModalImageLoading(true);
+                if (!isLastImage && photos) {
+                  setIsModalImageLoading(true);
+                  const nextImg = new Image();
+                  nextImg.src = photos[selectedImageIndex + 1].imageUrl;
+                  nextImg.onload = () => {
+                    setSelectedImageIndex((currentIndex) => currentIndex + 1);
+                  };
+                }
               }}
               disabled={isLastImage}
               className="absolute right-4 top-1/2 -translate-y-1/2 hidden bg-white hover:bg-grey text-white rounded-full p-2 transition-colors disabled:bg-darkGrey disabled:hover:cursor-not-allowed md:flex xl:-right-16"
@@ -107,8 +113,14 @@ function CarouselPhotos({ photos, isLoading }: Props): React.ReactNode {
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                setSelectedImageIndex((currentIndex) => currentIndex - 1);
-                setIsModalImageLoading(true);
+                if (!isFirstImage && photos) {
+                  setIsModalImageLoading(true);
+                  const prevImg = new Image();
+                  prevImg.src = photos[selectedImageIndex - 1].imageUrl;
+                  prevImg.onload = () => {
+                    setSelectedImageIndex((currentIndex) => currentIndex - 1);
+                  };
+                }
               }}
               disabled={isFirstImage}
               className="absolute left-4 top-1/2 -translate-y-1/2 hidden bg-white hover:bg-grey text-white rounded-full p-2 transition-colors disabled:bg-darkGrey disabled:hover:cursor-not-allowed md:flex xl:-left-16"
@@ -133,6 +145,7 @@ function CarouselPhotos({ photos, isLoading }: Props): React.ReactNode {
                   ref={(el) => (thumbnailRefs.current[index] = el)}
                   src={image.imageUrl}
                   alt={image.altDescription}
+                  onLoad={() => setIsModalImageLoading(false)}
                   onClick={(e) => {
                     e.stopPropagation();
                     setSelectedImageIndex(index);

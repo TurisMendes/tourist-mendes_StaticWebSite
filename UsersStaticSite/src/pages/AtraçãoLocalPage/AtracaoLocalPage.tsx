@@ -61,7 +61,7 @@ function AtracaoLocalPage(): React.ReactNode {
                   />
                   <Breadcrumb title={selectedAttraction.title} />
                 </div>
-                <div className="w-full mt-12 flex flex-col md:max-w-[770x] md:mt-20 md:items-start md:justify-center md:mx-auto lg:max-w-[944px] xl:gap-20 xl:flex-row xl:justify-between xl:max-w-[1140px]">
+                <div className="w-full mt-12 flex gap-12 flex-col md:max-w-[770x] md:mt-20 md:items-start md:justify-center md:mx-auto lg:gap-6 lg:max-w-[944px] xl:flex-row xl:justify-between xl:max-w-[1140px]">
                   <AttractionDescription
                     description={selectedAttraction.longDescription}
                     info={selectedAttraction.historicalInfo}
@@ -69,8 +69,8 @@ function AtracaoLocalPage(): React.ReactNode {
                     contacts={selectedAttraction.contacts}
                     socials={selectedAttraction.socialMedia}
                   />
-                  <div className="flex flex-col gap-12 mt-12 md:max-w-[770px] md:items-start justify-center md:mx-auto lg:max-w-[944px] xl:mt-0 xl:mx-0">
-                    <CarouselPhotos photos={selectedAttraction.photoGallery} />
+                  <div className="flex flex-col gap-12 md:max-w-[770px] md:items-start justify-center md:pl-8 xl:gap-16 lg:pl-0 lg:max-w-[944px] xl:mx-0">
+                  <CarouselPhotos photos={selectedAttraction.photoGallery} />
 
                     {selectedAttraction.videos && selectedAttraction.videos.length > 0 && (
                       <CarouselVideos videos={selectedAttraction.videos} />

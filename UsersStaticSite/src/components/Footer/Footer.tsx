@@ -79,11 +79,11 @@ function Footer(): React.ReactNode {
         )}
       </div>
 
-      <div className="bg-offwhite dark:bg-white w-[95%] flex items-center justify-center mx-auto h-[2px] mt-12 mb-10" />
+      <div className="bg-offwhite dark:bg-white w-full flex items-center justify-center h-[2px] mt-12 mb-10" />
 
-      <section className="w-[358px] mt-12 pb-4 gap-7 flex flex-col items-center justify-center mx-auto md:w-full xl:max-w-[1140px] xl:flex-row xl:justify-between">
-        <div className="w-full flex flex-col md:flex-row md:w-full xl:w-[700px] xl:gap-14">
-          <div className="w-full flex items-start justify-evenly xl:justify-start xl:w-[300px] xl:gap-14">
+      <section className="w-full mt-12 pb-4 gap-7 flex flex-col items-center justify-center xl:flex-row xl:gap-[200px]">
+        <div className="w-fit flex flex-col items-center justify-center gap-4 md:gap-16 md:flex-row xl:gap-14">
+          <div className="w-fit flex items-start justify-between gap-16 xl:justify-start xl:gap-14">
             <div className="flex flex-col items-center justify-between gap-2 w-16 md:w-28">
               <p className="text-level-2 text-neutralGrey font-normal dark:text-neutralGrey">
                 Realização
@@ -105,11 +105,11 @@ function Footer(): React.ReactNode {
               />
             </div>
           </div>
-          <div className="w-full flex flex-col items-center justify-evenly">
+          <div className="w-[300px] flex flex-col items-center justify-evenly">
             <p className="text-level-2 text-neutralGrey font-normal dark:text-neutralGrey">
               Fomentadores
             </p>
-            <div className="w-full flex items-center justify-evenly">
+            <div className="w-full flex items-center justify-evenly gap-4">
               <div className="w-24 md:w-32">
                 <img
                   src="/logos/PrefeituraMendes.svg"

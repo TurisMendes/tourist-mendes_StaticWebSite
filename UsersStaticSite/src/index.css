@@ -82,3 +82,6 @@
     width: 100%;
   }
 }
+.loading-spinner {
+  border-color: #ffffff !important;
+}

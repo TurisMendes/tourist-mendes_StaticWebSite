@@ -75,7 +75,7 @@ const Breadcrumb = ({
   return (
     <nav
       aria-label="Breadcrumb"
-      className="flex items-center justify-start mt-4 w-[94%] h-8 pl-4 md:pl-0 md:max-w-[770px] md:mx-auto lg:w-full lg:max-w-[944px] xl:max-w-[1140px]"
+      className="flex items-center justify-start mt-4 w-[94%] h-8 pl-4 md:pl-8 md:max-w-[770px] lg:pl-0 lg:mx-auto lg:w-full lg:max-w-[944px] xl:max-w-[1140px]"
     >
       <ol className="flex items-center justify-center gap-1 flex-wrap">
         <li className="flex items-center">
