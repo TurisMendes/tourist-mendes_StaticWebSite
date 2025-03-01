@@ -20,14 +20,7 @@ export const AgenteCulturalPage: React.FC = (): React.ReactNode => {
   const { id } = useParams<{ id: string }>();
   const [selectedCulturalAgent, setSelectedCulturalAgent] = useState<FullAgenteCulturalType | undefined>();
   const [isWideScreen, setIsWideScreen] = useState<boolean>(window.innerWidth > 944);
-
   const navigate = useNavigate();
-
-  if (!id) {
-    navigate('*', { replace: true });
-    return;
-    // return <NotFound /*entity="Agente cultural"*/ />;
-  }
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ['culturalAgent', id],
@@ -36,14 +29,8 @@ export const AgenteCulturalPage: React.FC = (): React.ReactNode => {
   });
 
   useEffect(() => {
-    if (!isLoading && data) {
-      setSelectedCulturalAgent(data.data);
-    }
-
-  }, [isLoading, data]);
-
-
-  useEffect(() => {
+    console.log(data);
+    
     if (!id) {
       navigate("/notFound");
       return;
@@ -52,6 +39,14 @@ export const AgenteCulturalPage: React.FC = (): React.ReactNode => {
       navigate("/notFound");
     }
   }, [id, isError, error, navigate]);
+
+  useEffect(() => {
+    if (!isLoading && data) {
+      setSelectedCulturalAgent(data.data);
+    }
+
+  }, [isLoading, data]);
+
 
   useEffect(() => {
     const handleResize = () => {
