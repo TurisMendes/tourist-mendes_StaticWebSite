@@ -14,8 +14,7 @@ export const getCulturalAgentById = async (id: string) => {
     });
 
     const response = await axiosInstance.get<ResponseDTO<FullAgenteCulturalType>>(
-      // `/agentecultural/${id}`
-      '/mocks/agentMock.json'
+      `/agentecultural/${id}`
     );
 
     return response.data;
