@@ -50,7 +50,7 @@ function Header(): React.ReactNode {
       <div className="flex items-center justify-between lg:w-[944px] xl:w-[1140px] gap-8">
         <a href="/" className='w-[105px] flex items-center justify-center'>
           <img
-            src="./src/assets/logos/TurisMendes.svg"
+            src="/logos/TurisMendes.svg"
             alt="TurisMendes Logo"
             className='w-full object-cover'
           />

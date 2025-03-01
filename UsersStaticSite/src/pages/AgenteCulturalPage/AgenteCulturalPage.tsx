@@ -29,8 +29,11 @@ export const AgenteCulturalPage: React.FC = (): React.ReactNode => {
   });
 
   useEffect(() => {
+<<<<<<< Updated upstream
     console.log(data);
     
+=======
+>>>>>>> Stashed changes
     if (!id) {
       navigate("/notFound");
       return;
@@ -47,7 +50,10 @@ export const AgenteCulturalPage: React.FC = (): React.ReactNode => {
 
   }, [isLoading, data]);
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   useEffect(() => {
     const handleResize = () => {
       setIsWideScreen(window.innerWidth > 944);
