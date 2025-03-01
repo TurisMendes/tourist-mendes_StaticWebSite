@@ -12,6 +12,7 @@ import LocationMap from "../../components/Sections/AgenteCultural/LocationMap/Lo
 import AgenteCulturalContact from "../../components/Sections/AgenteCultural/AgenteCulturalContact/AgenteCulturalContact";
 import AgenteCulturalPageSkeleton from "./AgenteCulturalPageSkeleton";
 import { getCulturalAgentById } from "../../api/getAgenteCulturalById/getAgenteCulturalById";
+import ButtonBackToTop from "../../components/ButtonBackToTop/ButtonBackToTop";
 
 
 
@@ -29,11 +30,6 @@ export const AgenteCulturalPage: React.FC = (): React.ReactNode => {
   });
 
   useEffect(() => {
-<<<<<<< Updated upstream
-    console.log(data);
-    
-=======
->>>>>>> Stashed changes
     if (!id) {
       navigate("/notFound");
       return;
@@ -50,10 +46,6 @@ export const AgenteCulturalPage: React.FC = (): React.ReactNode => {
 
   }, [isLoading, data]);
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
   useEffect(() => {
     const handleResize = () => {
       setIsWideScreen(window.innerWidth > 944);
@@ -122,6 +114,7 @@ export const AgenteCulturalPage: React.FC = (): React.ReactNode => {
                     </div>
                   </>
                 )}
+                <ButtonBackToTop />
               </div>
             </div>) :
             (
@@ -172,6 +165,7 @@ export const AgenteCulturalPage: React.FC = (): React.ReactNode => {
                       </div>
                     </>
                   )}
+                  <ButtonBackToTop />
                 </div>
               </div>
             )
