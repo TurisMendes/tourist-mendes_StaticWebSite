@@ -1,28 +1,9 @@
 .app-container {
-  /* box-sizing: border-box;
-
-  width: 100%;
-  min-width: 320px;
-  margin: 0 auto;
-  padding-inline: 16px;
-
-  @include on-tablet {
-    padding-inline: 40px;
-  }
-
-  @include on-desktop {
-    max-width: 1140px;
-  }
-
-  @include on-big-desktop {
-    padding-inline: 0;
-  } */
-
-  @apply box-border w-full min-w-[320px] mx-auto px-4; /* Padding inline padrão de 16px */
+  @apply box-border w-full min-w-[320px] mx-auto px-4; 
 
   /* Responsividade */
-  @apply tablet:px-10; /* Para telas de tablet, 40px */
-  @apply desktop:max-w-container; /* Para desktop, limite de max-width 1140px */
+  @apply tablet:px-[32px]; 
+  @apply desktop:max-w-container;
   @apply big-desktop:px-0; /* Para big-desktop, remove o padding */
 }
 
