@@ -101,6 +101,10 @@ html {
     height: 100%;
     width: 100%;
   }
+
+  .profile-border{
+    @apply border-[2px] border-[#F0F4F5] dark:border-[#1E1F1F]
+  }
 }
 .loading-spinner {
   border-color: #ffffff !important;
