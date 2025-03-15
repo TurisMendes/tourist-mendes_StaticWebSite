@@ -27,6 +27,22 @@ export default {
         lightRed: "#E3AEAB",
         darkRed: "#72211D",
       },
+      screens: {
+        'tablet': '391px',
+        'desktop': '944px',
+        'big-desktop': '1204px',
+      },
+      spacing: {
+        'container-padding': '16px',
+        'container-padding-desktop': '40px',
+      },
+      maxWidth: {
+        'container': '1140px',
+      },
+      letterSpacing: {
+        tight15: '-0.015em', 
+        wide15: '0.015em',
+      },
     },
     fontFamily: {
       inter: ["Inter"],

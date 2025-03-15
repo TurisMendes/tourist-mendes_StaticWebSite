@@ -1,0 +1,98 @@
+.AgenteCulturalContact__social-medias-light-mode--facebook,
+.AgenteCulturalContact__social-medias-light-mode--instagram,
+.AgenteCulturalContact__social-medias-light-mode--whatsapp,
+.AgenteCulturalContact__social-medias-light-mode--twitter,
+.AgenteCulturalContact__social-medias-light-mode--tiktok,
+.AgenteCulturalContact__social-medias-dark-mode--facebook,
+.AgenteCulturalContact__social-medias-dark-mode--instagram,
+.AgenteCulturalContact__social-medias-dark-mode--whatsapp,
+.AgenteCulturalContact__social-medias-dark-mode--twitter,
+.AgenteCulturalContact__social-medias-dark-mode--tiktok {
+  width: 32px;
+  height: 32px;
+  transition: background-image 0.4s ease-out;
+}
+
+.AgenteCulturalContact__social-medias-light-mode--facebook {
+  background-image: url('/icons/light-mode/facebook-icon-light-mode.svg');
+}
+
+.AgenteCulturalContact__social-medias-light-mode--facebook:hover {
+  background-image: url('/icons/light-mode/facebook-icon-light-mode-hover.svg');
+}
+
+.AgenteCulturalContact__social-medias-light-mode--instagram {
+  background-image: url('/icons/light-mode/instagram-icon-light-mode.svg');
+}
+
+.AgenteCulturalContact__social-medias-light-mode--instagram:hover {
+  background-image: url('/icons/light-mode/instagram-icon-light-mode-hover.svg');
+}
+
+.AgenteCulturalContact__social-medias-light-mode--whatsapp {
+  background-image: url('/icons/light-mode/whatsapp-icon-light-mode.svg');
+}
+
+.AgenteCulturalContact__social-medias-light-mode--whatsapp:hover {
+  background-image: url('/icons/light-mode/whatsapp-icon-light-mode-hover.svg');
+}
+
+.AgenteCulturalContact__social-medias-light-mode--twitter {
+  background-image: url('/icons/light-mode/twitter-icon-light-mode.svg');
+}
+
+.AgenteCulturalContact__social-medias-light-mode--twitter:hover {
+  background-image: url('/icons/light-mode/twitter-icon-light-mode-hover.svg');
+}
+
+.AgenteCulturalContact__social-medias-light-mode--tiktok {
+  background-image: url('/icons/light-mode/tiktok-icon-light-mode.svg');
+}
+
+.AgenteCulturalContact__social-medias-light-mode--tiktok:hover {
+  background-image: url('/icons/light-mode/tiktok-icon-light-mode-hover.svg');
+}
+
+
+
+
+
+.AgenteCulturalContact__social-medias-dark-mode--facebook {
+  background-image: url('/icons/dark-mode/facebook-icon-dark-mode.svg');
+}
+
+.AgenteCulturalContact__social-medias-dark-mode--facebook:hover {
+  background-image: url('/icons/dark-mode/facebook-icon-dark-mode-hover.svg');
+}
+
+.AgenteCulturalContact__social-medias-dark-mode--instagram {
+  background-image: url('/icons/dark-mode/instagram-icon-dark-mode.svg');
+}
+
+.AgenteCulturalContact__social-medias-dark-mode--instagram:hover {
+  background-image: url('/icons/dark-mode/instagram-icon-dark-mode-hover.svg');
+}
+
+.AgenteCulturalContact__social-medias-dark-mode--whatsapp {
+  background-image: url('/icons/dark-mode/whatsapp-icon-dark-mode.svg');
+}
+
+.AgenteCulturalContact__social-medias-dark-mode--whatsapp:hover {
+  background-image: url('/icons/dark-mode/whatsapp-icon-dark-mode-hover.svg');
+}
+
+.AgenteCulturalContact__social-medias-dark-mode--twitter {
+  background-image: url('/icons/dark-mode/twitter-icon-dark-mode.svg');
+}
+
+.AgenteCulturalContact__social-medias-dark-mode--twitter:hover {
+  background-image: url('/icons/dark-mode/twitter-icon-dark-mode-hover.svg');
+}
+
+.AgenteCulturalContact__social-medias-dark-mode--tiktok {
+  background-image: url('/icons/dark-mode/tiktok-icon-dark-mode.svg');
+}
+
+.AgenteCulturalContact__social-medias-dark-mode--tiktok:hover {
+  background-image: url('/icons/dark-mode/tiktok-icon-dark-mode-hover.svg');
+}
