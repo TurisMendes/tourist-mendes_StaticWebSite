@@ -1,12 +1,12 @@
 import React from 'react';
-import Carousel from '../../Carousel/Carousel.tsx';
-import ButtonCustom from '../../ButtonCustom/ButtonCustom.tsx';
+import Carousel from '../../../Carousel/Carousel.tsx';
+import ButtonCustom from '../../../ButtonCustom/ButtonCustom.tsx';
 import { useQuery } from '@tanstack/react-query';
-import AgentCard from '../../Cards/AgentCard/AgentCard.tsx';
-import AgentSkeleton from '../../Skeletons/AgentSkeleton.tsx';
-import { FetchError } from '../../Errors/FetchError.tsx';
-import { AgenteCulturalHomeCard, ResponseDTO } from '../../../shared-lib/typesHomePage.ts';
-import { getAgents } from '../../../api/agents/getAgents.ts';
+import AgentCard from '../../../Cards/AgentCard/AgentCard.tsx';
+import AgentSkeleton from '../../../Skeletons/AgentSkeleton.tsx';
+import { FetchError } from '../../../Errors/FetchError.tsx';
+import { AgenteCulturalHomeCard, ResponseDTO } from '../../../../shared-lib/typesHomePage.ts';
+import { getAgents } from '../../../../api/agents/getAgents.ts';
 
 function AgentsSection(): React.ReactNode {
 
