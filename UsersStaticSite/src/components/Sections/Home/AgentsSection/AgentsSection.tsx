@@ -9,25 +9,26 @@ import { AgenteCulturalHomeCard, ResponseDTO } from '../../../../shared-lib/type
 import { getAgents } from '../../../../api/agents/getAgents.ts';
 
 function AgentsSection(): React.ReactNode {
-  const sectionRef = React.useRef<HTMLDivElement>(null);
 
   const { data: responseAgenteDTO, isLoading, isError, refetch } = useQuery<ResponseDTO<AgenteCulturalHomeCard[]>>({
     queryKey: ['agents'],
     queryFn: getAgents,
   });
 
-  
+
   return (
     <section className="w-full dark:bg-darkBlack">
-      <div className="py-12 md:py-20 flex flex-col items-start gap-8 home-content-container">
-        <h1 className="text-h1 text-black dark:text-white leading-8">
-          AGENTES <strong className="text-h1 text-primary dark:text-secondary">CULTURAIS</strong>
+      <div className="lg:max-w-[944px] xl:max-w-[1142px] lg:mx-auto py-12 md:py-20 flex flex-col items-start gap-8">
+        <h1 className='text-h1 text-black dark:text-white leading-8 pl-4 md:pl-8 lg:pl-0'>
+          AGENTES <strong className='text-h1 text-primary dark:text-secondary'>CULTURAIS</strong>
         </h1>
 
-        {isError && <FetchError action={refetch} content="agentes" />}
+        {isError && (
+          <FetchError action={refetch} content='agentes' />
+        )}
 
-        <div  ref={sectionRef}  className="w-full">
-          <Carousel className="lg:flex-wrap lg:justify-start">
+        <div className="w-full md:pl-4 lg:pl-0">
+          <Carousel className='lg:flex-wrap lg:justify-between'>
             {isLoading
               ? Array(6)
                 .fill(0)
@@ -37,7 +38,7 @@ function AgentsSection(): React.ReactNode {
                   </div>
                 ))
               : responseAgenteDTO?.data?.map((agent: AgenteCulturalHomeCard, index: number) => (
-                <div key={index} className="w-full">
+                <div key={index} className="pl-4 lg:pl-0 lg:pb-4">
                   <AgentCard
                     imageData={agent.imageData}
                     linkUrl={agent.linkUrl}
@@ -49,8 +50,8 @@ function AgentsSection(): React.ReactNode {
           </Carousel>
         </div>
 
-        <div className={`${isLoading || isError ? 'hidden' : 'flex'} justify-start`}>
-          <ButtonCustom variant="primary" text="Exibir mais" content="Agentes culturais" link="" />
+        <div className={`${isLoading || isError ? 'hidden' : 'flex '} justify-start pl-4 md:pl-8 lg:pl-0`}>
+          <ButtonCustom variant='primary' text='Exibir mais' content='Agentes culturais' link='' />
         </div>
       </div>
     </section>

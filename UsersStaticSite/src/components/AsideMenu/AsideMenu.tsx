@@ -18,20 +18,19 @@ function AsideMenu({ isOpen, onClose, menuItems }: AsideMenuProps): React.ReactN
       document.body.style.overflowY = 'auto';
     }
   }, [isOpen]);
-
   return (
     <aside
-      id="mobile-menu"
-      className={`fixed top-0 left-0 lg:hidden w-full h-[441px] px-4 md:px-8 pt-2 bg-primary transform transition-transform duration-300 ease-in-out z-40 
-        ${isOpen ? 'translate-y-0' : '-translate-y-full'}`}
+      id='mobile-menu'
+      className={`fixed top-0 right-0 lg:hidden h-[441px] w-full px-4 md:px-8 pt-2 bg-primary transform transition-transform duration-300 ease-in-out z-40 
+          ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
     >
       <img
-        src="/logos/TurisMendes.svg"
+        src="../src/assets/logos/TurisMendes.svg"
         alt="TurisMendes Logo"
-        className="mb-5"
+        className='w-[105px] h-[60px] mb-5'
       />
 
-      <div className="bg-white w-full h-[1px]" />
+      <div className='bg-white w-full h-[1px]' />
 
       <nav className="my-5">
         <ul className="flex flex-col gap-5">
@@ -51,12 +50,11 @@ function AsideMenu({ isOpen, onClose, menuItems }: AsideMenuProps): React.ReactN
         </ul>
       </nav>
 
-      <div className="bg-white w-full h-[1px]" />
+      <div className='bg-white w-full h-[1px]' />
 
       <ThemeSwitcher />
     </aside>
   );
 }
-
 
 export default AsideMenu;

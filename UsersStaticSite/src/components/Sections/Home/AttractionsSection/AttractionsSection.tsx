@@ -16,8 +16,8 @@ function AttractionsSection(): React.ReactNode {
 
   return (
     <section className="bg-white dark:bg-lightGrey w-full">
-      <div className="py-12 md:py-20 flex flex-col items-start gap-8 home-content-container">
-        <h1 className='text-h1 text-black dark:text-white text-center'>
+      <div className="lg:max-w-[944px] xl:max-w-[1142px] lg:mx-auto py-12 md:py-20 flex flex-col items-start gap-8">
+        <h1 className='text-h1 text-black dark:text-white text-center pl-4 md:pl-8 lg:pl-0'>
           ATRAÇÕES <strong className='text-h1 text-primary dark:text-secondary'>LOCAIS</strong>
         </h1>
 
@@ -25,7 +25,7 @@ function AttractionsSection(): React.ReactNode {
           <FetchError action={refetch} content='atrações' />
         )}
 
-        <div className="w-full">
+        <div className="w-full md:pl-4 lg:pl-0">
           <Carousel className='flex-shrink-0 lg:justify-between'>
             {isLoading
               ? Array(3)
@@ -36,7 +36,7 @@ function AttractionsSection(): React.ReactNode {
                   </div>
                 ))
               : responseAtracaoDTO?.data?.map((attraction, index) => (
-                <div key={index} className={``}>
+                <div key={index} className="pl-4 lg:pl-0">
                   <AttractionCard
                     imageData={attraction.imageData}
                     linkUrl={attraction.linkUrl}
@@ -47,7 +47,7 @@ function AttractionsSection(): React.ReactNode {
               ))}
           </Carousel>
         </div>
-        <div className={`${isLoading || isError ? 'hidden' : 'flex'} justify-start`}>
+        <div className={`${isLoading || isError ? 'hidden' : 'flex'} justify-start pl-4 md:pl-8 lg:pl-0`}>
           <ButtonCustom variant='primary' text='Exibir mais' content='Atrações locais' link='' />
         </div>
       </div>

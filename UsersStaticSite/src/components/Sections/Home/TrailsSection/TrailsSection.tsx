@@ -9,7 +9,6 @@ import { ResponseDTO, TrilhasHomeCard } from '../../../../shared-lib/typesHomePa
 import { getTrails } from '../../../../api/trails/getTrails.ts';
 
 function TrailsSection(): React.ReactNode {
-  const sectionRef = React.useRef<HTMLDivElement>(null);
 
   const { data: responseTrilhasDTO, isLoading, isError, refetch } = useQuery<ResponseDTO<TrilhasHomeCard[]>>({
     queryKey: ['trails'],
@@ -18,14 +17,14 @@ function TrailsSection(): React.ReactNode {
 
   return (
     <section className="bg-white dark:bg-lightGrey w-full">
-      <div className="lg:max-w-[944px] xl:max-w-[1160px] lg:mx-auto py-12 md:py-20 flex flex-col items-start home-content-container">
-        <h1 className='text-h1 text-black dark:text-white text-center mb-8'>TRILHAS</h1>
+      <div className="lg:max-w-[944px] xl:max-w-[1160px] lg:mx-auto py-12 md:py-20 flex flex-col items-start">
+        <h1 className='text-h1 text-black dark:text-white text-center mb-8 pl-4 md:pl-8 lg:pl-3'>TRILHAS</h1>
 
         {isError && (
           <FetchError action={refetch} content='trilhas' />
         )}
 
-        <div ref={sectionRef} className="w-full">
+        <div className="w-full md:pl-4 lg:pl-0 xl:pl-0">
           <Carousel className='flex-shrink-0 lg:justify-evenly'>
             {isLoading
               ? Array(4)
@@ -36,20 +35,19 @@ function TrailsSection(): React.ReactNode {
                   </div>
                 ))
               : responseTrilhasDTO?.data?.map((trails, index) => (
-                <div key={index} className="h-[440px]">
+                <div key={index} className="pl-4 lg:pl-0 h-[440px]">
                   <TrailCard
                     imageData={trails.imageData}
                     linkUrl={trails.linkUrl}
                     title={trails.title}
                     shortDescription={trails.shortDescription}
                     level={trails.level}
-                    sectionRef={sectionRef}
                   />
                 </div>
               ))}
           </Carousel>
         </div>
-        <div className={`${isLoading || isError ? 'hidden' : 'flex'} justify-center mt-2`}>
+        <div className={`${isLoading || isError ? 'hidden' : 'flex'} justify-center mt-2 pl-4 md:pl-8 lg:pl-3`}>
           <ButtonCustom variant='primary' text='Exibir mais' content='Trilhas' link='' />
         </div>
       </div>

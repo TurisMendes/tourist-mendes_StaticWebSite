@@ -8,7 +8,6 @@ import { FetchError } from '../../../Errors/FetchError.tsx';
 import { getEvents } from '../../../../api/events/getEvents.ts';
 
 function EventsSection(): React.ReactNode {
-  const sectionref = React.useRef<HTMLDivElement>(null);
 
   const { data: responseEventsDTO, isLoading, isError, refetch } = useQuery({
     queryKey: ['events'],
@@ -17,15 +16,15 @@ function EventsSection(): React.ReactNode {
 
   return (
     <section className="w-full dark:bg-darkBlack">
-      <div className="w-full xl:max-w-[1142px] py-12 md:py-20 flex flex-col items-start gap-8 app-container">
-        <h1 className='text-h1 text-black dark:text-white text-center'>EVENTOS</h1>
+      <div className="md:max-w-[704px] lg:max-w-[944px] xl:max-w-[1142px] md:mx-auto py-12 md:py-20 flex flex-col items-start gap-8">
+        <h1 className='text-h1 text-black dark:text-white text-center pl-4 md:pl-0 lg:pl-2'>EVENTOS</h1>
 
         {isError && (
           <FetchError action={refetch} content='eventos' />
         )}
 
-        <div ref={sectionref} className="w-full lg:pl-0">
-          <Carousel className='flex flex-col lg:flex-row md:flex-wrap lg:justify-between'>
+        <div className="w-full lg:pl-0">
+          <Carousel className='md:flex-wrap lg:justify-between'>
             {isLoading
               ? Array(4)
                 .fill(0)
@@ -35,13 +34,12 @@ function EventsSection(): React.ReactNode {
                   </div>
                 ))
               : responseEventsDTO?.data?.map((event, index) => (
-                <div key={index} className="w-full lg:min-w-[464px] lg:h-[614px] xl:min-w-[562px]">
+                <div key={index} className="pl-4 md:pb-4 md:pl-0 lg:pl-0">
                   <EventCard
                     imageData={event.imageData}
                     linkUrl={event.linkUrl}
                     eventTitle={event.eventTitle}
                     shortDescription={event.shortDescription}
-                    sectionRef={sectionref}
                   />
                 </div>
               ))}
