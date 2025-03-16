@@ -1,5 +1,6 @@
 <svg width="134" height="60" viewBox="0 0 134 60" fill="none" xmlns="http://www.w3.org/2000/svg">
 <<<<<<< HEAD
+<<<<<<< HEAD
 <g clip-path="url(#clip0_1293_11123)">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M59.4006 13.124L78.8064 45.5471H40L59.4006 13.124Z" fill="#FDDB00"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M25.1328 13.127L46.168 45.55H25.1328V13.127Z" fill="#01D101"/>
@@ -57,6 +58,8 @@
 <clipPath id="clip0_1293_11123">
 <rect width="132.973" height="60" fill="white" transform="translate(0.515625)"/>
 =======
+=======
+>>>>>>> upstream/develop
 <g clip-path="url(#clip0_1963_25749)">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M59.8593 13.124L79.2651 45.5471H40.4587L59.8593 13.124Z" fill="#D1D1D1"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M25.5879 13.127L46.6231 45.55H25.5879V13.127Z" fill="#E7E7E7"/>
@@ -113,7 +116,10 @@
 <defs>
 <clipPath id="clip0_1963_25749">
 <rect width="132.973" height="60" fill="white" transform="translate(0.9729)"/>
+<<<<<<< HEAD
 >>>>>>> f03694b996d0c9a684fc7d2371445fcbd6421f0a
+=======
+>>>>>>> upstream/develop
 </clipPath>
 </defs>
 </svg>
