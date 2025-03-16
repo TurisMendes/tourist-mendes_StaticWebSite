@@ -12,6 +12,7 @@ import LocationMap from "../../components/Sections/AgenteCultural/LocationMap/Lo
 import AgenteCulturalContact from "../../components/Sections/AgenteCultural/AgenteCulturalContact/AgenteCulturalContact";
 import AgenteCulturalPageSkeleton from "./AgenteCulturalPageSkeleton";
 import { getCulturalAgentById } from "../../api/getAgenteCulturalById/getAgenteCulturalById";
+import ButtonBackToTop from "../../components/ButtonBackToTop/ButtonBackToTop";
 
 
 
@@ -20,28 +21,13 @@ export const AgenteCulturalPage: React.FC = (): React.ReactNode => {
   const { id } = useParams<{ id: string }>();
   const [selectedCulturalAgent, setSelectedCulturalAgent] = useState<FullAgenteCulturalType | undefined>();
   const [isWideScreen, setIsWideScreen] = useState<boolean>(window.innerWidth > 944);
-
   const navigate = useNavigate();
-
-  if (!id) {
-    navigate('*', { replace: true });
-    return;
-    // return <NotFound /*entity="Agente cultural"*/ />;
-  }
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ['culturalAgent', id],
     queryFn: () => getCulturalAgentById(id),
     enabled: !!id,
   });
-
-  useEffect(() => {
-    if (!isLoading && data) {
-      setSelectedCulturalAgent(data.data);
-    }
-
-  }, [isLoading, data]);
-
 
   useEffect(() => {
     if (!id) {
@@ -52,6 +38,13 @@ export const AgenteCulturalPage: React.FC = (): React.ReactNode => {
       navigate("/notFound");
     }
   }, [id, isError, error, navigate]);
+
+  useEffect(() => {
+    if (!isLoading && data) {
+      setSelectedCulturalAgent(data.data);
+    }
+
+  }, [isLoading, data]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -121,6 +114,7 @@ export const AgenteCulturalPage: React.FC = (): React.ReactNode => {
                     </div>
                   </>
                 )}
+                <ButtonBackToTop />
               </div>
             </div>) :
             (
@@ -171,6 +165,7 @@ export const AgenteCulturalPage: React.FC = (): React.ReactNode => {
                       </div>
                     </>
                   )}
+                  <ButtonBackToTop />
                 </div>
               </div>
             )

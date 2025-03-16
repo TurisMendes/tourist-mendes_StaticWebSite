@@ -28,8 +28,8 @@ export default {
         darkRed: "#72211D",
       },
       screens: {
-        'tablet': '391px',
-        'desktop': '944px',
+        'tablet': '768px',
+        'desktop': '1023px',
         'big-desktop': '1204px',
       },
       spacing: {

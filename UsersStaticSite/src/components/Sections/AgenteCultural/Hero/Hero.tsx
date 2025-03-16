@@ -12,7 +12,7 @@ interface Props {
 export const Hero: React.FC<Props> = ({ coverImageData, profileImageData, name, category }): React.ReactNode => {
 
   return (
-    <div className="Hero relative h-[610px] md:h-[529px] lg:h-[532px]">
+    <div className="Hero relative h-[610px] md:h-[529px] lg:h-[532px] mt-[80px]">
       <section className="Hero__content w-full flex flex-col items-start justify-center">
         <div className="Hero__liner absolute top-0 left-0 w-full h-[106px] bg-gradient-to-b from-white/80 via-white/40 to-transparent dark:from-black/80 dark:via-black/40 dark:to-transparent z-10"></div>
 

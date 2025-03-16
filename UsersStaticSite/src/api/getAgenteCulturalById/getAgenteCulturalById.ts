@@ -3,7 +3,7 @@ import FullAgenteCulturalType from "../../shared-lib/FullAgenteCulturalType";
 import { ResponseDTO } from "../../shared-lib/typesHomePage";
 import axios from "axios";
 
-export const getCulturalAgentById = async (id: string) => {
+export const getCulturalAgentById = async (id: string | undefined) => {
   // Atention this end point are not finished by backend
   try {
     const axiosInstance = axios.create({
