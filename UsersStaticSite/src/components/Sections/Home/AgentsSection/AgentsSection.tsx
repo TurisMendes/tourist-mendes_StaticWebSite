@@ -16,6 +16,7 @@ function AgentsSection(): React.ReactNode {
     queryFn: getAgents,
   });
 
+  
   return (
     <section className="w-full dark:bg-darkBlack">
       <div className="py-12 md:py-20 flex flex-col items-start gap-8 home-content-container">
