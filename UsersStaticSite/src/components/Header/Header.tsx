@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 import AsideMenu from '../AsideMenu/AsideMenu';
-import { Menu, X } from 'lucide-react';
 import { motion, useMotionValueEvent, useScroll } from 'motion/react';
 
 function Header(): React.ReactNode {

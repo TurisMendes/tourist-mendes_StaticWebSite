@@ -41,7 +41,6 @@ function EventsSection(): React.ReactNode {
                     linkUrl={event.linkUrl}
                     eventTitle={event.eventTitle}
                     shortDescription={event.shortDescription}
-                    sectionRef={sectionref}
                   />
                 </div>
               ))}

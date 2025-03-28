@@ -43,7 +43,6 @@ function TrailsSection(): React.ReactNode {
                     title={trails.title}
                     shortDescription={trails.shortDescription}
                     level={trails.level}
-                    sectionRef={sectionRef}
                   />
                 </div>
               ))}
