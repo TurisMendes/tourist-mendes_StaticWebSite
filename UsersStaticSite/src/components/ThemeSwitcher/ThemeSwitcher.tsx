@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useTheme } from '../../hooks/useTheme';
 import { Moon, Sun, ChevronDown, Check } from 'lucide-react';
 import useMediaQuery from '../../hooks/useMediaQuery';
