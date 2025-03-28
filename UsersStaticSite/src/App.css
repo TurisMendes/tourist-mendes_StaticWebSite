@@ -1,0 +1,9 @@
+.app-container {
+  @apply box-border w-full min-w-[320px] mx-auto px-4; 
+
+  /* Responsividade */
+  @apply tablet:px-[32px]; 
+  @apply desktop:max-w-container;
+  @apply big-desktop:px-0; /* Para big-desktop, remove o padding */
+}
+

@@ -15,6 +15,7 @@ export default {
         white: "#fff",
         grey: "#888888",
         lightGrey: "#262626",
+        neutralGrey: "#f6f6f6",
         darkGrey: "#474747",
         black: "#000",
         lightBlack: "#1E1F1F",
@@ -25,6 +26,22 @@ export default {
         darkYellow: "#473400",
         lightRed: "#E3AEAB",
         darkRed: "#72211D",
+      },
+      screens: {
+        'tablet': '768px',
+        'desktop': '1023px',
+        'big-desktop': '1204px',
+      },
+      spacing: {
+        'container-padding': '16px',
+        'container-padding-desktop': '40px',
+      },
+      maxWidth: {
+        'container': '1140px',
+      },
+      letterSpacing: {
+        tight15: '-0.015em', 
+        wide15: '0.015em',
       },
     },
     fontFamily: {

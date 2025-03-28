@@ -1,5 +1,4 @@
 import { RefetchOptions, RefetchQueryFilters } from '@tanstack/react-query';
-import React from 'react';
 
 interface FetchErrorProps {
   action: <TPageData>(options?: RefetchOptions & RefetchQueryFilters<TPageData>) => Promise<unknown>;

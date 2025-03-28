@@ -27,11 +27,11 @@
     @apply text-black dark:text-white font-inter text-xs font-bold leading-7;
   }
 
-  .body-level-1 {
+  .text-level-1 {
     @apply text-black dark:text-white font-inter text-base font-bold leading-7;
   }
 
-  .body-level-2 {
+  .text-level-2 {
     @apply text-black dark:text-white font-inter text-sm font-bold leading-7;
   }
 
@@ -45,6 +45,10 @@
 
   .button-secondary-dark {
     @apply w-[123px] h-[40px] rounded-full bg-transparent border-2 border-primary text-primary hover:bg-primary hover:border-primary hover:text-white active:bg-primaryActive active:border-secondary dark:bg-transparent dark:text-white dark:border-secondary dark:hover:bg-secondary dark:hover:border-secondary dark:active:bg-secondaryActive dark:active:border-white transition-all duration-300;
+  }
+
+  .button-large {
+    @apply w-fit px-4;
   }
 
   .trail-tag-facil {

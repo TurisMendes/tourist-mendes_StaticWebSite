@@ -1,11 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface ButtonProps {
   text: string;
   variant: 'primary' | 'secondary' | 'secondary-dark';
-  content: string;
+  content?: string;
   link: string;
   onClick?: () => void;
+  width?: string;
 }
 
 const ButtonCustom: React.FC<ButtonProps> = ({
@@ -13,7 +15,20 @@ const ButtonCustom: React.FC<ButtonProps> = ({
   variant,
   content,
   link,
+  width
 }) => {
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    const isExternalLink = link.startsWith('http') || link.startsWith('https');
+    
+    if (isExternalLink) {
+      window.open(link, '_blank', 'noopener noreferrer');
+    } else {
+      navigate(link);
+    }
+  };
 
   const getButtonClass = () => {
     switch (variant) {
@@ -30,9 +45,9 @@ const ButtonCustom: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={`${getButtonClass()}`}
+      className={`${getButtonClass()} ${width}`}
       aria-label={`${text} sobre ${content}`}
-      onClick={() => window.location.href = link}
+      onClick={handleClick}
     >
       <span
         className='text-h4 font-montserrat'>{text}
