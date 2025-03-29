@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "clear && vite --host --open",
+    "prebuild": "git config --global url.\"https://${GITHUB_TOKEN}@github.com/\".insteadOf \"https://github.com/\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
