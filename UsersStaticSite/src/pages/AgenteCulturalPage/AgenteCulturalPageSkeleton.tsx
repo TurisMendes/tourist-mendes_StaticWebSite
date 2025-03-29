@@ -9,11 +9,6 @@ export const AgenteCulturalPageSkeleton: React.FC = () => {
   const skeletonColor = isDarkMode ? '#2c2c2c' : '#f0f0f0';
   const skeletonTextColor = isDarkMode ? '#3a3a3a' : '#d6d6d6';
 
-  const appTextColor = isDarkMode ? '#fff' : '#000';
-
-  console.log('is dark mode? ', isDarkMode);
-  
-
   useEffect(() => {
     const handleResize = () => {
       setIsWideScreen(window.innerWidth > 944);
