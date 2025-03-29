@@ -1,6 +1,8 @@
 [submodule "CMS/src/shared-lib"]
 	path = CMS/src/shared-lib
 	url = https://github.com/SomosDevTech/tourist-mendes_shared-lib.git
+	branch = main
 [submodule "UsersStaticSite/src/shared-lib"]
 	path = UsersStaticSite/src/shared-lib
 	url = https://github.com/SomosDevTech/tourist-mendes_shared-lib.git
+	branch = main
