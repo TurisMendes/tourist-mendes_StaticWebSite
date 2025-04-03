@@ -15,7 +15,6 @@ function AgentsSection(): React.ReactNode {
     queryFn: getAgents,
   });
 
-  
 
   return (
     <section className="w-full dark:bg-darkBlack">
