@@ -9,8 +9,8 @@ interface Props {
   contacts: {
     phoneNumbers: string[];
     email: string[];
-    site: string[];
-    address: string[];
+    site: string;
+    address: string;
   };
   socials: {
     instagram?: string;
