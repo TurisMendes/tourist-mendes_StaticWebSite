@@ -4,12 +4,14 @@ import BannerSkeleton from '../Skeletons/BannerSkeleton';
 import { HomeBanner, ResponseDTO } from '../../shared-lib/typesHomePage';
 import { useQuery } from '@tanstack/react-query';
 import { FetchError } from '../Errors/FetchError';
-import { getBanners } from '../../api/banners/getBanners';
+import { getBanners } from '../../api/getBanners/getBanners';
+import { CircularProgress } from '@mui/material';
 
 const BannerCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const swipeContainerRef = useRef<HTMLDivElement>(null);
+  const [isBannerLoaded, setIsBannerLoaded] = useState(false);
 
   const { data: responseBannerDTO, isLoading, isError, refetch } = useQuery<ResponseDTO<HomeBanner[]>>({
     queryKey: ['banners'],
@@ -40,6 +42,14 @@ const BannerCarousel: React.FC = () => {
       return false;
     }
   };
+
+  if (!isBannerLoaded && isLoading) {
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        <CircularProgress color='info' size={80}/>
+      </div>
+    );
+  }
 
   return (
     <section
