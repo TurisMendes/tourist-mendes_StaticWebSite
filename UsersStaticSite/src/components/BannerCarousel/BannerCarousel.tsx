@@ -43,7 +43,7 @@ const BannerCarousel: React.FC = () => {
 
   return (
     <section
-      className="relative w-full overflow-auto"
+      className="relative w-full h-[calc(86vh-80px)] overflow-auto mt-[80px]"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
       onTouchStart={() => setIsAutoPlaying(false)}
@@ -55,7 +55,7 @@ const BannerCarousel: React.FC = () => {
 
       <div
         ref={swipeContainerRef}
-        className="flex w-full h-full items-center overflow-x-hidden snap-x snap-mandatory touch-pan scrollbar-none"
+        className="flex w-full h-[calc(86vh-80px)] items-center overflow-x-hidden snap-x snap-mandatory touch-pan scrollbar-none"
         style={{
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
@@ -66,24 +66,24 @@ const BannerCarousel: React.FC = () => {
           ? Array(1)
             .fill(0)
             .map((_, index) => (
-              <div key={index} className="flex w-full">
+              <div key={index} className="flex w-full h-[calc(86vh-80px)]">
                 <BannerSkeleton />
               </div>
             )) : banners.map((banner, index) => (
               <div
                 key={index}
-                className="w-full flex-shrink-0 snap-start"
+                className="w-full flex-shrink-0 snap-start h-[calc(86vh-80px)]"
                 style={{ transform: `translateX(-${currentIndex * 100}%)`, transition: 'transform 0.3s ease-in-out' }}
               >
                 <a
                   href={banner.linkUrl}
                   target={isExternalUrl(banner.linkUrl) ? '_blank' : '_self'}
                   rel={isExternalUrl(banner.linkUrl) ? 'noopener noreferrer' : undefined}
-                  className="flex relative w-full h-full">
+                  className="flex relative w-full h-[calc(86vh-80px)]">
                   <img
                     src={banner.imageData.imageUrl}
                     alt={banner.imageData.altDescription}
-                    className="w-full h-[516px] lg:h-[800px] object-cover"
+                    className="w-full h-[calc(86vh-80px)]  object-cover"
                   />
                   {banner.description && (
                     <div className="absolute bottom-20 md:bottom-24 lg:bottom-28 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-20 lg:left-40 w-[260px] md:w-[400px]">

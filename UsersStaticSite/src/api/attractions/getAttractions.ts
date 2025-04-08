@@ -16,7 +16,7 @@ export const getAttractions = async () => {
 
     const response = await axiosInstance.get<
       ResponseDTO<AtracaoLocalHomeCard[]>
-    >("/mockAttractions.json");
+    >("/home/atracaoLocal");
 
     return response.data;
   } catch (error) {

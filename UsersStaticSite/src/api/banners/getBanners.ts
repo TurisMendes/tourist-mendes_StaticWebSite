@@ -12,7 +12,7 @@ export const getBanners = async (): Promise<ResponseDTO<HomeBanner[]>> => {
     });
 
     const response = await axiosInstance.get<ResponseDTO<HomeBanner[]>>(
-      "/mockBanners.json"
+      "/home/banners"
     );
 
     return response.data;

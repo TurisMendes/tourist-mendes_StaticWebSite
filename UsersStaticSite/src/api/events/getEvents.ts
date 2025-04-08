@@ -12,7 +12,7 @@ export const getEvents = async () => {
     });
 
     const response = await axiosInstance.get<ResponseDTO<EventHomeCard[]>>(
-      "/mockEvents.json"
+      "/home/evento"
     );
 
     return response.data;

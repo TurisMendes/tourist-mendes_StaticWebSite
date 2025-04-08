@@ -15,7 +15,7 @@ export const getAgents = async () => {
     });
     
     const response = await axiosInstance.get<ResponseDTO<AgenteCulturalHomeCard[]>>(
-      "/mockAgents.json"
+      "/home/agenteCultural"
     )
 
     return response.data;

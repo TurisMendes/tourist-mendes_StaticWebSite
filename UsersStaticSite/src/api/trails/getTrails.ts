@@ -12,7 +12,7 @@ export const getTrails = async () => {
     });
 
     const response = await axiosInstance.get<ResponseDTO<TrilhasHomeCard[]>>(
-      "/mockTrails.json"
+      "/home/trilha"
     );
 
     return response.data;
