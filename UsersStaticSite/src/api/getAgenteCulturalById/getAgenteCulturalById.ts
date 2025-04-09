@@ -3,7 +3,7 @@ import FullAgenteCulturalType from "../../shared-lib/FullAgenteCulturalType";
 import { ResponseDTO } from "../../shared-lib/typesHomePage";
 import axios from "axios";
 
-export const getCulturalAgentById = async (_id: string | undefined) => {
+export const getCulturalAgentById = async (id: string | undefined) => {
   // Atention this end point are not finished by backend
   try {
     const axiosInstance = axios.create({
@@ -14,8 +14,7 @@ export const getCulturalAgentById = async (_id: string | undefined) => {
     });
 
     const response = await axiosInstance.get<ResponseDTO<FullAgenteCulturalType>>(
-      // `/agentecultural/${id}`
-      '/mocks/agentMock.json'
+      `/agentecultural/${id}`
     );
 
     return response.data;

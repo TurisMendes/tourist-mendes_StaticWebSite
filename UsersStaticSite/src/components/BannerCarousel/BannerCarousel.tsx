@@ -11,7 +11,7 @@ const BannerCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const swipeContainerRef = useRef<HTMLDivElement>(null);
-  const [isBannerLoaded, setIsBannerLoaded] = useState(false);
+  const [isBannerLoaded, _setIsBannerLoaded] = useState(false);
 
   const { data: responseBannerDTO, isLoading, isError, refetch } = useQuery<ResponseDTO<HomeBanner[]>>({
     queryKey: ['banners'],

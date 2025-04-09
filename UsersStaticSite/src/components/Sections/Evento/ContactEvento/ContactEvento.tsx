@@ -5,7 +5,7 @@ interface Props {
   content: {
     phoneNumbers?: string[];
     email?: string[];
-    site?: string[];
+    site?: string;
     address: string;
   };
   socials: {

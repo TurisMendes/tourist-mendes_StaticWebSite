@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronRight, EllipsisVertical } from "lucide-react";
 import { Link } from "react-router-dom";
 

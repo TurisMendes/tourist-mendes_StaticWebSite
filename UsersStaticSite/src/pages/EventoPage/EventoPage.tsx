@@ -69,7 +69,7 @@ function EventoPage(): React.ReactNode {
                     socials={selectedEvento.socialMedia}
                   />
                   <div className="flex flex-col gap-12 justify-center md:px-8 md:items-start lg:px-0 xl:gap-16 lg:max-w-[944px] xl:mx-0">
-                    <Calendario schedule={selectedEvento.schedule} />
+                  <Calendario schedule={selectedEvento.schedule} />
 
                     <CarouselPhotos photos={selectedEvento.photoGallery} />
 

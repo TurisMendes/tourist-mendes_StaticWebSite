@@ -1,15 +1,11 @@
 import { ChevronDown, ChevronUp, Clock } from 'lucide-react';
 import React, { useState } from 'react';
 import CalendarioCard from '../../../Cards/CalendarioCard/CalendarioCard';
-import useMediaQuery from './../../../../hooks/useMediaQuery';
-
-export interface Appointments {
-  start: Date;
-  final: Date;
-};
+import useMediaQuery from '../../../../hooks/useMediaQuery';
+import { EventDate } from '../../../../shared-lib/FullEventoType';
 
 interface Props {
-  schedule: Appointments[];
+  schedule: EventDate[];
 }
 
 const formatDate = (dateString: string) => {
@@ -43,9 +39,9 @@ const Calendario: React.FC<Props> = ({ schedule }) => {
     <div className="w-full flex flex-col pl-4 md:pl-0 md:max-w-[770px] lg:max-w-[944px] xl:w-[530px]">
       <h2 className="text-h2 font-bold mb-4">Data e Horário</h2>
       <div className="flex w-full justify-start overflow-x-auto overflow-y-hidden snap-x snap-mandatory touch-pan no-scrollbar gap-2 md:flex-wrap md:snap-none">
-        {visibleAppointments.map(({ start, final }, index) => {
-          const startData = formatDate(start as unknown as string);
-          const finalData = formatDate(final as unknown as string);
+        {visibleAppointments.map(({ startTime, finalTime }, index) => {
+          const startData = formatDate(startTime as unknown as string);
+          const finalData = formatDate(finalTime as unknown as string);
 
           return (
             <CalendarioCard key={index}>
